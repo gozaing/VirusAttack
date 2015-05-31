@@ -17,6 +17,14 @@ class Tooth: SKSpriteNode {
     
     var timer = NSTimer()
     
+    var virusCount:NSInteger = 0
+    func setCount(){
+        self.virusCount = 0
+    }
+    func getCount() -> NSInteger {
+        return self.virusCount
+    }
+    
     init() {
         
         let texture = SKTexture(imageNamed: "s_tooth_0")
@@ -36,12 +44,19 @@ class Tooth: SKSpriteNode {
     }
     
     func virusAppear() {
+        
+        NSLog("virus->%d",self.virusCount)
 
-        NSLog("virusAppear")
-        let virus = Virus()
-        virus.setScene(self.gameScene)
-        // TODO:ポジション
-        self.gameScene.addChild(virus)
-
-    }    
+        if (self.virusCount == 0) {
+            NSLog("virusAppear")
+            let virus = Virus(tooth: self)
+            virus.setScene(self.gameScene)
+            // TODO:ポジション
+            //self.gameScene.addChild(virus)
+            self.gameScene.addChild(virus)
+            
+            self.virusCount += 1
+            
+        }
+    }
 }

@@ -17,7 +17,11 @@ class Virus: SKSpriteNode {
     
     var timer = NSTimer()
     
-    init() {
+    var parentTooth:Tooth!
+    
+    init(tooth: Tooth) {
+        
+        self.parentTooth = tooth
         
         let texture = SKTexture(imageNamed: "s_virus_0")
         super.init(texture: texture, color: nil, size: texture.size())
@@ -41,6 +45,8 @@ class Virus: SKSpriteNode {
         NSLog("disappear")
         self.removeFromParent()
         self.timer.invalidate()
+        
+        self.parentTooth.setCount()
 
     }
 }

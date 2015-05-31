@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VirusAttack/Virus.swift"
-            timestampString = "454777265.538735"
+            timestampString = "454778465.369841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "disappear()"
             landmarkType = "5">
          </BreakpointContent>
