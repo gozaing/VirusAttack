@@ -14,6 +14,7 @@
 		4FD8D3851B197813004E48B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD8D3831B197813004E48B0 /* LaunchScreen.xib */; };
 		4FD8D3911B197813004E48B0 /* VirusAttackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8D3901B197813004E48B0 /* VirusAttackTests.swift */; };
 		4FD8D39B1B197843004E48B0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8D39A1B197843004E48B0 /* GameScene.swift */; };
+		4FD8D3A11B1AD4BD004E48B0 /* Virus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8D3A01B1AD4BD004E48B0 /* Virus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		4FD8D38F1B197813004E48B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FD8D3901B197813004E48B0 /* VirusAttackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirusAttackTests.swift; sourceTree = "<group>"; };
 		4FD8D39A1B197843004E48B0 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		4FD8D3A01B1AD4BD004E48B0 /* Virus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Virus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				4FD8D37A1B197813004E48B0 /* AppDelegate.swift */,
+				4FD8D3A01B1AD4BD004E48B0 /* Virus.swift */,
 				4FD8D37C1B197813004E48B0 /* ViewController.swift */,
 				4FD8D37E1B197813004E48B0 /* Main.storyboard */,
 				4FD8D39A1B197843004E48B0 /* GameScene.swift */,
@@ -218,6 +221,7 @@
 				4FD8D39B1B197843004E48B0 /* GameScene.swift in Sources */,
 				4FD8D37D1B197813004E48B0 /* ViewController.swift in Sources */,
 				4FD8D37B1B197813004E48B0 /* AppDelegate.swift in Sources */,
+				4FD8D3A11B1AD4BD004E48B0 /* Virus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 				4FD8D3961B197813004E48B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FD8D3971B197813004E48B0 /* Build configuration list for PBXNativeTarget "VirusAttackTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				4FD8D3991B197813004E48B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

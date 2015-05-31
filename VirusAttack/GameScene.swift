@@ -25,7 +25,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         // timer start
         self.timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "appearVirus", userInfo: nil, repeats: true)
         
-        let brushTexture = SKTexture(imageNamed: "brush")
+        let brushTexture = SKTexture(imageNamed: "toothbrush")
         let brush = SKSpriteNode(texture: brushTexture)
         brush.position = CGPoint(x: self.size.width*0.5, y:100)
         brush.size = CGSize(width: brushTexture.size().width*0.5, height: brushTexture.size().height*0.5)
@@ -48,20 +48,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     func appearVirus() {
         
-        let texture = SKTexture(imageNamed: "virus")
-        let sprite = SKSpriteNode(texture: texture)
-        sprite.position = CGPointMake(self.size.width*0.5, self.size.height*0.5)
-        sprite.size = CGSize(width: texture.size().width*0.5, height: texture.size().height*0.5)
-
-        // add physics
-        let physicsBody = SKPhysicsBody(rectangleOfSize: sprite.frame.size)
-        physicsBody.dynamic = true
-        physicsBody.contactTestBitMask = 0x1 << 1
-        sprite.physicsBody = physicsBody
-        
-        
-        self.addChild(sprite)
-        
+        let virus = Virus()
+        virus.setScene(self)
+        // TODO:ポジション
+        self.addChild(virus)
     }
     
     // タッチ開始時
