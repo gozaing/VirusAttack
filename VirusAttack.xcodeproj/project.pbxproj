@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F49B8F91B1B5160002D35C1 /* Tooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F49B8F81B1B5160002D35C1 /* Tooth.swift */; };
 		4FD8D37B1B197813004E48B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8D37A1B197813004E48B0 /* AppDelegate.swift */; };
 		4FD8D37D1B197813004E48B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8D37C1B197813004E48B0 /* ViewController.swift */; };
 		4FD8D3801B197813004E48B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD8D37E1B197813004E48B0 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F49B8F81B1B5160002D35C1 /* Tooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tooth.swift; sourceTree = "<group>"; };
 		4FD8D3751B197813004E48B0 /* VirusAttack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirusAttack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD8D3791B197813004E48B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FD8D37A1B197813004E48B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				4FD8D3811B197813004E48B0 /* Images.xcassets */,
 				4FD8D3831B197813004E48B0 /* LaunchScreen.xib */,
 				4FD8D3781B197813004E48B0 /* Supporting Files */,
+				4F49B8F81B1B5160002D35C1 /* Tooth.swift */,
 			);
 			path = VirusAttack;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				4FD8D39B1B197843004E48B0 /* GameScene.swift in Sources */,
 				4FD8D3A51B1AF1D0004E48B0 /* MenuViewController.swift in Sources */,
+				4F49B8F91B1B5160002D35C1 /* Tooth.swift in Sources */,
 				4FD8D37D1B197813004E48B0 /* ViewController.swift in Sources */,
 				4FD8D37B1B197813004E48B0 /* AppDelegate.swift in Sources */,
 				4FD8D3A11B1AD4BD004E48B0 /* Virus.swift in Sources */,

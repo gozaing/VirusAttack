@@ -23,7 +23,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         // timer start
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "appearVirus", userInfo: nil, repeats: true)
+//        self.timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "appearTooth", userInfo: nil, repeats: true)
         
         let brushTexture = SKTexture(imageNamed: "toothbrush")
         let brush = SKSpriteNode(texture: brushTexture)
@@ -41,26 +41,24 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.brush = brush
         self.addChild(brush)
         
-        // ------ tooth
-        let toothTexture = SKTexture(imageNamed: "s_tooth_0")
-        let tooth = SKSpriteNode(texture: toothTexture)
-        tooth.position = CGPoint(x: self.size.width*0.5, y:100)
-        tooth.size = CGSize(width: toothTexture.size().width*0.5, height: toothTexture.size().height*0.5)
-
-        self.addChild(tooth)
+//        // ------ tooth
+//        let toothTexture = SKTexture(imageNamed: "s_tooth_0")
+//        let tooth = SKSpriteNode(texture: toothTexture)
+//        tooth.position = CGPoint(x: self.size.width*0.5, y:100)
+//        tooth.size = CGSize(width: toothTexture.size().width*0.5, height: toothTexture.size().height*0.5)
+//
+//        self.addChild(tooth)
         
         
-        self.appearVirus()
+        self.appearTooth()
     }
-    
-    
-    
-    func appearVirus() {
+
+    func appearTooth() {
         
-        let virus = Virus()
-        virus.setScene(self)
+        let tooth = Tooth()
+        tooth.setScene(self)
         // TODO:ポジション
-        self.addChild(virus)
+        self.addChild(tooth)
     }
     
     // タッチ開始時
@@ -89,11 +87,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         if contact.bodyA.node == self.brush {
             var targetNode:SKNode? = contact.bodyB.node
-            targetNode!.removeFromParent()
+            //targetNode!.removeFromParent()
             
         }else if (contact.bodyB.node == self.brush){
             var targetNode:SKNode? = contact.bodyA.node
-            targetNode!.removeFromParent()
+            //targetNode!.removeFromParent()
         }
     }
 }
