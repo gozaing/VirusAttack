@@ -22,7 +22,7 @@ class Virus: SKSpriteNode {
     
     init() {
         
-        let texture = SKTexture(imageNamed: "virus")
+        let texture = SKTexture(imageNamed: "s_virus_0")
         super.init(texture: texture, color: nil, size: texture.size())
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "disappear", userInfo: nil, repeats: true)

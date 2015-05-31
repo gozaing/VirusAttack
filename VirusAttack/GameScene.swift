@@ -41,6 +41,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.brush = brush
         self.addChild(brush)
         
+        // ------ tooth
+        let toothTexture = SKTexture(imageNamed: "s_tooth_0")
+        let tooth = SKSpriteNode(texture: toothTexture)
+        tooth.position = CGPoint(x: self.size.width*0.5, y:100)
+        tooth.size = CGSize(width: toothTexture.size().width*0.5, height: toothTexture.size().height*0.5)
+
+        self.addChild(tooth)
+        
+        
         self.appearVirus()
     }
     
