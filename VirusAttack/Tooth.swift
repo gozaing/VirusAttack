@@ -50,13 +50,26 @@ class Tooth: SKSpriteNode {
         if (self.virusCount == 0) {
             NSLog("virusAppear")
             let virus = Virus(tooth: self)
-            virus.setScene(self.gameScene)
+            //virus.setScene(self)
             // TODO:ポジション
             //self.gameScene.addChild(virus)
-            self.gameScene.addChild(virus)
+            self.addChild(virus)
             
             self.virusCount += 1
             
+        } else {
+
+            var existCount:Int = 0
+            for children in self.children {
+                println("exist!")
+                existCount += 1
+            }
+            if (existCount == 0) {
+                println("set count clear")
+                self.setCount()
+            }
+            
+
         }
     }
 }

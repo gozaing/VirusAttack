@@ -26,9 +26,9 @@ class Virus: SKSpriteNode {
         let texture = SKTexture(imageNamed: "s_virus_0")
         super.init(texture: texture, color: nil, size: texture.size())
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "disappear", userInfo: nil, repeats: true)
+        //self.timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "disappear", userInfo: nil, repeats: true)
         
-        self.position = CGPointMake(240, 420)
+        self.position = CGPointMake(10, 20)
         
         let physicsBody = SKPhysicsBody(rectangleOfSize: self.frame.size)
         physicsBody.dynamic = true
@@ -41,12 +41,12 @@ class Virus: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func disappear() {
-        NSLog("disappear")
-        self.removeFromParent()
-        self.timer.invalidate()
-        
-        self.parentTooth.setCount()
-
-    }
+//    func disappear() {
+//        NSLog("disappear")
+//        self.removeFromParent()
+//        self.timer.invalidate()
+//        
+//        self.parentTooth.setCount()
+//
+//    }
 }
