@@ -57,8 +57,14 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         let tooth = Tooth()
         tooth.setScene(self)
-        // TODO:ポジション
+        tooth.position = CGPointMake(240, 420)
         self.addChild(tooth)
+        
+//        let tooth2 = Tooth()
+//        tooth2.setScene(self)
+//        tooth2.position = CGPointMake(120, 420)
+//        self.addChild(tooth2)
+
     }
     
     // タッチ開始時

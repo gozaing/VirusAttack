@@ -30,15 +30,27 @@ class Tooth: SKSpriteNode {
         self.virusWinFlg = 1
     }
     
+    var virusWinTimeCount:Int = 10
+    func setTimeClear(){
+        self.virusWinTimeCount = 10
+    }
+    func setTimeProgress() {
+        self.virusWinTimeCount -= 1
+    }
+    func getTimeProgress() -> NSInteger {
+        return self.virusWinTimeCount
+    }
+    
+    
     
     init() {
         
         let texture = SKTexture(imageNamed: "s_tooth_0")
         super.init(texture: texture, color: nil, size: texture.size())
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
         
-        self.position = CGPointMake(240, 420)
+//        self.position = CGPointMake(240, 420)
         
         
     }
@@ -68,6 +80,7 @@ class Tooth: SKSpriteNode {
             if (existCount == 0) {
                 println("set count clear")
                 self.setCount()
+                self.setTimeClear()
                 
                 // ちょっと移動
                 let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.1)

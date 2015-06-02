@@ -14,7 +14,6 @@ class Virus: SKSpriteNode {
     func setScene(scene: SKScene) {
         self.gameScene = scene
     }
-    
     var timer = NSTimer()
     
     var parentTooth:Tooth!
@@ -26,7 +25,7 @@ class Virus: SKSpriteNode {
         let texture = SKTexture(imageNamed: "s_virus_0")
         super.init(texture: texture, color: nil, size: texture.size())
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "virusWin", userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "virusWin", userInfo: nil, repeats: true)
         
         self.position = CGPointMake(30, 30)
         
@@ -42,25 +41,36 @@ class Virus: SKSpriteNode {
     }
         
     func virusWin() {
-        // virusの勝ちで、歯にダメージ
-        self.parentTooth.checkToothStatus()
-        self.timer.invalidate()
         
-        // virus 勝ったアニメーション表示
-        let scaleA = SKAction.scaleTo(1.0, duration: 0.5)
-        let scaleB = SKAction.scaleTo(1.5, duration: 1.5)
-        let scaleSequence = SKAction.sequence([scaleA,scaleB])
-        let scalerepeatAction =  SKAction.repeatActionForever(scaleSequence)
-        self.runAction(scalerepeatAction)
         
-        let parapraAction1 = SKAction.animateWithTextures(
+        parentTooth.setTimeProgress()
+        var toothEnergy:Int = parentTooth.getTimeProgress()
+        NSLog("toothEnergy->%d",toothEnergy)
+        if (toothEnergy == 0) {
+            
+            // virusの勝ちで、歯にダメージ
+            self.parentTooth.checkToothStatus()
+            self.timer.invalidate()
+
+            // virus 勝ったアニメーション表示
+            let scaleA = SKAction.scaleTo(1.0, duration: 0.5)
+            let scaleB = SKAction.scaleTo(1.5, duration: 1.5)
+            let scaleSequence = SKAction.sequence([scaleA,scaleB])
+            let scalerepeatAction =  SKAction.repeatActionForever(scaleSequence)
+            self.runAction(scalerepeatAction)
+            
+            let parapraAction1 = SKAction.animateWithTextures(
                 [SKTexture(imageNamed: "s_virus_0"),
-                 SKTexture(imageNamed: "s_virus_1"),
-                 SKTexture(imageNamed: "s_virus_2")
+                    SKTexture(imageNamed: "s_virus_1"),
+                    SKTexture(imageNamed: "s_virus_2")
                 ],
                 timePerFrame: 0.5)
-        let paraparaRepeatAction1 =  SKAction.repeatActionForever(parapraAction1)
-        self.runAction(paraparaRepeatAction1)
+            let paraparaRepeatAction1 =  SKAction.repeatActionForever(parapraAction1)
+            self.runAction(paraparaRepeatAction1)
+
+        }
+        
+        
         
     }
 }
