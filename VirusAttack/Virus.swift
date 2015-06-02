@@ -27,6 +27,7 @@ class Virus: SKSpriteNode {
         super.init(texture: texture, color: nil, size: texture.size())
         
         //self.timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "disappear", userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "virusWin", userInfo: nil, repeats: false)
         
         self.position = CGPointMake(10, 20)
         
@@ -49,4 +50,10 @@ class Virus: SKSpriteNode {
 //        self.parentTooth.setCount()
 //
 //    }
+    
+    func virusWin() {
+        // virusの勝ちで、歯にダメージ
+        self.parentTooth.setVirusWinFlg()
+        
+    }
 }

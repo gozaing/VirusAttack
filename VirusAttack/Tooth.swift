@@ -25,12 +25,20 @@ class Tooth: SKSpriteNode {
         return self.virusCount
     }
     
+    var virusWinFlg:Int = 0
+    func setVirusWinFlg() {
+        self.virusWinFlg = 1
+    }
+    
+    
     init() {
         
         let texture = SKTexture(imageNamed: "s_tooth_0")
         super.init(texture: texture, color: nil, size: texture.size())
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
+
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "checkToothStatus", userInfo: nil, repeats: true)
         
         self.position = CGPointMake(240, 420)
         
@@ -70,6 +78,15 @@ class Tooth: SKSpriteNode {
             }
             
 
+        }
+    }
+    
+    func checkToothStatus() {
+        // virusWinFlgが1なら、textureを変える
+        if virusWinFlg == 1 {
+            NSLog("changeTexture")
+        } else {
+            NSLog("status=normal")
         }
     }
 }
