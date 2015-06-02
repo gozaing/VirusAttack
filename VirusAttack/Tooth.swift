@@ -83,8 +83,17 @@ class Tooth: SKSpriteNode {
     
     func checkToothStatus() {
         // virusWinFlgが1なら、textureを変える
+        
+//        let arrayOfImages = [
+//            "s_tooth_0",
+//            "s_virus_0"
+//        ]
+
         if virusWinFlg == 1 {
             NSLog("changeTexture")
+            let loseTexture = SKTexture(imageNamed: "s_tooth_1")
+            self.texture = loseTexture
+
         } else {
             NSLog("status=normal")
         }
