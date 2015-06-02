@@ -37,12 +37,8 @@ class Tooth: SKSpriteNode {
         super.init(texture: texture, color: nil, size: texture.size())
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
-
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "checkToothStatus", userInfo: nil, repeats: true)
         
         self.position = CGPointMake(240, 420)
-        
-        
         
         
     }
@@ -58,9 +54,6 @@ class Tooth: SKSpriteNode {
         if (self.virusCount == 0) {
             NSLog("virusAppear")
             let virus = Virus(tooth: self)
-            //virus.setScene(self)
-            // TODO:ポジション
-            //self.gameScene.addChild(virus)
             self.addChild(virus)
             
             self.virusCount += 1
@@ -75,6 +68,16 @@ class Tooth: SKSpriteNode {
             if (existCount == 0) {
                 println("set count clear")
                 self.setCount()
+                
+                // ちょっと移動
+                let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
+                let jumpDown1 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
+                let jumpUp2 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
+                let jumpDown2 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
+                
+                let jumpSequence = SKAction.sequence([jumpUp1,jumpDown1,jumpUp2,jumpDown2])
+                self.runAction(jumpSequence)
+
             }
             
 
@@ -84,18 +87,16 @@ class Tooth: SKSpriteNode {
     func checkToothStatus() {
         // virusWinFlgが1なら、textureを変える
         
-//        let arrayOfImages = [
-//            "s_tooth_0",
-//            "s_virus_0"
-//        ]
+        NSLog("changeTexture")
+        let loseTexture = SKTexture(imageNamed: "s_tooth_1")
+        self.texture = loseTexture
 
-        if virusWinFlg == 1 {
-            NSLog("changeTexture")
-            let loseTexture = SKTexture(imageNamed: "s_tooth_1")
-            self.texture = loseTexture
+        // virus 発生を止める
+        self.timer.invalidate()
+        
 
-        } else {
-            NSLog("status=normal")
-        }
+        
+        
+        
     }
 }
