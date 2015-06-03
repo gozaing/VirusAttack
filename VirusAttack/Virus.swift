@@ -54,7 +54,6 @@ class Virus: SKSpriteNode {
         
     func virusWin() {
         
-        
         parentTooth.setTimeProgress()
         var toothEnergy:Int = parentTooth.getTimeProgress()
         NSLog("toothEnergy->%d",toothEnergy)

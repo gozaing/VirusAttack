@@ -22,9 +22,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -0.01)
         self.physicsWorld.contactDelegate = self
         
-        // timer start
-//        self.timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "appearTooth", userInfo: nil, repeats: true)
-        
         let brushTexture = SKTexture(imageNamed: "toothbrush")
         let brush = SKSpriteNode(texture: brushTexture)
         brush.position = CGPoint(x: self.size.width*0.5, y:100)
@@ -40,15 +37,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         self.brush = brush
         self.addChild(brush)
-        
-//        // ------ tooth
-//        let toothTexture = SKTexture(imageNamed: "s_tooth_0")
-//        let tooth = SKSpriteNode(texture: toothTexture)
-//        tooth.position = CGPoint(x: self.size.width*0.5, y:100)
-//        tooth.size = CGSize(width: toothTexture.size().width*0.5, height: toothTexture.size().height*0.5)
-//
-//        self.addChild(tooth)
-        
         
         self.appearTooth()
     }
@@ -86,7 +74,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     // 衝突判定
     func didBeginContact(contact: SKPhysicsContact) {
-        NSLog("collision")
 
         if contact.bodyA.node == self.brush {
             var targetNode:SKNode? = contact.bodyB.node

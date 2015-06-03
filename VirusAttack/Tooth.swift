@@ -41,10 +41,6 @@ class Tooth: SKSpriteNode {
         return self.virusWinTimeCount
     }
     
-    var childVirus:Virus?
-    
-    
-    
     
     init() {
         
@@ -52,9 +48,6 @@ class Tooth: SKSpriteNode {
         super.init(texture: texture, color: nil, size: texture.size())
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
-        
-//        self.position = CGPointMake(240, 420)
-        
         
     }
     
@@ -71,8 +64,6 @@ class Tooth: SKSpriteNode {
             let virus = Virus(tooth: self)
             virus.name = "virus-1"
             self.addChild(virus)
-            
-            self.childVirus = virus
             
             self.virusCount += 1
             
