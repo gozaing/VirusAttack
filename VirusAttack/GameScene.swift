@@ -16,6 +16,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // timer
     var timer:NSTimer?
     
+    var tooth1:Tooth?
+    
     override func didMoveToView(view: SKView) {
         
         // 衝突プロトコルの発生
@@ -60,6 +62,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         tooth.position = CGPointMake(240, 420)
         self.addChild(tooth)
         
+        self.tooth1 = tooth
+        
 //        let tooth2 = Tooth()
 //        tooth2.setScene(self)
 //        tooth2.position = CGPointMake(120, 420)
@@ -94,6 +98,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         if contact.bodyA.node == self.brush {
             var targetNode:SKNode? = contact.bodyB.node
             targetNode!.removeFromParent()
+            
+            self.tooth1?.childVirus?.timer.invalidate()
 
             
         }else if (contact.bodyB.node == self.brush){

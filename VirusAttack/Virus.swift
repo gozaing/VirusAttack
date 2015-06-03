@@ -15,17 +15,29 @@ class Virus: SKSpriteNode {
         self.gameScene = scene
     }
     var timer = NSTimer()
+    func setStopTimer () {
+        if timer.valid == true {
+            timer.invalidate()
+        }
+    }
     
     var parentTooth:Tooth!
     
     init(tooth: Tooth) {
         
+        NSLog("virus-init")
         self.parentTooth = tooth
         
         let texture = SKTexture(imageNamed: "s_virus_0")
         super.init(texture: texture, color: nil, size: texture.size())
-        
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "virusWin", userInfo: nil, repeats: true)
+
+        if self.timer.valid == true {
+            NSLog("timer-already-set")
+        } else {
+            NSLog("timer-set")
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "virusWin", userInfo: nil, repeats: true)
+            
+        }
         
         self.position = CGPointMake(30, 30)
         

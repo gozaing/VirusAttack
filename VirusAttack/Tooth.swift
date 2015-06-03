@@ -41,6 +41,9 @@ class Tooth: SKSpriteNode {
         return self.virusWinTimeCount
     }
     
+    var childVirus:Virus?
+    
+    
     
     
     init() {
@@ -67,6 +70,8 @@ class Tooth: SKSpriteNode {
             NSLog("virusAppear")
             let virus = Virus(tooth: self)
             self.addChild(virus)
+            
+            self.childVirus = virus
             
             self.virusCount += 1
             
