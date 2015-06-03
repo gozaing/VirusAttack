@@ -25,7 +25,6 @@ class Virus: SKSpriteNode {
     
     init(tooth: Tooth) {
         
-        NSLog("virus-init")
         self.parentTooth = tooth
         
         let texture = SKTexture(imageNamed: "s_virus_0")

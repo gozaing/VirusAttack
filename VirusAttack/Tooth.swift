@@ -71,15 +71,13 @@ class Tooth: SKSpriteNode {
 
             var existCount:Int = 0
             for children in self.children {
-                println("exist!")
                 existCount += 1
             }
             if (existCount == 0) {
-                println("set count clear")
                 self.setCount()
                 self.setTimeClear()
                 
-                // ちょっと移動
+                // runAction
                 let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
                 let jumpDown1 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
                 let jumpUp2 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
@@ -95,9 +93,6 @@ class Tooth: SKSpriteNode {
     }
     
     func checkToothStatus() {
-        // virusWinFlgが1なら、textureを変える
-        
-        NSLog("changeTexture")
         let loseTexture = SKTexture(imageNamed: "s_tooth_1")
         self.texture = loseTexture
 
