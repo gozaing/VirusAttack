@@ -69,6 +69,7 @@ class Tooth: SKSpriteNode {
         if (self.virusCount == 0) {
             NSLog("virusAppear")
             let virus = Virus(tooth: self)
+            virus.name = "virus-1"
             self.addChild(virus)
             
             self.childVirus = virus
