@@ -113,9 +113,5 @@ class Tooth: SKSpriteNode {
         // virus 発生を止める
         self.timer.invalidate()
         
-
-        
-        
-        
     }
 }

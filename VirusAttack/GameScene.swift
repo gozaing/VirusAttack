@@ -16,8 +16,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // timer
     var timer:NSTimer?
     
-    var tooth1:Tooth?
-    
     override func didMoveToView(view: SKView) {
         
         // 衝突プロトコルの発生
@@ -64,24 +62,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         self.addChild(tooth)
         
-        // -------------
-        var mySprite = self.childNodeWithName("tooth-1")
-        if mySprite == nil {
-            NSLog("---nil---")
-        } else {
-            NSLog("----found-----%@", mySprite!)
-        }
-
-        // -------------
-
-        
-        self.tooth1 = tooth
-        
-//        let tooth2 = Tooth()
-//        tooth2.setScene(self)
-//        tooth2.position = CGPointMake(120, 420)
-//        self.addChild(tooth2)
-
     }
     
     // タッチ開始時
