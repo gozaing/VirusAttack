@@ -60,8 +60,20 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         let tooth = Tooth()
         tooth.setScene(self)
         tooth.position = CGPointMake(240, 420)
+        tooth.name = "tooth-1"
 
         self.addChild(tooth)
+        
+        // -------------
+        var mySprite = self.childNodeWithName("tooth-1")
+        if mySprite == nil {
+            NSLog("---nil---")
+        } else {
+            NSLog("----found-----%@", mySprite!)
+        }
+
+        // -------------
+
         
         self.tooth1 = tooth
         
@@ -98,12 +110,16 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         if contact.bodyA.node == self.brush {
             var targetNode:SKNode? = contact.bodyB.node
+            
+            var parentNode = self.childNodeWithName("tooth-1")
+            if parentNode != nil {
+                var virus:Virus?
+                virus = parentNode?.childNodeWithName("virus-1") as! Virus
+                virus?.timer.invalidate()
+            }
+            
             targetNode!.removeFromParent()
-            
-            self.tooth1?.childVirus?.timer.invalidate()
-            
-            NSLog("%@", targetNode!.name!)
-            
+
         }else if (contact.bodyB.node == self.brush){
             var targetNode:SKNode? = contact.bodyA.node
             targetNode!.removeFromParent()
