@@ -41,13 +41,19 @@ class Tooth: SKSpriteNode {
         return self.virusWinTimeCount
     }
     
+    var objIndexName:String?
     
-    init() {
+    
+    init(objIndex:Int) {
         
         let texture = SKTexture(imageNamed: "s_tooth_0")
         super.init(texture: texture, color: nil, size: texture.size())
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
+        
+        self.name = "tooth-" + objIndex.description
+        
+        self.objIndexName = objIndex.description
         
     }
     
@@ -57,12 +63,10 @@ class Tooth: SKSpriteNode {
     
     func virusAppear() {
         
-        NSLog("virus->%d",self.virusCount)
-
         if (self.virusCount == 0) {
             NSLog("virusAppear")
             let virus = Virus(tooth: self)
-            virus.name = "virus-1"
+            virus.name = "virus-" + self.objIndexName!
             self.addChild(virus)
             
             self.virusCount += 1

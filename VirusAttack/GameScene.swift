@@ -43,12 +43,16 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
     func appearTooth() {
         
-        let tooth = Tooth()
-        tooth.setScene(self)
-        tooth.position = CGPointMake(240, 420)
-        tooth.name = "tooth-1"
+        let tooth1 = Tooth(objIndex:1)
+        tooth1.setScene(self)
+        tooth1.position = CGPointMake(240, 420)
 
-        self.addChild(tooth)
+        let tooth2 = Tooth(objIndex:2)
+        tooth2.setScene(self)
+        tooth2.position = CGPointMake(200, 320)
+
+        self.addChild(tooth1)
+        self.addChild(tooth2)
         
     }
     
