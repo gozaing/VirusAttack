@@ -78,17 +78,17 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         if contact.bodyA.node == self.brush {
             var targetNode:SKNode? = contact.bodyB.node
             
-            var parentNode = self.childNodeWithName("tooth-1")
-            if parentNode != nil {
-                var virus:Virus?
-                virus = parentNode?.childNodeWithName("virus-1") as! Virus
-                virus?.timer.invalidate()
-                
-                // parent run Action
-                var parentTooth = self.childNodeWithName("tooth-1") as! Tooth
-                parentTooth.winAction()
-            }
+            let actualChildName = targetNode?.name ?? "Undefined"
+            let objIndex = (actualChildName as! NSString).substringFromIndex(count(actualChildName) - 1 )
             
+            var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
+            var virus:Virus?
+            virus = parentTooth.childNodeWithName("virus-" + objIndex) as! Virus
+            virus?.timer.invalidate()
+                
+            // parent run Action
+            parentTooth.winAction()
+
             targetNode!.removeFromParent()
 
         }else if (contact.bodyB.node == self.brush){
