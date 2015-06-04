@@ -83,6 +83,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
                 var virus:Virus?
                 virus = parentNode?.childNodeWithName("virus-1") as! Virus
                 virus?.timer.invalidate()
+                
+                // parent run Action
+                var parentTooth = self.childNodeWithName("tooth-1") as! Tooth
+                parentTooth.winAction()
             }
             
             targetNode!.removeFromParent()

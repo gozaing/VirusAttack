@@ -47,7 +47,7 @@ class Tooth: SKSpriteNode {
         let texture = SKTexture(imageNamed: "s_tooth_0")
         super.init(texture: texture, color: nil, size: texture.size())
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
         
     }
     
@@ -74,24 +74,28 @@ class Tooth: SKSpriteNode {
                 existCount += 1
             }
             if (existCount == 0) {
-                self.setCount()
-                self.setTimeClear()
-                
-                // runAction
-                let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
-                let jumpDown1 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
-                let jumpUp2 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
-                let jumpDown2 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
-                
-                let jumpSequence = SKAction.sequence([jumpUp1,jumpDown1,jumpUp2,jumpDown2])
-                self.runAction(jumpSequence)
-
+                //self.winAction()
             }
             
 
         }
     }
+    
+    func winAction() {
+        self.setCount()
+        self.setTimeClear()
         
+        // runAction
+        let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
+        let jumpDown1 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
+        let jumpUp2 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
+        let jumpDown2 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
+        
+        let jumpSequence = SKAction.sequence([jumpUp1,jumpDown1,jumpUp2,jumpDown2])
+        self.runAction(jumpSequence)
+
+    }
+    
     func checkToothStatus() {
         let loseTexture = SKTexture(imageNamed: "s_tooth_1")
         self.texture = loseTexture
