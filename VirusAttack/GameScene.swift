@@ -19,7 +19,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         
         // 衝突プロトコルの発生
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: -0.01)
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
         
         let brushTexture = SKTexture(imageNamed: "toothbrush")
