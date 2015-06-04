@@ -10,17 +10,8 @@ import Foundation
 import SpriteKit
 
 class Virus: SKSpriteNode {
-    var gameScene: SKScene!
-    func setScene(scene: SKScene) {
-        self.gameScene = scene
-    }
+
     var timer = NSTimer()
-    func setStopTimer () {
-        if timer.valid == true {
-            timer.invalidate()
-        }
-    }
-    
     var parentTooth:Tooth!
     
     init(tooth: Tooth) {
@@ -30,16 +21,9 @@ class Virus: SKSpriteNode {
         let texture = SKTexture(imageNamed: "s_virus_0")
         super.init(texture: texture, color: nil, size: texture.size())
 
-        if self.timer.valid == true {
-            NSLog("timer-already-set")
-        } else {
-            NSLog("timer-set")
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "virusWin", userInfo: nil, repeats: true)
-            
-        }
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "virusWin", userInfo: nil, repeats: true)
         
         self.position = CGPointMake(30, 30)
-        
         let physicsBody = SKPhysicsBody(rectangleOfSize: self.frame.size)
         physicsBody.dynamic = true
         physicsBody.contactTestBitMask = 0x1 << 1

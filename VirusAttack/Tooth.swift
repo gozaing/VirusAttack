@@ -91,7 +91,7 @@ class Tooth: SKSpriteNode {
 
         }
     }
-    
+        
     func checkToothStatus() {
         let loseTexture = SKTexture(imageNamed: "s_tooth_1")
         self.texture = loseTexture
