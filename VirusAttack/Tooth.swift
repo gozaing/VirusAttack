@@ -86,17 +86,22 @@ class Tooth: SKSpriteNode {
     }
     
     func winAction() {
-        self.setCount()
-        self.setTimeClear()
-        
-        // runAction
-        let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
-        let jumpDown1 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
-        let jumpUp2 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
-        let jumpDown2 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
-        
-        let jumpSequence = SKAction.sequence([jumpUp1,jumpDown1,jumpUp2,jumpDown2])
-        self.runAction(jumpSequence)
+
+        if (self.virusWinTimeCount > 0) {
+
+            // reset
+            self.setCount()
+            self.setTimeClear()
+            
+            // runAction
+            let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
+            let jumpDown1 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
+            let jumpUp2 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
+            let jumpDown2 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
+            
+            let jumpSequence = SKAction.sequence([jumpUp1,jumpDown1,jumpUp2,jumpDown2])
+            self.runAction(jumpSequence)
+        }
 
     }
     
