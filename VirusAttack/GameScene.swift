@@ -38,21 +38,22 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.brush = brush
         self.addChild(brush)
         
-        self.appearTooth()
-    }
+        // add tooth 
+        // TODO:background.sizeからtoothCountで算出する
+        var toothCount = 3
+        for (var i = 1; i<toothCount; i++) {
 
-    func appearTooth() {
-        
-        let tooth1 = Tooth(objIndex:1)
-        tooth1.setScene(self)
-        tooth1.position = CGPointMake(240, 420)
+            let tooth = Tooth(objIndex:i)
+            tooth.setScene(self)
+            var toothPosX :CGFloat = CGFloat(100 * i)
+            var toothPosY :CGFloat = 100
+            
+            tooth.position = CGPointMake( toothPosX , 420)
+            
+            self.addChild(tooth)
 
-        let tooth2 = Tooth(objIndex:2)
-        tooth2.setScene(self)
-        tooth2.position = CGPointMake(200, 320)
+        }
 
-        self.addChild(tooth1)
-        self.addChild(tooth2)
         
     }
     
@@ -83,11 +84,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             var targetNode:SKNode? = contact.bodyB.node
             
             let actualChildName = targetNode?.name ?? "Undefined"
-            let objIndex = (actualChildName as! NSString).substringFromIndex(count(actualChildName) - 1 )
+            let objIndex = (actualChildName as NSString).substringFromIndex(count(actualChildName) - 1 )
             
             var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
             var virus:Virus?
-            virus = parentTooth.childNodeWithName("virus-" + objIndex) as! Virus
+            virus = parentTooth.childNodeWithName("virus-" + objIndex) as? Virus
             virus?.timer.invalidate()
                 
             // parent run Action
