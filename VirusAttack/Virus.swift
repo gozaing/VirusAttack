@@ -29,6 +29,17 @@ class Virus: SKSpriteNode {
         physicsBody.contactTestBitMask = 0x1 << 1
         self.physicsBody = physicsBody
         
+        // runAction
+        let parapraAction1 = SKAction.animateWithTextures(
+            [SKTexture(imageNamed: "s_virus_2"),
+                SKTexture(imageNamed: "s_virus_0"),
+                SKTexture(imageNamed: "s_virus_1")
+            ],
+            timePerFrame: 0.3)
+        let paraparaRepeatAction1 =  SKAction.repeatActionForever(parapraAction1)
+        self.runAction(paraparaRepeatAction1)
+        
+        
     }
     
     required init(coder aDecoder: NSCoder) {
