@@ -90,6 +90,8 @@ class Tooth: SKSpriteNode {
         }
     }
     
+    var fineTextureTimer = NSTimer()
+    
     func winAction() {
 
         if (self.virusWinTimeCount > 0) {
@@ -98,16 +100,33 @@ class Tooth: SKSpriteNode {
             self.setCount()
             self.setTimeClear()
             
+            // change texture
+            let fineTexture = SKTexture(imageNamed: "s_tooth_2")
+            self.texture = fineTexture
+            
             // runAction
-            let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
-            let jumpDown1 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
-            let jumpUp2 = SKAction.moveToY(self.position.y + 10, duration: 0.1)
-            let jumpDown2 = SKAction.moveToY(self.position.y - 10, duration: 0.1)
+            let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.2)
+            let jumpDown1 = SKAction.moveToY(self.position.y - 10, duration: 0.2)
+            let jumpUp2 = SKAction.moveToY(self.position.y + 10, duration: 0.2)
+            let jumpDown2 = SKAction.moveToY(self.position.y - 10, duration: 0.2)
             
             let jumpSequence = SKAction.sequence([jumpUp1,jumpDown1,jumpUp2,jumpDown2])
             self.runAction(jumpSequence)
+            
+            self.fineTextureTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "changeNormalStatus", userInfo: nil, repeats: false)
+
         }
 
+    }
+    
+
+    // textureを戻す
+    func changeNormalStatus() {
+        let normalTexture = SKTexture(imageNamed: "s_tooth_0")
+        self.texture = normalTexture
+        
+        // timerを止める
+        self.fineTextureTimer.invalidate()
     }
     
     func checkToothStatus() {
