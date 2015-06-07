@@ -105,10 +105,10 @@ class Tooth: SKSpriteNode {
             self.texture = fineTexture
             
             // runAction
-            let jumpUp1 = SKAction.moveToY(self.position.y + 10, duration: 0.2)
-            let jumpDown1 = SKAction.moveToY(self.position.y - 10, duration: 0.2)
-            let jumpUp2 = SKAction.moveToY(self.position.y + 10, duration: 0.2)
-            let jumpDown2 = SKAction.moveToY(self.position.y - 10, duration: 0.2)
+            let jumpUp1 = SKAction.moveBy(CGVector(dx: 0, dy: 10), duration:0.2)
+            let jumpDown1 = SKAction.moveBy(CGVector(dx: 0, dy: -10), duration:0.2)
+            let jumpUp2 = SKAction.moveBy(CGVector(dx: 0, dy: 10), duration:0.2)
+            let jumpDown2 = SKAction.moveBy(CGVector(dx: 0, dy: -10), duration:0.2)
             
             let jumpSequence = SKAction.sequence([jumpUp1,jumpDown1,jumpUp2,jumpDown2])
             self.runAction(jumpSequence)
