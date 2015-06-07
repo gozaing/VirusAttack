@@ -64,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F38E9841B23E555007D9639 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4FD8D3A01B1AD4BD004E48B0 /* Virus.swift */,
+				4F49B8F81B1B5160002D35C1 /* Tooth.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		4FD8D36C1B197812004E48B0 = {
 			isa = PBXGroup;
 			children = (
@@ -85,8 +94,8 @@
 		4FD8D3771B197813004E48B0 /* VirusAttack */ = {
 			isa = PBXGroup;
 			children = (
+				4F38E9841B23E555007D9639 /* Classes */,
 				4FD8D37A1B197813004E48B0 /* AppDelegate.swift */,
-				4FD8D3A01B1AD4BD004E48B0 /* Virus.swift */,
 				4FD8D37C1B197813004E48B0 /* ViewController.swift */,
 				4FD8D3A41B1AF1D0004E48B0 /* MenuViewController.swift */,
 				4FD8D37E1B197813004E48B0 /* Main.storyboard */,
@@ -94,7 +103,6 @@
 				4FD8D3811B197813004E48B0 /* Images.xcassets */,
 				4FD8D3831B197813004E48B0 /* LaunchScreen.xib */,
 				4FD8D3781B197813004E48B0 /* Supporting Files */,
-				4F49B8F81B1B5160002D35C1 /* Tooth.swift */,
 			);
 			path = VirusAttack;
 			sourceTree = "<group>";
