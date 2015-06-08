@@ -40,6 +40,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         // add tooth 
         // TODO:background.sizeからtoothCountで算出する
+        
         var toothCount = 3
         for (var i = 1; i<toothCount; i++) {
 
@@ -48,7 +49,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             var toothPosX :CGFloat = CGFloat(100 * i)
             var toothPosY :CGFloat = 100
             
-            tooth.position = CGPointMake( toothPosX , 420)
+            var culcToothPosX :CGFloat = CGFloat( (Int(self.size.width) / 4) * i)
+            
+            tooth.position = CGPointMake( culcToothPosX , 420)
+//            tooth.position = CGPointMake( toothPosX , 420)
             
             self.addChild(tooth)
 
