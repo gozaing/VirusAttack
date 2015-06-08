@@ -9,6 +9,9 @@
 import Foundation
 import SpriteKit
 
+// ゲームオーバー
+var gameOverFlg:Bool = false
+
 //ポイント
 var point:NSInteger = 0
 
@@ -23,8 +26,13 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     var brush:SKSpriteNode?
     // timer
     var timer:NSTimer?
+    // gameOverTimer
+    var gameOverTimer:NSTimer?
     
     override func didMoveToView(view: SKView) {
+        
+        // gameOverTimer start
+        self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "gameOver", userInfo: nil, repeats: false)
         
         // ポイントラベル
         pointLabel.text = "0点"
@@ -79,15 +87,19 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func gameOverTime() {
-        NSLog("game time count down-%d", self.gameTime)
-
-        if ( self.gameTime == 0 ) {
-            gameTimer?.invalidate()
-            NSLog("time up")
-        }
-        self.gameTime = self.gameTime - 1
-
+    func gameOver() {
+        gameoverLabel.text = "GAME OVER"
+        gameoverLabel.fontSize = 30
+        gameoverLabel.fontColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        gameoverLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        self.addChild(gameoverLabel)
+        
+        // gameover状態にする
+        gameOverFlg = true
+        
+        self.gameOverTimer?.invalidate()
+        self.paused = true
+        
     }
     
     // タッチ開始時
@@ -109,6 +121,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             
         }
     }
+    
+//    // 毎フレーム呼び出される
+//    override func update(currentTime: NSTimeInterval) {
+//    }
     
     // 衝突判定
     func didBeginContact(contact: SKPhysicsContact) {
