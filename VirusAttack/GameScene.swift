@@ -9,14 +9,32 @@
 import Foundation
 import SpriteKit
 
-class GameScene : SKScene, SKPhysicsContactDelegate {
+//ポイント
+var point:NSInteger = 0
 
+//ラベル
+let gameoverLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
+let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
+
+
+class GameScene : SKScene, SKPhysicsContactDelegate {
+    
     // ブラシ
     var brush:SKSpriteNode?
     // timer
     var timer:NSTimer?
     
     override func didMoveToView(view: SKView) {
+        
+        // ポイントラベル
+        pointLabel.text = "0点"
+        pointLabel.fontSize = 25
+        pointLabel.fontColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        pointLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        
+        self.addChild(pointLabel)
+        pointLabel.position = CGPoint(x: 160, y: 497)
+        
         
         // 衝突プロトコルの発生
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
@@ -61,6 +79,17 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func gameOverTime() {
+        NSLog("game time count down-%d", self.gameTime)
+
+        if ( self.gameTime == 0 ) {
+            gameTimer?.invalidate()
+            NSLog("time up")
+        }
+        self.gameTime = self.gameTime - 1
+
+    }
+    
     // タッチ開始時
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if let touch: AnyObject = touches.first {
@@ -99,6 +128,13 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             parentTooth.winAction()
 
             targetNode!.removeFromParent()
+            
+            // 加算
+            point += 10
+            var pointString:String = "\(point)点"
+            pointLabel.text = pointString
+            
+            
 
         }else if (contact.bodyB.node == self.brush){
             var targetNode:SKNode? = contact.bodyA.node
