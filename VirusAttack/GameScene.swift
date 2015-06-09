@@ -29,7 +29,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // gameOverTimer
     var gameOverTimer:NSTimer?
     
-    override func didMoveToView(view: SKView) {
+    func gameStart() {
+        
+        self.brush = nil
+        self.timer = nil
+        self.gameOverTimer = nil
         
         // gameOverTimer start
         self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "gameOver", userInfo: nil, repeats: false)
@@ -64,12 +68,12 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.brush = brush
         self.addChild(brush)
         
-        // add tooth 
+        // add tooth
         // TODO:background.sizeからtoothCountで算出する
         
         var toothCount = 3
         for (var i = 1; i<toothCount; i++) {
-
+            
             let tooth = Tooth(objIndex:i)
             tooth.setScene(self)
             var toothPosX :CGFloat = CGFloat(100 * i)
@@ -78,12 +82,17 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             var culcToothPosX :CGFloat = CGFloat( (Int(self.size.width) / 4) * i)
             
             tooth.position = CGPointMake( culcToothPosX , 420)
-//            tooth.position = CGPointMake( toothPosX , 420)
+            //            tooth.position = CGPointMake( toothPosX , 420)
             
             self.addChild(tooth)
-
+            
         }
 
+    }
+    
+    override func didMoveToView(view: SKView) {
+        
+        self.gameStart()
         
     }
     
@@ -109,6 +118,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             let action = SKAction.moveTo(CGPointMake(location.x, location.y), duration: 0.1)
             self.brush?.runAction(action)
             
+            if (gameOverFlg == true) {
+                self.reset()
+            }
         }
     }
     
@@ -153,9 +165,42 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             
 
         }else if (contact.bodyB.node == self.brush){
-            var targetNode:SKNode? = contact.bodyA.node
+
+            var targetNode:SKNode? = contact.bodyB.node
             targetNode!.removeFromParent()
+            
+            let actualChildName = targetNode?.name ?? "Undefined"
+            let objIndex = (actualChildName as NSString).substringFromIndex(count(actualChildName) - 1 )
+            
+            var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
+            var virus:Virus?
+            virus = parentTooth.childNodeWithName("virus-" + objIndex) as? Virus
+            virus?.timer.invalidate()
+            
+            // parent run Action
+            parentTooth.winAction()
+            
+            targetNode!.removeFromParent()
+            
+            // 加算
+            point += 10
+            var pointString:String = "\(point)点"
+            pointLabel.text = pointString
 
         }
+    }
+    
+    func reset() {
+        
+        for children in self.children {
+            NSLog("child!!!!!")
+            //            NSLog("child-%@",children.name)
+            children.removeFromParent()
+        }
+
+        gameOverFlg = false
+        point = 0
+        self.paused = false
+        self.gameStart()
     }
 }

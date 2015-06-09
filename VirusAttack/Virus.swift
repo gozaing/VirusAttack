@@ -52,7 +52,7 @@ class Virus: SKSpriteNode {
 
             parentTooth.setTimeProgress()
             var toothEnergy:Int = parentTooth.getTimeProgress()
-            NSLog("toothEnergy->%d",toothEnergy)
+//            NSLog("toothEnergy->%d",toothEnergy)
             if (toothEnergy == 0) {
                 
                 // virusの勝ちで、歯にダメージ

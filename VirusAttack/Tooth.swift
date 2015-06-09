@@ -51,7 +51,7 @@ class Tooth: SKSpriteNode {
         
         // random per seconds
         let intInterval = arc4random_uniform(10)
-        NSLog("interval--%d",intInterval)
+//        NSLog("interval--%d",intInterval)
         let virusAppearSec = NSTimeInterval(intInterval)
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(virusAppearSec, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
@@ -72,7 +72,7 @@ class Tooth: SKSpriteNode {
         if (gameOverFlg == false) {
             
             if (self.virusCount == 0) {
-                NSLog("virusAppear")
+//                NSLog("virusAppear")
                 let virus = Virus(tooth: self)
                 virus.name = "virus-" + self.objIndexName!
                 self.addChild(virus)
