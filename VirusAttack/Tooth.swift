@@ -68,26 +68,35 @@ class Tooth: SKSpriteNode {
     
     func virusAppear() {
         
-        if (self.virusCount == 0) {
-            NSLog("virusAppear")
-            let virus = Virus(tooth: self)
-            virus.name = "virus-" + self.objIndexName!
-            self.addChild(virus)
+        // gameoverか判定
+        if (gameOverFlg == false) {
             
-            self.virusCount += 1
+            if (self.virusCount == 0) {
+                NSLog("virusAppear")
+                let virus = Virus(tooth: self)
+                virus.name = "virus-" + self.objIndexName!
+                self.addChild(virus)
+                
+                self.virusCount += 1
+                
+            } else {
+                
+                var existCount:Int = 0
+                for children in self.children {
+                    existCount += 1
+                }
+                if (existCount == 0) {
+                    //self.winAction()
+                }
+            }
+
             
         } else {
-
-            var existCount:Int = 0
-            for children in self.children {
-                existCount += 1
-            }
-            if (existCount == 0) {
-                //self.winAction()
-            }
-            
+            NSLog("tooth doesn't generate virus")
+            self.timer.invalidate()
 
         }
+        
     }
     
     var fineTextureTimer = NSTimer()
