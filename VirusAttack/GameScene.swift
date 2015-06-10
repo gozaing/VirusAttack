@@ -168,8 +168,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         }else if (contact.bodyB.node == self.brush){
 
-            var targetNode:SKNode? = contact.bodyB.node
-            targetNode!.removeFromParent()
+            var targetNode:SKNode? = contact.bodyA.node
             
             let actualChildName = targetNode?.name ?? "Undefined"
             let objIndex = (actualChildName as NSString).substringFromIndex(count(actualChildName) - 1 )
