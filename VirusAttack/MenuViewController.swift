@@ -20,7 +20,6 @@ class MenuViewController: UIViewController {
         let myImage = UIImage(named: "test_iphone6")
 
         // UIImageViewを作成する.
-//        myImageView = UIImageView(frame: CGRectMake(0,0,750,1334))
         myImageView = UIImageView(frame: CGRectMake(0,0,myImage!.size.width,myImage!.size.height))
         
         // 画像をUIImageViewに設定する.
@@ -32,8 +31,9 @@ class MenuViewController: UIViewController {
         // UIImageViewをViewに追加する.
         self.view.addSubview(myImageView)
         
+        // 作成したViewを再背面へ
+        self.view.sendSubviewToBack(myImageView)
 
-        
 
     }
     
