@@ -34,7 +34,6 @@ class MenuViewController: UIViewController {
         // 作成したViewを再背面へ
         self.view.sendSubviewToBack(myImageView)
 
-
     }
     
     @IBAction func backFromSecondView(segue:UIStoryboardSegue){
