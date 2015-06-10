@@ -21,7 +21,7 @@ let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
-    
+        
     // ブラシ
     var brush:SKSpriteNode?
     // timer
@@ -44,6 +44,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         pointLabel.fontColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         pointLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
         
+        pointLabel.removeFromParent()
         self.addChild(pointLabel)
         pointLabel.position = CGPoint(x: 160, y: 497)
         
@@ -101,6 +102,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         gameoverLabel.fontSize = 30
         gameoverLabel.fontColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         gameoverLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        gameoverLabel.removeFromParent()
         self.addChild(gameoverLabel)
         
         // gameover状態にする
