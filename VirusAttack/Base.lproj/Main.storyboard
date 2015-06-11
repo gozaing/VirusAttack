@@ -17,21 +17,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmT-Lf-wwI">
-                                <rect key="frame" x="220" y="89" width="176" height="56"/>
-                                <state key="normal" title="easy">
+                                <rect key="frame" x="53" y="96" width="239" height="145"/>
+                                <state key="normal" title="easy" backgroundImage="s_cake">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="vXZ-lx-hvc" kind="show" id="d8A-F8-d4A"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir8-jE-XhN">
-                                <rect key="frame" x="220" y="198" width="176" height="56"/>
-                                <state key="normal" title="hard">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="Tc1-Py-Gcb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-Nc-l1E">
@@ -41,6 +32,15 @@
                                 </state>
                                 <connections>
                                     <segue destination="lct-Nn-ZsV" kind="show" id="CjN-sN-RjU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir8-jE-XhN">
+                                <rect key="frame" x="154" y="284" width="176" height="56"/>
+                                <state key="normal" title="hard">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="show" id="Tc1-Py-Gcb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -95,7 +95,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4Z-bT-VlR">
                                 <rect key="frame" x="77" y="64" width="55" height="43"/>
-                                <state key="normal" title="Back" backgroundImage="virus">
+                                <state key="normal" title="back" backgroundImage="virus">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -113,6 +113,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="s_cake" width="150" height="95"/>
         <image name="virus" width="50" height="59"/>
     </resources>
     <inferredMetricsTieBreakers>
