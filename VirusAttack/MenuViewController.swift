@@ -38,5 +38,6 @@ class MenuViewController: UIViewController {
     
     @IBAction func backFromSecondView(segue:UIStoryboardSegue){
         NSLog("fromViewController")
+        gameOverFlg = false
     }
 }
