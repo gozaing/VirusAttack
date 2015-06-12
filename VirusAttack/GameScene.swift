@@ -31,6 +31,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     func gameStart() {
         
+        gameOverFlg = false
+        point = 0
+
         self.brush = nil
         self.timer = nil
         self.gameOverTimer = nil
@@ -199,8 +202,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             children.removeFromParent()
         }
 
-        gameOverFlg = false
-        point = 0
         self.paused = false
         self.gameStart()
     }
