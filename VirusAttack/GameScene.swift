@@ -101,12 +101,30 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver() {
+        
+        // Game Over Label
         gameoverLabel.text = "GAME OVER"
         gameoverLabel.fontSize = 40
         gameoverLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         gameoverLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
         gameoverLabel.removeFromParent()
         self.addChild(gameoverLabel)
+        
+        // Home icon
+        let homeTexture = SKTexture(imageNamed: "home")
+        let homeIcon = SKSpriteNode(texture: homeTexture)
+        homeIcon.position = CGPoint(x: self.size.width*0.4, y:300)
+        homeIcon.size = CGSize(width: homeTexture.size().width*0.5, height: homeTexture.size().height*0.5)
+        homeIcon.name = "homeicon"
+        self.addChild(homeIcon)
+
+        // retry icon
+        let reloadTexture = SKTexture(imageNamed: "reload")
+        let reloadIcon = SKSpriteNode(texture: reloadTexture)
+        reloadIcon.position = CGPoint(x: self.size.width*0.6, y:300)
+        reloadIcon.size = CGSize(width: reloadTexture.size().width*0.5, height: reloadTexture.size().height*0.5)
+        reloadIcon.name = "reloadicon"
+        self.addChild(reloadIcon)
         
         // gameover状態にする
         gameOverFlg = true
