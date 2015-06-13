@@ -196,10 +196,25 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     func reset() {
         
-        for children in self.children {
-            NSLog("child!!!!!")
-            //            NSLog("child-%@",children.name)
-            children.removeFromParent()
+        var Nodes : [SKNode]
+        
+        for Node : AnyObject in self.children{
+            
+            if (Node as! SKNode).name == nil  {
+                println("name is nil")
+                Node.removeFromParent()
+            }
+            else{
+                if Node.name == "background" {
+                    //Nodes.append(Node as! SKNode)
+                    println("name is background")
+                }
+                else {
+                    Node.removeFromParent()
+                }
+            }
+
+
         }
 
         self.paused = false

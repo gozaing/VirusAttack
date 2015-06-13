@@ -10,10 +10,10 @@ import UIKit
 import SpriteKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // シーン作成
         let scene = GameScene()
         // SKView型で取り出す
@@ -26,9 +26,16 @@ class ViewController: UIViewController {
         // シーンのサイズをビューに合わせる
         scene.size = view.frame.size
         
+        // background
+        let backGroundTexture = SKTexture(imageNamed: "bath_750_1334")
+        let background = SKSpriteNode(texture: backGroundTexture)
+        background.name = "background"
+        background.position = CGPoint(x: scene.size.width/2 , y: scene.size.height/2)
+        scene.addChild(background)
+        
         // ビューの上にシーンを作成
         view.presentScene(scene)
-        
+
         
     }
 
