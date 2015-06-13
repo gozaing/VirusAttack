@@ -9,6 +9,11 @@
 import UIKit
 import SpriteKit
 
+//let closeMeBtn = UIButton(frame: CGRectMake(0, 0, 300, 50))
+let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
+//let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
+
+
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -35,8 +40,19 @@ class ViewController: UIViewController {
         
         // ビューの上にシーンを作成
         view.presentScene(scene)
-
         
+//        closeMeBtn.layer.position = CGPoint(x: self.view.frame.width/2, y:100)
+//        closeMeBtn.setTitle("Close Me!", forState: .Normal)
+//        closeMeBtn.addTarget(self, action: "closeMe:", forControlEvents: .TouchUpInside)
+//        closeMeBtn.alpha = CGFloat(0)
+//        self.view.addSubview(closeMeBtn)
+        
+        // ボタンを生成
+        homeIcon.setImage(UIImage(named: "home"), forState: .Normal)
+        homeIcon.addTarget(self, action: "onClickHomeIcon:", forControlEvents: .TouchUpInside)
+        homeIcon.alpha = CGFloat(0)
+        self.view.addSubview(homeIcon)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +60,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func onClickHomeIcon(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 
 
     

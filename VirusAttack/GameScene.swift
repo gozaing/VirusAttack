@@ -94,6 +94,35 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
     }
     
+    func reloadGame() {
+        
+        var Nodes : [SKNode]
+        
+        NSLog("reloadGame-1")
+        for Node : AnyObject in self.children{
+            
+            if (Node as! SKNode).name == nil  {
+                println("name is nil")
+                Node.removeFromParent()
+            }
+            else{
+                if Node.name == "background" {
+                    //Nodes.append(Node as! SKNode)
+                    println("name is background")
+                }
+                else {
+                    Node.removeFromParent()
+                }
+            }
+            
+            
+        }
+        
+        self.paused = false
+        self.gameStart()
+    }
+
+    
     override func didMoveToView(view: SKView) {
         
         self.gameStart()
@@ -111,24 +140,24 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.addChild(gameoverLabel)
         
         // ボタンを生成
-        var homeIcon = UIButton(frame: CGRectMake(100, 300, 200, 50))
-        //画像を設定
-        homeIcon.setImage(UIImage(named: "home"), forState: .Normal)
-        homeIcon.addTarget(self, action: "onClickHomeIcon:", forControlEvents: .TouchUpInside)
-        self.view!.addSubview(homeIcon)
-        
+//        let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
+//        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
+//        reloadIcon.addTarget(self, action: "testPush:", forControlEvents: .TouchUpInside)
+//        self.view!.addSubview(reloadIcon)
+ 
         // gameover状態にする
         gameOverFlg = true
         
         self.gameOverTimer?.invalidate()
         self.paused = true
         
+        homeIcon.alpha = CGFloat(1)
+        
     }
     
-    func onClickHomeIcon(sender : UIButton){
-        NSLog("button tap")
-
-    }
+//    @IBAction func testPush() {
+//        NSLog("testPush")
+//    }
     
     // タッチ開始時
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -138,7 +167,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             self.brush?.runAction(action)
             
             if (gameOverFlg == true) {
-                    self.reset()
+                    reloadGame()
             }
         }
     }
@@ -208,30 +237,4 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func reset() {
-        
-        var Nodes : [SKNode]
-        
-        for Node : AnyObject in self.children{
-            
-            if (Node as! SKNode).name == nil  {
-                println("name is nil")
-                Node.removeFromParent()
-            }
-            else{
-                if Node.name == "background" {
-                    //Nodes.append(Node as! SKNode)
-                    println("name is background")
-                }
-                else {
-                    Node.removeFromParent()
-                }
-            }
-
-
-        }
-
-        self.paused = false
-        self.gameStart()
-    }
 }
