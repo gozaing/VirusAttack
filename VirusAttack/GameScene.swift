@@ -43,8 +43,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         // ポイントラベル
         pointLabel.text = "0点"
-        pointLabel.fontSize = 25
-        pointLabel.fontColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        pointLabel.fontSize = 40
+        pointLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         pointLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
         
         pointLabel.removeFromParent()
@@ -102,8 +102,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     func gameOver() {
         gameoverLabel.text = "GAME OVER"
-        gameoverLabel.fontSize = 30
-        gameoverLabel.fontColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        gameoverLabel.fontSize = 40
+        gameoverLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         gameoverLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
         gameoverLabel.removeFromParent()
         self.addChild(gameoverLabel)
