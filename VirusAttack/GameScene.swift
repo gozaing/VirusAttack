@@ -110,21 +110,12 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         gameoverLabel.removeFromParent()
         self.addChild(gameoverLabel)
         
-        // Home icon
-        let homeTexture = SKTexture(imageNamed: "home")
-        let homeIcon = SKSpriteNode(texture: homeTexture)
-        homeIcon.position = CGPoint(x: self.size.width*0.4, y:300)
-        homeIcon.size = CGSize(width: homeTexture.size().width*0.5, height: homeTexture.size().height*0.5)
-        homeIcon.name = "homeicon"
-        self.addChild(homeIcon)
-
-        // retry icon
-        let reloadTexture = SKTexture(imageNamed: "reload")
-        let reloadIcon = SKSpriteNode(texture: reloadTexture)
-        reloadIcon.position = CGPoint(x: self.size.width*0.6, y:300)
-        reloadIcon.size = CGSize(width: reloadTexture.size().width*0.5, height: reloadTexture.size().height*0.5)
-        reloadIcon.name = "reloadicon"
-        self.addChild(reloadIcon)
+        // ボタンを生成
+        var homeIcon = UIButton(frame: CGRectMake(100, 300, 200, 50))
+        //画像を設定
+        homeIcon.setImage(UIImage(named: "home"), forState: .Normal)
+        homeIcon.addTarget(self, action: "onClickHomeIcon:", forControlEvents: .TouchUpInside)
+        self.view!.addSubview(homeIcon)
         
         // gameover状態にする
         gameOverFlg = true
@@ -132,6 +123,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.gameOverTimer?.invalidate()
         self.paused = true
         
+    }
+    
+    func onClickHomeIcon(sender : UIButton){
+        NSLog("button tap")
+
     }
     
     // タッチ開始時
@@ -142,7 +138,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             self.brush?.runAction(action)
             
             if (gameOverFlg == true) {
-                self.reset()
+                    self.reset()
             }
         }
     }
