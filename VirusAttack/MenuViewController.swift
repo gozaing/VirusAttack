@@ -17,8 +17,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
         // 表示する画像を設定する.
-//        let myImage = UIImage(named: "test_iphone6")
-        let myImage = UIImage(named: "bath_750_1334")
+        let myImage = UIImage(named: "menu")
 
         // UIImageViewを作成する.
         myImageView = UIImageView(frame: CGRectMake(0,0,myImage!.size.width,myImage!.size.height))
