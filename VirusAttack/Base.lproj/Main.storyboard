@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmT-Lf-wwI">
-                                <rect key="frame" x="53" y="96" width="239" height="145"/>
-                                <state key="normal" title="easy" backgroundImage="s_cake">
+                                <rect key="frame" x="49" y="105" width="198" height="206"/>
+                                <state key="normal" backgroundImage="cake_1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -26,8 +26,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-Nc-l1E">
-                                <rect key="frame" x="286" y="348" width="136" height="79"/>
-                                <state key="normal" title="Tutorial">
+                                <rect key="frame" x="25" y="63" width="136" height="79"/>
+                                <state key="normal" title="question">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -35,8 +35,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir8-jE-XhN">
-                                <rect key="frame" x="154" y="284" width="176" height="56"/>
-                                <state key="normal" title="hard">
+                                <rect key="frame" x="144" y="250" width="198" height="216"/>
+                                <state key="normal" backgroundImage="cake_1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -49,7 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eP-na-smK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-386" y="409"/>
+            <point key="canvasLocation" x="-410" y="397"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="vqE-XT-se8">
@@ -101,7 +101,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="s_cake" width="150" height="95"/>
+        <image name="cake_1" width="624" height="624"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="d8A-F8-d4A"/>
