@@ -58,7 +58,7 @@ class MenuViewController: UIViewController {
         // 遷移するViewを定義する.
         let myGameViewController: UIViewController = ViewController()
         // アニメーションを設定する.
-        myGameViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+        myGameViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         
         // Viewの移動する.
         self.presentViewController(myGameViewController, animated: true, completion: nil)
