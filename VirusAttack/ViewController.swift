@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSLog("start ViewController")
+        
         // シーン作成
         let scene = GameScene()
         // SKView型で取り出す

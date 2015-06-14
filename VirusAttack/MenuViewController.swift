@@ -34,9 +34,34 @@ class MenuViewController: UIViewController {
         // 作成したViewを再背面へ
         self.view.sendSubviewToBack(myImageView)
 
+        // ボタンを生成する.
+        let nextButton: UIButton = UIButton(frame: CGRectMake(0,0,200,200))
+        nextButton.backgroundColor = UIColor.redColor();
+        nextButton.layer.masksToBounds = true
+        nextButton.setTitle("start", forState: .Normal)
+        nextButton.layer.cornerRadius = 20.0
+        nextButton.layer.position = CGPoint(x: self.view.bounds.width/2 , y:self.view.bounds.height*0.75)
+        nextButton.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
+
+        nextButton.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        // ボタンを追加する.
+        self.view.addSubview(nextButton)
+
     }
     
     @IBAction func backFromSecondView(segue:UIStoryboardSegue){
         NSLog("fromViewController")
     }
+    
+    @IBAction func onClickStartGame(sender:UIButton) {
+        NSLog("onClickStartGame")
+        // 遷移するViewを定義する.
+        let myGameViewController: UIViewController = ViewController()
+        // アニメーションを設定する.
+        myGameViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+        
+        // Viewの移動する.
+        self.presentViewController(myGameViewController, animated: true, completion: nil)
+    }
+    
 }
