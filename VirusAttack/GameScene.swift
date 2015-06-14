@@ -166,10 +166,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             let location = touch.locationInNode(self)
             let action = SKAction.moveTo(CGPointMake(location.x, location.y), duration: 0.1)
             self.brush?.runAction(action)
-            
-            if (gameOverFlg == true) {
-                    reloadGame()
-            }
         }
     }
     
