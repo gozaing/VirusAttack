@@ -138,25 +138,29 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         gameoverLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
         gameoverLabel.removeFromParent()
         self.addChild(gameoverLabel)
-        
-        // ボタンを生成
-        let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
-        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
-        reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
-        reloadIcon.removeFromSuperview()
-        self.view!.addSubview(reloadIcon)
  
         // gameover状態にする
         gameOverFlg = true
         
         self.gameOverTimer?.invalidate()
         self.paused = true
-        
+
+        // ボタン表示
+        // もう一度
+        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
+        reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
+        reloadIcon.removeFromSuperview()
+        self.view!.addSubview(reloadIcon)
+
+        // ホーム画面に戻る
         homeIcon.alpha = CGFloat(1)
+
         
     }
     
     func clickReload(sender: UIButton) {
+        homeIcon.alpha = CGFloat(0)
+        reloadIcon.removeFromSuperview()
         self.reloadGame()
     }
     
