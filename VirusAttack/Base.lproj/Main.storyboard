@@ -16,15 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmT-Lf-wwI">
-                                <rect key="frame" x="49" y="105" width="198" height="206"/>
-                                <state key="normal" backgroundImage="cake_1">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="d8A-F8-d4A"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-Nc-l1E">
                                 <rect key="frame" x="25" y="63" width="136" height="79"/>
                                 <state key="normal" title="question">
@@ -32,15 +23,6 @@
                                 </state>
                                 <connections>
                                     <segue destination="lct-Nn-ZsV" kind="show" id="CjN-sN-RjU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir8-jE-XhN">
-                                <rect key="frame" x="144" y="250" width="198" height="216"/>
-                                <state key="normal" backgroundImage="cake_1">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="Tc1-Py-Gcb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -100,10 +82,4 @@
             <point key="canvasLocation" x="401" y="379"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="cake_1" width="624" height="624"/>
-    </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="d8A-F8-d4A"/>
-    </inferredMetricsTieBreakers>
 </document>
