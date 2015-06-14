@@ -18,7 +18,7 @@ var point:NSInteger = 0
 //ラベル
 let gameoverLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
-
+let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
         
@@ -140,10 +140,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.addChild(gameoverLabel)
         
         // ボタンを生成
-//        let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
-//        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
-//        reloadIcon.addTarget(self, action: "testPush:", forControlEvents: .TouchUpInside)
-//        self.view!.addSubview(reloadIcon)
+        let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
+        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
+        reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
+        reloadIcon.removeFromSuperview()
+        self.view!.addSubview(reloadIcon)
  
         // gameover状態にする
         gameOverFlg = true
@@ -155,9 +156,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
     }
     
-//    @IBAction func testPush() {
-//        NSLog("testPush")
-//    }
+    func clickReload(sender: UIButton) {
+        self.reloadGame()
+    }
     
     // タッチ開始時
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
