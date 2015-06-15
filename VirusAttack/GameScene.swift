@@ -45,17 +45,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         // gameOverTimer start
         self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "gameOver", userInfo: nil, repeats: false)
         
-        // ポイントラベル
-        pointLabel.text = "0点"
-        pointLabel.fontSize = 40
-        pointLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        pointLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
-        
-        pointLabel.removeFromParent()
-        self.addChild(pointLabel)
-        pointLabel.position = CGPoint(x: 160, y: 497)
-        
-        
         // 衝突プロトコルの発生
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
@@ -152,6 +141,17 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         self.gameOverTimer?.invalidate()
         self.paused = true
+        
+        // ポイントラベル
+        pointLabel.fontSize = 40
+        pointLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        pointLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        
+        pointLabel.removeFromParent()
+        pointLabel.position = CGPoint(x: 160, y: 497)
+        var pointString:String = "\(point)点"
+        pointLabel.text = pointString
+        self.addChild(pointLabel)
 
         // ボタン表示
         // もう一度
@@ -220,8 +220,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             
             // 加算
             point += 10
-            var pointString:String = "\(point)点"
-            pointLabel.text = pointString
+            
             
             
 
@@ -244,9 +243,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             
             // 加算
             point += 10
-            var pointString:String = "\(point)点"
-            pointLabel.text = pointString
-
         }
     }
     
