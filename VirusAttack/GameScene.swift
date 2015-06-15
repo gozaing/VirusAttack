@@ -11,13 +11,14 @@ import SpriteKit
 
 // ゲームオーバー
 var gameOverFlg:Bool = false
-
 //ポイント
 var point:NSInteger = 0
-
 //ラベル
 let gameoverLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
+// button
+let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
+let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
     
@@ -99,6 +100,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     func reloadGame() {
         
+        // iconの削除
+        homeIcon.removeFromSuperview()
+        reloadIcon.removeFromSuperview()
+        
         var Nodes : [SKNode]
         
         NSLog("reloadGame-1")
@@ -149,21 +154,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.paused = true
 
         // ボタン表示
-
         // もう一度
-        let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
         reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
         reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
         self.view!.addSubview(reloadIcon)
 
         // ホーム画面に戻る
-        let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
         homeIcon.setImage(UIImage(named: "home"), forState: .Normal)
         homeIcon.addTarget(self, action: "backToMenu:", forControlEvents: .TouchUpInside)
         self.view!.addSubview(homeIcon)
-        
-        
-
         
     }
     
