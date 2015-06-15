@@ -21,13 +21,17 @@ let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
-        
+    
     // ブラシ
     var brush:SKSpriteNode?
     // timer
     var timer:NSTimer?
     // gameOverTimer
     var gameOverTimer:NSTimer?
+
+    // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用
+    var viewController: ViewController!
+
     
     func gameStart() {
         
@@ -154,8 +158,22 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         // ホーム画面に戻る
 //        homeIcon.alpha = CGFloat(1)
+        
+        // ボタンを生成
+        let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
+        homeIcon.setImage(UIImage(named: "home"), forState: .Normal)
+        homeIcon.addTarget(self, action: "backToMenu:", forControlEvents: .TouchUpInside)
+        self.view!.addSubview(homeIcon)
+        
+        
 
         
+    }
+    
+    func backToMenu (sender: UIButton) {
+        self.viewController.dismissViewControllerAnimated(true, completion: nil)
+        
+
     }
     
     func clickReload(sender: UIButton) {

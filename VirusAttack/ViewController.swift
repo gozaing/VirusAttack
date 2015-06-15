@@ -33,6 +33,9 @@ class ViewController: UIViewController {
             
             // シーン作成
             let scene = GameScene()
+
+            scene.viewController = self
+            
             // SKView型で取り出す
             //        let view = self.view as! SKView
             let view = self.view as! SKView
@@ -53,12 +56,6 @@ class ViewController: UIViewController {
             
             // ビューの上にシーンを作成
             view.presentScene(scene)
-            
-            // ボタンを生成
-            let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
-            homeIcon.setImage(UIImage(named: "home"), forState: .Normal)
-            homeIcon.addTarget(self, action: "onClickHomeIcon:", forControlEvents: .TouchUpInside)
-            self.view.addSubview(homeIcon)
 
             self.viewInitiated = true
         }
@@ -69,7 +66,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func onClickHomeIcon(sender: AnyObject) {
+    func onClickHomeIcon() {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
