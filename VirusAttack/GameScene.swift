@@ -18,7 +18,6 @@ var point:NSInteger = 0
 //ラベル
 let gameoverLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
-let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
     
@@ -150,16 +149,14 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.paused = true
 
         // ボタン表示
+
         // もう一度
-//        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
-//        reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
-//        reloadIcon.removeFromSuperview()
-//        self.view!.addSubview(reloadIcon)
+        let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
+        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
+        reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
+        self.view!.addSubview(reloadIcon)
 
         // ホーム画面に戻る
-//        homeIcon.alpha = CGFloat(1)
-        
-        // ボタンを生成
         let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
         homeIcon.setImage(UIImage(named: "home"), forState: .Normal)
         homeIcon.addTarget(self, action: "backToMenu:", forControlEvents: .TouchUpInside)
@@ -177,8 +174,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     }
     
     func clickReload(sender: UIButton) {
-//        homeIcon.alpha = CGFloat(0)
-        reloadIcon.removeFromSuperview()
         self.reloadGame()
     }
     
