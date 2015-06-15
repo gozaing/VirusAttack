@@ -39,7 +39,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.gameOverTimer = nil
         
         // gameOverTimer start
-        self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: "gameOver", userInfo: nil, repeats: false)
+        self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "gameOver", userInfo: nil, repeats: false)
         
         // ポイントラベル
         pointLabel.text = "0点"
@@ -147,19 +147,19 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         // ボタン表示
         // もう一度
-        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
-        reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
-        reloadIcon.removeFromSuperview()
-        self.view!.addSubview(reloadIcon)
+//        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
+//        reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
+//        reloadIcon.removeFromSuperview()
+//        self.view!.addSubview(reloadIcon)
 
         // ホーム画面に戻る
-        homeIcon.alpha = CGFloat(1)
+//        homeIcon.alpha = CGFloat(1)
 
         
     }
     
     func clickReload(sender: UIButton) {
-        homeIcon.alpha = CGFloat(0)
+//        homeIcon.alpha = CGFloat(0)
         reloadIcon.removeFromSuperview()
         self.reloadGame()
     }

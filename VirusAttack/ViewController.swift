@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
+
 
 class ViewController: UIViewController {
     
@@ -55,9 +55,9 @@ class ViewController: UIViewController {
             view.presentScene(scene)
             
             // ボタンを生成
+            let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
             homeIcon.setImage(UIImage(named: "home"), forState: .Normal)
             homeIcon.addTarget(self, action: "onClickHomeIcon:", forControlEvents: .TouchUpInside)
-            homeIcon.alpha = CGFloat(0)
             self.view.addSubview(homeIcon)
 
             self.viewInitiated = true
