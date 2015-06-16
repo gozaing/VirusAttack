@@ -27,7 +27,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // gameOverTimer
     var gameOverTimer:NSTimer?
     // gameOverTime
-    let gameOverTime: NSTimeInterval = 10
+    let gameOverTime: NSTimeInterval = 15
     
 
     // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用
@@ -52,6 +52,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         let brushTexture = SKTexture(imageNamed: "toothbrush")
         let brush = SKSpriteNode(texture: brushTexture)
         brush.position = CGPoint(x: self.size.width*0.5, y:100)
+        brush.zPosition = 2
         brush.size = CGSize(width: brushTexture.size().width*0.5, height: brushTexture.size().height*0.5)
         brush.physicsBody = SKPhysicsBody(texture: brushTexture, size: brush.size)
         brush.physicsBody?.dynamic = false

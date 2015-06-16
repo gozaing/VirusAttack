@@ -24,7 +24,8 @@ class Virus: SKSpriteNode {
 
         self.virusAttackTimer = NSTimer.scheduledTimerWithTimeInterval(virusAttackTimeInterval, target: self, selector: "virusAttack", userInfo: nil, repeats: true)
         
-        self.position = CGPointMake(30, 30)
+        self.position = CGPointMake(25, 25)
+        self.zPosition = 1
         let physicsBody = SKPhysicsBody(rectangleOfSize: self.frame.size)
         physicsBody.dynamic = true
         physicsBody.contactTestBitMask = 0x1 << 1
