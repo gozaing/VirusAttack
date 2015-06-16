@@ -15,7 +15,7 @@ class Tooth: SKSpriteNode {
         self.gameScene = scene
     }
     
-    var timer = NSTimer()
+    var virusAppearTimer = NSTimer()
     
     var virusCount:NSInteger = 0
     func setCount(){
@@ -54,7 +54,7 @@ class Tooth: SKSpriteNode {
         NSLog("interval--%d",intInterval)
         let virusAppearSec = NSTimeInterval(intInterval)
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(virusAppearSec, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
+        self.virusAppearTimer = NSTimer.scheduledTimerWithTimeInterval(virusAppearSec, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
         
         self.name = "tooth-" + objIndex.description
         
@@ -93,12 +93,13 @@ class Tooth: SKSpriteNode {
             
         } else {
             NSLog("tooth doesn't generate virus")
-            self.timer.invalidate()
+            self.virusAppearTimer.invalidate()
 
         }
         
     }
     
+    // for happy texture
     var fineTextureTimer = NSTimer()
     
     func winAction() {
@@ -143,7 +144,7 @@ class Tooth: SKSpriteNode {
         self.texture = loseTexture
 
         // virus 発生を止める
-        self.timer.invalidate()
+        self.virusAppearTimer.invalidate()
         
     }
 }
