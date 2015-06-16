@@ -27,7 +27,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // gameOverTimer
     var gameOverTimer:NSTimer?
     // gameOverTime
-    let gameOverTime: NSTimeInterval = 5
+    let gameOverTime: NSTimeInterval = 10
     
 
     // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用
@@ -211,7 +211,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
             var virus:Virus?
             virus = parentTooth.childNodeWithName("virus-" + objIndex) as? Virus
-            virus?.timer.invalidate()
+            virus?.virusAttackTimer.invalidate()
                 
             // parent run Action
             parentTooth.winAction()
@@ -234,7 +234,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
             var virus:Virus?
             virus = parentTooth.childNodeWithName("virus-" + objIndex) as? Virus
-            virus?.timer.invalidate()
+            virus?.virusAttackTimer.invalidate()
             
             // parent run Action
             parentTooth.winAction()
