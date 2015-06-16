@@ -11,8 +11,9 @@ import SpriteKit
 
 class Virus: SKSpriteNode {
 
-    var timer = NSTimer()
     var parentTooth:Tooth!
+    var virusAttackTimer = NSTimer()
+    let virusAttackTimeInterval:NSTimeInterval = 1
     
     init(tooth: Tooth) {
         
@@ -21,7 +22,7 @@ class Virus: SKSpriteNode {
         let texture = SKTexture(imageNamed: "s_virus_0")
         super.init(texture: texture, color: nil, size: texture.size())
 
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "virusWin", userInfo: nil, repeats: true)
+        self.virusAttackTimer = NSTimer.scheduledTimerWithTimeInterval(virusAttackTimeInterval, target: self, selector: "virusAttack", userInfo: nil, repeats: true)
         
         self.position = CGPointMake(30, 30)
         let physicsBody = SKPhysicsBody(rectangleOfSize: self.frame.size)
@@ -46,18 +47,17 @@ class Virus: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
         
-    func virusWin() {
+    func virusAttack() {
         
         if (gameOverFlg == false) {
 
             parentTooth.setTimeProgress()
             var toothEnergy:Int = parentTooth.getTimeProgress()
-//            NSLog("toothEnergy->%d",toothEnergy)
             if (toothEnergy == 0) {
                 
                 // virusの勝ちで、歯にダメージ
                 self.parentTooth.checkToothStatus()
-                self.timer.invalidate()
+                self.virusAttackTimer.invalidate()
                 
                 // virus 勝ったアニメーション表示
                 let scaleA = SKAction.scaleTo(1.0, duration: 0.5)
@@ -79,7 +79,7 @@ class Virus: SKSpriteNode {
             
         } else {
             NSLog("stop virus action for game over")
-            self.timer.invalidate()
+            self.virusAttackTimer.invalidate()
         }
     }
 }
