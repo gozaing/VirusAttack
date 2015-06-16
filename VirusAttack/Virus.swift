@@ -47,7 +47,12 @@ class Virus: SKSpriteNode {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+
+    deinit {
+        self.virusAttackTimer.invalidate()
+    }
+
+    
     func virusAttack() {
         
         if (gameOverFlg == false) {
@@ -80,7 +85,9 @@ class Virus: SKSpriteNode {
             
         } else {
             NSLog("stop virus action for game over")
+            // gameoverまでVirusが倒されない場合に通過する
             self.virusAttackTimer.invalidate()
+
         }
     }
 }

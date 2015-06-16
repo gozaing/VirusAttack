@@ -66,6 +66,10 @@ class Tooth: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        self.virusAppearTimer.invalidate()
+    }
+    
     func virusAppear() {
         
         // gameoverか判定
