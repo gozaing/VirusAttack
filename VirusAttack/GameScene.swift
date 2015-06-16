@@ -26,6 +26,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     var brush:SKSpriteNode?
     // gameOverTimer
     var gameOverTimer:NSTimer?
+    // gameOverTime
+    let gameOverTime: NSTimeInterval = 5
+    
 
     // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用
     var viewController: ViewController!
@@ -40,7 +43,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.gameOverTimer = nil
         
         // gameOverTimer start
-        self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "gameOver", userInfo: nil, repeats: false)
+        self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(gameOverTime, target: self, selector: "gameOver", userInfo: nil, repeats: false)
         
         // 衝突プロトコルの発生
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
