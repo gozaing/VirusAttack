@@ -24,8 +24,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     // ブラシ
     var brush:SKSpriteNode?
-    // timer
-    var timer:NSTimer?
     // gameOverTimer
     var gameOverTimer:NSTimer?
 
@@ -39,7 +37,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         point = 0
 
         self.brush = nil
-        self.timer = nil
         self.gameOverTimer = nil
         
         // gameOverTimer start
