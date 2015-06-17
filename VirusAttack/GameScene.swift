@@ -78,10 +78,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             var toothPosY :CGFloat = 100
             
             var culcToothPosX :CGFloat = CGFloat( (Int(self.size.width) / 4) * i)
-            
             tooth.position = CGPointMake( culcToothPosX , 420)
-            //            tooth.position = CGPointMake( toothPosX , 420)
-            
             self.addChild(tooth)
             
         }
@@ -94,9 +91,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         homeIcon.removeFromSuperview()
         reloadIcon.removeFromSuperview()
         
-        var Nodes : [SKNode]
-        
-        NSLog("reloadGame-1")
         for Node : AnyObject in self.children{
             
             if (Node as! SKNode).name == nil  {
@@ -105,7 +99,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             }
             else{
                 if Node.name == "background" {
-                    //Nodes.append(Node as! SKNode)
                     println("name is background")
                 }
                 else {
@@ -154,7 +147,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         pointLabel.text = pointString
         self.addChild(pointLabel)
 
-        // ボタン表示
         // もう一度
         reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
         reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
@@ -221,9 +213,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             
             // 加算
             point += 10
-            
-            
-            
 
         }else if (contact.bodyB.node == self.brush){
 

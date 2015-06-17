@@ -41,7 +41,6 @@ class Virus: SKSpriteNode {
         let paraparaRepeatAction1 =  SKAction.repeatActionForever(parapraAction1)
         self.runAction(paraparaRepeatAction1)
         
-        
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -84,7 +83,7 @@ class Virus: SKSpriteNode {
             }
             
         } else {
-            NSLog("stop virus action for game over")
+            // stop virus action for game over
             // gameoverまでVirusが倒されない場合に通過する
             self.virusAttackTimer.invalidate()
 

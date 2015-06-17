@@ -29,15 +29,12 @@ class ViewController: UIViewController {
         if(!viewInitiated){
             super.viewWillLayoutSubviews()
 
-            NSLog("start ViewController")
-            
             // シーン作成
             let scene = GameScene()
 
             scene.viewController = self
             
             // SKView型で取り出す
-            //        let view = self.view as! SKView
             let view = self.view as! SKView
             
             // debug info
@@ -64,10 +61,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func onClickHomeIcon() {
-        dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
