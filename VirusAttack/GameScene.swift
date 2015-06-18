@@ -49,7 +49,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
         
-        let brushTexture = SKTexture(imageNamed: "toothbrush")
+        let brushTexture = SKTexture(imageNamed: "brush_blue")
         let brush = SKSpriteNode(texture: brushTexture)
         brush.position = CGPoint(x: self.size.width*0.5, y:100)
         brush.zPosition = 2
