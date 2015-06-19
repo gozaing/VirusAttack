@@ -27,7 +27,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // gameOverTimer
     var gameOverTimer:NSTimer?
     // gameOverTime
-    let gameOverTime: NSTimeInterval = 15
+    let gameOverTime: NSTimeInterval = 30
     
 
     // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用
@@ -54,20 +54,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         brush.position = CGPoint(x: self.size.width*0.5, y:100)
         brush.zPosition = 2
         brush.size = CGSize(width: brushTexture.size().width*0.5, height: brushTexture.size().height*0.5)
-        brush.physicsBody = SKPhysicsBody(texture: brushTexture, size: brush.size)
-        brush.physicsBody?.dynamic = false
         
         // add physics
-        let physicsBody = SKPhysicsBody(rectangleOfSize: brush.frame.size)
+        let physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(brush.size.width/10, brush.size.height/10))
         physicsBody.dynamic = true
         physicsBody.contactTestBitMask = 0x1 << 1
         brush.physicsBody = physicsBody
         
         self.brush = brush
         self.addChild(brush)
-        
-        // add tooth
-        // TODO:background.sizeからtoothCountで算出する
         
         var toothCount = 3
         for (var i = 1; i<toothCount; i++) {
