@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
         
         // notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterBackground:", name:"applicationDidEnterBackground", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForeground:", name:"applicationWillEnterForeground", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGameScene:", name:"applicationWillEnterForeground", object: nil)
 
     }
     
@@ -76,9 +76,15 @@ class GameViewController: UIViewController {
         println("applicationWillEnterForeground")
         
         // scene kit puase = false
-
     }
 
-    
+    func pauseGameScene(notification: NSNotification){
+        println("pauseGameScene")
+        
+        // scene kit pause change
+        
+        
+        
+    }
 }
 

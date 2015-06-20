@@ -34,6 +34,20 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     var GameViewController: UIViewController!
 
     
+    var gamePaused : Bool = false {
+        didSet {
+            self.paused = gamePaused
+        }
+    }
+    override var paused : Bool {
+        get {
+            return gamePaused
+        }
+        set {
+            super.paused = gamePaused
+        }
+    }
+    
     func gameStart() {
         
         gameOverFlg = false
