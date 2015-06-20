@@ -11,41 +11,39 @@ import UIKit
 
 class MenuViewController: UIViewController {
 
-    private var myImageView: UIImageView!
+    private var menuImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 表示する画像を設定する.
-        let myImage = UIImage(named: "menu")
-
-        // UIImageViewを作成する.
-        myImageView = UIImageView(frame: CGRectMake(0,0,myImage!.size.width,myImage!.size.height))
-        
-        // 画像をUIImageViewに設定する.
-        myImageView.image = myImage
-        
-        // 画像の表示する座標を指定する.
-        myImageView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
-        
-        // UIImageViewをViewに追加する.
-        self.view.addSubview(myImageView)
+        // menu view
+        let menuImage = UIImage(named: "menu")
+        menuImageView = UIImageView(frame: CGRectMake(0,0,menuImage!.size.width,menuImage!.size.height))
+        menuImageView.image = menuImage
+        menuImageView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
+        self.view.addSubview(menuImageView)
         
         // 作成したViewを再背面へ
-        self.view.sendSubviewToBack(myImageView)
+        self.view.sendSubviewToBack(menuImageView)
 
-        // ボタンを生成する.
-        let nextButton: UIButton = UIButton(frame: CGRectMake(0,0,200,200))
-        nextButton.backgroundColor = UIColor.redColor();
-        nextButton.layer.masksToBounds = true
-        nextButton.setTitle("start", forState: .Normal)
-        nextButton.layer.cornerRadius = 20.0
-        nextButton.layer.position = CGPoint(x: self.view.bounds.width/2 , y:self.view.bounds.height*0.75)
-        nextButton.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
 
-        nextButton.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        // game start button
+        let gameStartButton: UIButton = UIButton(frame: CGRectMake(0,0,200,200))
+        gameStartButton.backgroundColor = UIColor.redColor();
+        gameStartButton.layer.masksToBounds = true
+        gameStartButton.setTitle("start", forState: .Normal)
+        gameStartButton.layer.cornerRadius = 20.0
+        gameStartButton.layer.position = CGPoint(x: self.view.bounds.width/2 , y:self.view.bounds.height*0.75)
+        gameStartButton.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
+
+        gameStartButton.setImage(UIImage(named: "cake_1"), forState: .Normal)
         // ボタンを追加する.
-        self.view.addSubview(nextButton)
+        self.view.addSubview(gameStartButton)
+        
+        // tutorial view
+        
+        
+        
 
     }
     
