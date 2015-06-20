@@ -41,6 +41,16 @@ class MenuViewController: UIViewController {
         self.view.addSubview(gameStartButton)
         
         // tutorial view
+        let helpButton: UIButton = UIButton(frame: CGRectMake(0,0,100,100))
+        helpButton.backgroundColor = UIColor.grayColor();
+        helpButton.layer.masksToBounds = true
+        helpButton.setTitle("help", forState: .Normal)
+        helpButton.layer.cornerRadius = 20.0
+        helpButton.layer.position = CGPoint(x: self.view.bounds.width/2 , y:self.view.bounds.height*0.5)
+        helpButton.addTarget(self, action: "onClickHelpMenu:", forControlEvents: .TouchUpInside)
+//        helpButton.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        // ボタンを追加する.
+        self.view.addSubview(helpButton)
         
         
         
@@ -53,13 +63,16 @@ class MenuViewController: UIViewController {
     
     @IBAction func onClickStartGame(sender:UIButton) {
         NSLog("onClickStartGame")
-        // 遷移するViewを定義する.
-        let myGameViewController: UIViewController = GameViewController()
-        // アニメーションを設定する.
-        myGameViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        
-        // Viewの移動する.
-        self.presentViewController(myGameViewController, animated: true, completion: nil)
+        let gameViewController: UIViewController = GameViewController()
+        gameViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.presentViewController(gameViewController, animated: true, completion: nil)
+    }
+
+    @IBAction func onClickHelpMenu(sender:UIButton) {
+        NSLog("onClickHelpMenu")
+        let helpViewController: UIViewController = HelpViewController()
+        helpViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.presentViewController(helpViewController, animated: true, completion: nil)
     }
     
 }
