@@ -27,7 +27,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // gameOverTimer
     var gameOverTimer:NSTimer?
     // gameOverTime
-    let gameOverTime: NSTimeInterval = 10
+    let gameOverTime: NSTimeInterval = 60
     
 
     // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用

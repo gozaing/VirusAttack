@@ -15,7 +15,12 @@ class HelpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // notification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterBackground:", name:"applicationDidEnterBackground", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForeground:", name:"applicationWillEnterForeground", object: nil)
+
+
         // help tutorial page
         let helpImage = UIImage(named: "bath_750_1334")
         helpImageView = UIImageView(frame: CGRectMake(0,0,helpImage!.size.width,helpImage!.size.height))
@@ -47,4 +52,15 @@ class HelpViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
+    
+    // notify function
+    func enterBackground(notification: NSNotification){
+        println("applicationDidEnterBackground")
+    }
+    
+    func enterForeground(notification: NSNotification){
+        println("applicationWillEnterForeground")
+    }
+
+    
 }
