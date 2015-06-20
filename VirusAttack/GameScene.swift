@@ -27,7 +27,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // gameOverTimer
     var gameOverTimer:NSTimer?
     // gameOverTime
-    let gameOverTime: NSTimeInterval = 30
+    let gameOverTime: NSTimeInterval = 60
     
 
     // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用
@@ -168,7 +168,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if let touch: AnyObject = touches.first {
             let location = touch.locationInNode(self)
-            let action = SKAction.moveTo(CGPointMake(location.x, location.y), duration: 0.1)
+            let action = SKAction.moveTo(CGPointMake(location.x, location.y-50), duration: 0.1)
             self.brush?.runAction(action)
         }
     }
