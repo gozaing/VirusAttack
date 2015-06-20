@@ -56,7 +56,7 @@ class MenuViewController: UIViewController {
     @IBAction func onClickStartGame(sender:UIButton) {
         NSLog("onClickStartGame")
         // 遷移するViewを定義する.
-        let myGameViewController: UIViewController = ViewController()
+        let myGameViewController: UIViewController = GameViewController()
         // アニメーションを設定する.
         myGameViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         

@@ -11,7 +11,7 @@ import SpriteKit
 
 
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
     
     var viewInitiated: Bool = false
     
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             // シーン作成
             let scene = GameScene()
 
-            scene.viewController = self
+            scene.GameViewController = self
             
             // SKView型で取り出す
             let view = self.view as! SKView

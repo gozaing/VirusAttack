@@ -27,11 +27,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // gameOverTimer
     var gameOverTimer:NSTimer?
     // gameOverTime
-    let gameOverTime: NSTimeInterval = 60
+    let gameOverTime: NSTimeInterval = 10
     
 
     // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用
-    var viewController: ViewController!
+    var GameViewController: UIViewController!
 
     
     func gameStart() {
@@ -155,7 +155,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     }
     
     func backToMenu (sender: UIButton) {
-        self.viewController.dismissViewControllerAnimated(true, completion: nil)
+        self.GameViewController.dismissViewControllerAnimated(true, completion: nil)
         
 
     }
