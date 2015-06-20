@@ -16,9 +16,9 @@ class HelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // notification
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterBackground:", name:"applicationDidEnterBackground", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForeground:", name:"applicationWillEnterForeground", object: nil)
+//        // notification
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterBackground:", name:"applicationDidEnterBackground", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForeground:", name:"applicationWillEnterForeground", object: nil)
 
 
         // help tutorial page
@@ -53,14 +53,14 @@ class HelpViewController: UIViewController {
         
     }
     
-    // notify function
-    func enterBackground(notification: NSNotification){
-        println("applicationDidEnterBackground")
-    }
-    
-    func enterForeground(notification: NSNotification){
-        println("applicationWillEnterForeground")
-    }
+//    // notify function
+//    func enterBackground(notification: NSNotification){
+//        println("applicationDidEnterBackground")
+//    }
+//    
+//    func enterForeground(notification: NSNotification){
+//        println("applicationWillEnterForeground")
+//    }
 
     
 }
