@@ -78,18 +78,36 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.brush = brush
         self.addChild(brush)
         
-        var toothCount = 3
-        for (var i = 1; i<toothCount; i++) {
-            
-            let tooth = Tooth(objIndex:i)
-            tooth.setScene(self)
-            var toothPosX :CGFloat = CGFloat(100 * i)
-            var toothPosY :CGFloat = 100
-            
-            var culcToothPosX :CGFloat = CGFloat( (Int(self.size.width) / 4) * i)
-            tooth.position = CGPointMake( culcToothPosX , 420)
-            self.addChild(tooth)
-            
+        // calc tooth count --normal--
+        let widthCount:Int = 4
+        let heightCount:Int = 6
+        
+        let toothPerWidth = Int(self.size.width / CGFloat(widthCount))
+        let toothPerHeight = Int(self.size.height / CGFloat(heightCount))
+        
+        // 歯オブジェクトの名前用
+        var toothCount = 1
+        
+        
+        // 幅から横並びの歯の数を算出
+        for (var i = 1; i < widthCount; i++) {
+
+            // 高さから歯の数を算出
+            for (var j = 1; j < heightCount; j++) {
+
+                let tooth = Tooth(objIndex:toothCount)
+                tooth.setScene(self)
+                var toothPosX :CGFloat = CGFloat(toothPerWidth * i)
+                var toothPosY :CGFloat = CGFloat(toothPerHeight * j)
+                
+                tooth.position = CGPointMake( toothPosX , toothPosY)
+                self.addChild(tooth)
+                
+                toothCount++
+                println(toothCount)
+
+            }
+
         }
 
     }
@@ -208,7 +226,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             var targetNode:SKNode? = contact.bodyB.node
             
             let actualChildName = targetNode?.name ?? "Undefined"
-            let objIndex = (actualChildName as NSString).substringFromIndex(count(actualChildName) - 1 )
+            // virus-10という形で取れる -以降を取り出す
+            let virusNameIndex = (actualChildName as NSString).rangeOfString("-").location
+            let objIndex = (actualChildName as NSString).substringFromIndex(virusNameIndex + 1 )
             
             var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
             var virus:Virus?
@@ -228,7 +248,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             var targetNode:SKNode? = contact.bodyA.node
             
             let actualChildName = targetNode?.name ?? "Undefined"
-            let objIndex = (actualChildName as NSString).substringFromIndex(count(actualChildName) - 1 )
+            // virus-10という形で取れる -以降を取り出す
+            let virusNameIndex = (actualChildName as NSString).rangeOfString("-").location
+            let objIndex = (actualChildName as NSString).substringFromIndex(virusNameIndex + 1 )
             
             var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
             var virus:Virus?
