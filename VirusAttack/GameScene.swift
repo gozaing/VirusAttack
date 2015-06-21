@@ -27,26 +27,26 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     // gameOverTimer
     var gameOverTimer:NSTimer?
     // gameOverTime
-    let gameOverTime: NSTimeInterval = 60
+    let gameOverTime: NSTimeInterval = 20
     
 
     // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用
     var GameViewController: UIViewController!
 
     
-    var gamePaused : Bool = false {
-        didSet {
-            self.paused = gamePaused
-        }
-    }
-    override var paused : Bool {
-        get {
-            return gamePaused
-        }
-        set {
-            super.paused = gamePaused
-        }
-    }
+//    var gamePaused : Bool = false {
+//        didSet {
+//            self.paused = gamePaused
+//        }
+//    }
+//    override var paused : Bool {
+//        get {
+//            return gamePaused
+//        }
+//        set {
+//            super.paused = gamePaused
+//        }
+//    }
     
     func gameStart() {
         
