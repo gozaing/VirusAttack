@@ -41,21 +41,25 @@ class ScoreViewController: UIViewController {
         
         //UserDefaultの生成.
         var myUserDafault:NSUserDefaults = NSUserDefaults()
-        
         //登録されているUserDefaultから最高点を呼び出す
         var point:Int = myUserDafault.integerForKey("MaxPoint")
+
+        //得点ラベル
+        let dispLabel: UILabel = UILabel(frame: CGRectMake(0,0,300,200))
+        dispLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.frame.height/2 - 100)
         
+        dispLabel.text = "最高得点"
+        dispLabel.font = UIFont(name: "HiraKakuProN-W3", size: 50)
+        dispLabel.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(dispLabel)
+
         //取り出した最高点を表示するためのUILabel
-//        var pointLabel:UILabel = UILabel()
         let pointLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,100))
-        // 位置
         pointLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.frame.height/2)
         
         pointLabel.text = "\(point)点"
         pointLabel.font = UIFont(name: "HiraKakuProN-W3", size: 60)
         pointLabel.textAlignment = NSTextAlignment.Center
-//        pointLabel.font = UIFont(name: "HiraKakuProN", size: 60)
-//        pointLabel.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
         self.view.addSubview(pointLabel)
         
     }
