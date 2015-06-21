@@ -22,8 +22,10 @@ let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
     
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-    
+    //AppDelegateのインスタンスを取得
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    // 得点を保持
+    var myUserDafault:NSUserDefaults = NSUserDefaults()
     // ブラシ
     var brush:SKSpriteNode?
     // gameOverTimer
@@ -193,6 +195,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         var pointString:String = "\(point)点"
         pointLabel.text = pointString
         self.addChild(pointLabel)
+        
+        // NSUserDefaultに最高点を保持
+        var maxPoint:Int = myUserDafault.integerForKey("MaxPoint")
+        NSLog("maxPoint->%d",maxPoint)
+        if (maxPoint < point ) {
+            NSLog("save maxpoint")
+            //最高点を超えていたら保持する
+            myUserDafault.setObject(point, forKey: "MaxPoint")
+        }
 
         // もう一度
         reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)

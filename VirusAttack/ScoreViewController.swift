@@ -38,6 +38,26 @@ class ScoreViewController: UIViewController {
         homeButton.setImage(UIImage(named: "home"), forState: .Normal)
         // ボタンを追加する.
         self.view.addSubview(homeButton)
+        
+        //UserDefaultの生成.
+        var myUserDafault:NSUserDefaults = NSUserDefaults()
+        
+        //登録されているUserDefaultから最高点を呼び出す
+        var point:Int = myUserDafault.integerForKey("MaxPoint")
+        
+        //取り出した最高点を表示するためのUILabel
+//        var pointLabel:UILabel = UILabel()
+        let pointLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,100))
+        // 位置
+        pointLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.frame.height/2)
+        
+        pointLabel.text = "\(point)点"
+        pointLabel.font = UIFont(name: "HiraKakuProN-W3", size: 60)
+        pointLabel.textAlignment = NSTextAlignment.Center
+//        pointLabel.font = UIFont(name: "HiraKakuProN", size: 60)
+//        pointLabel.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
+        self.view.addSubview(pointLabel)
+        
     }
     
     @IBAction func onClickGoHome(sender: UIButton) {
