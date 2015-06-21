@@ -63,14 +63,14 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
         
-        let brushTexture = SKTexture(imageNamed: "brush_blue")
-        let brush = SKSpriteNode(texture: brushTexture)
+        let brush = SKSpriteNode()
+        brush.color = UIColor.greenColor()
         brush.position = CGPoint(x: self.size.width*0.5, y:100)
         brush.zPosition = 2
-        brush.size = CGSize(width: brushTexture.size().width*0.5, height: brushTexture.size().height*0.5)
+        brush.size = CGSizeMake(50, 50)
         
         // add physics
-        let physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(brush.size.width/10, brush.size.height/10))
+        let physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(brush.size.width, brush.size.height))
         physicsBody.dynamic = true
         physicsBody.contactTestBitMask = 0x1 << 1
         brush.physicsBody = physicsBody
@@ -201,7 +201,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if let touch: AnyObject = touches.first {
             let location = touch.locationInNode(self)
-            let action = SKAction.moveTo(CGPointMake(location.x, location.y-50), duration: 0.1)
+            let action = SKAction.moveTo(CGPointMake(location.x, location.y), duration: 0.1)
             self.brush?.runAction(action)
         }
     }
