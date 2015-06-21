@@ -27,6 +27,34 @@ class MenuViewController: UIViewController {
         // 作成したViewを再背面へ
         self.view.sendSubviewToBack(menuImageView)
 
+        // 歯ブラシアイコン 1
+        let toothIconImage1 = UIImage(named: "tooth_man_1")
+        let toothIconImageView1 = UIImageView(frame: CGRectMake(0,0,100,100))
+        toothIconImageView1.image = toothIconImage1
+        toothIconImageView1.layer.position = CGPoint(x: 50, y: 70)
+        self.view.addSubview(toothIconImageView1)
+
+        // 歯ブラシアイコン 2
+        let toothIconImage2 = UIImage(named: "tooth_man_2")
+        let toothIconImageView2 = UIImageView(frame: CGRectMake(0,0,100,100))
+        toothIconImageView2.image = toothIconImage2
+        toothIconImageView2.layer.position = CGPoint(x: 140, y: 70)
+        self.view.addSubview(toothIconImageView2)
+
+        // 歯ブラシアイコン 3
+        let toothIconImage3 = UIImage(named: "tooth_man_3")
+        let toothIconImageView3 = UIImageView(frame: CGRectMake(0,0,100,100))
+        toothIconImageView3.image = toothIconImage3
+        toothIconImageView3.layer.position = CGPoint(x: 230, y: 70)
+        self.view.addSubview(toothIconImageView3)
+
+        // 歯ブラシアイコン 4
+        let toothIconImage4 = UIImage(named: "tooth_man_4")
+        let toothIconImageView4 = UIImageView(frame: CGRectMake(0,0,100,100))
+        toothIconImageView4.image = toothIconImage4
+        toothIconImageView4.layer.position = CGPoint(x: 320, y: 70)
+        self.view.addSubview(toothIconImageView4)
+
 
         // game start button 1
         let gameStartButton1: UIButton = UIButton(frame: CGRectMake(0,0,150,150))
@@ -80,13 +108,13 @@ class MenuViewController: UIViewController {
 
         // tutorial view
         let helpButton: UIButton = UIButton(frame: CGRectMake(0,0,100,100))
-        helpButton.backgroundColor = UIColor.grayColor();
+        helpButton.backgroundColor = UIColor.whiteColor();
         helpButton.layer.masksToBounds = true
-        helpButton.setTitle("help", forState: .Normal)
+//        helpButton.setTitle("help", forState: .Normal)
         helpButton.layer.cornerRadius = 20.0
         helpButton.layer.position = CGPoint(x: (self.view.bounds.width/4)*1 , y:self.view.bounds.height*0.9)
         helpButton.addTarget(self, action: "onClickHelpView:", forControlEvents: .TouchUpInside)
-//        helpButton.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        helpButton.setImage(UIImage(named: "question"), forState: .Normal)
         // ボタンを追加する.
         self.view.addSubview(helpButton)
         
