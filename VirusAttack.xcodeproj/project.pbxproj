@@ -18,6 +18,7 @@
 		4FD8D39B1B197843004E48B0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8D39A1B197843004E48B0 /* GameScene.swift */; };
 		4FD8D3A11B1AD4BD004E48B0 /* Virus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8D3A01B1AD4BD004E48B0 /* Virus.swift */; };
 		4FD8D3A51B1AF1D0004E48B0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8D3A41B1AF1D0004E48B0 /* MenuViewController.swift */; };
+		4FF856E91B36EAC500D27318 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF856E81B36EAC500D27318 /* ScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		4FD8D39A1B197843004E48B0 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4FD8D3A01B1AD4BD004E48B0 /* Virus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Virus.swift; sourceTree = "<group>"; };
 		4FD8D3A41B1AF1D0004E48B0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		4FF856E81B36EAC500D27318 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				4FD8D37C1B197813004E48B0 /* GameViewController.swift */,
 				4FD8D3A41B1AF1D0004E48B0 /* MenuViewController.swift */,
 				4F4421D01B351A98005B669E /* HelpViewController.swift */,
+				4FF856E81B36EAC500D27318 /* ScoreViewController.swift */,
 				4FD8D37E1B197813004E48B0 /* Main.storyboard */,
 				4FD8D39A1B197843004E48B0 /* GameScene.swift */,
 				4FD8D3811B197813004E48B0 /* Images.xcassets */,
@@ -243,6 +246,7 @@
 				4FD8D37D1B197813004E48B0 /* GameViewController.swift in Sources */,
 				4FD8D37B1B197813004E48B0 /* AppDelegate.swift in Sources */,
 				4FD8D3A11B1AD4BD004E48B0 /* Virus.swift in Sources */,
+				4FF856E91B36EAC500D27318 /* ScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

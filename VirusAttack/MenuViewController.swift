@@ -84,12 +84,23 @@ class MenuViewController: UIViewController {
         helpButton.layer.masksToBounds = true
         helpButton.setTitle("help", forState: .Normal)
         helpButton.layer.cornerRadius = 20.0
-        helpButton.layer.position = CGPoint(x: self.view.bounds.width/2 , y:self.view.bounds.height*0.9)
-        helpButton.addTarget(self, action: "onClickHelpMenu:", forControlEvents: .TouchUpInside)
+        helpButton.layer.position = CGPoint(x: (self.view.bounds.width/4)*1 , y:self.view.bounds.height*0.9)
+        helpButton.addTarget(self, action: "onClickHelpView:", forControlEvents: .TouchUpInside)
 //        helpButton.setImage(UIImage(named: "cake_1"), forState: .Normal)
         // ボタンを追加する.
         self.view.addSubview(helpButton)
-
+        
+        // score view
+        let scoreButton: UIButton = UIButton(frame: CGRectMake(0,0,100,100))
+        scoreButton.backgroundColor = UIColor.grayColor();
+        scoreButton.layer.masksToBounds = true
+        scoreButton.setTitle("score", forState: .Normal)
+        scoreButton.layer.cornerRadius = 20.0
+        scoreButton.layer.position = CGPoint(x: (self.view.bounds.width/4)*3 , y:self.view.bounds.height*0.9)
+        scoreButton.addTarget(self, action: "onClickScoreView:", forControlEvents: .TouchUpInside)
+        //        helpButton.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        // ボタンを追加する.
+        self.view.addSubview(scoreButton)
     }
     
     @IBAction func backFromSecondView(segue:UIStoryboardSegue){
@@ -104,11 +115,18 @@ class MenuViewController: UIViewController {
         self.presentViewController(gameViewController, animated: true, completion: nil)
     }
 
-    @IBAction func onClickHelpMenu(sender:UIButton) {
-        NSLog("onClickHelpMenu")
+    @IBAction func onClickHelpView(sender:UIButton) {
+        NSLog("onClickHelpView")
         let helpViewController: UIViewController = HelpViewController()
         helpViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         self.presentViewController(helpViewController, animated: true, completion: nil)
+    }
+
+    @IBAction func onClickScoreView(sender:UIButton) {
+        NSLog("onClickScoreView")
+        let scoreViewController: UIViewController = ScoreViewController()
+        scoreViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        self.presentViewController(scoreViewController, animated: true, completion: nil)
     }
     
 }
