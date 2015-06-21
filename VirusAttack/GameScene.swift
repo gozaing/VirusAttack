@@ -22,6 +22,8 @@ let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
     
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+    
     // ブラシ
     var brush:SKSpriteNode?
     // gameOverTimer
@@ -78,9 +80,26 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.brush = brush
         self.addChild(brush)
         
-        // calc tooth count --normal--
-        let widthCount:Int = 4
-        let heightCount:Int = 6
+        // ------------------------------------------
+        // MenuViewControllerで選択したレベルをAppDelegate経由で取得
+        var widthCount:Int = 0
+        var heightCount:Int = 0
+
+        let level = appDelegate.gameLevel
+        if (level == 2) {
+            widthCount = 3
+            heightCount = 4
+        } else if (level == 3) {
+            widthCount = 4
+            heightCount = 5
+        } else if (level == 4) {
+            widthCount = 5
+            heightCount = 7
+        } else {
+            widthCount = 2
+            heightCount = 3
+        }
+        // ------------------------------------------
         
         let toothPerWidth = Int(self.size.width / CGFloat(widthCount))
         let toothPerHeight = Int(self.size.height / CGFloat(heightCount))

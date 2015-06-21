@@ -12,10 +12,11 @@ import UIKit
 class MenuViewController: UIViewController {
 
     private var menuImageView: UIImageView!
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // menu view
         let menuImage = UIImage(named: "menu")
         menuImageView = UIImageView(frame: CGRectMake(0,0,menuImage!.size.width,menuImage!.size.height))
@@ -34,6 +35,7 @@ class MenuViewController: UIViewController {
         gameStartButton1.setTitle("start", forState: .Normal)
         gameStartButton1.layer.cornerRadius = 20.0
         gameStartButton1.layer.position = CGPoint(x: (self.view.bounds.width/4)*1 , y:self.view.bounds.height*0.35)
+        gameStartButton1.tag = 1
         gameStartButton1.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
         
         gameStartButton1.setImage(UIImage(named: "cake_1"), forState: .Normal)
@@ -46,6 +48,7 @@ class MenuViewController: UIViewController {
         gameStartButton2.setTitle("start", forState: .Normal)
         gameStartButton2.layer.cornerRadius = 20.0
         gameStartButton2.layer.position = CGPoint(x: (self.view.bounds.width/4)*3 , y:self.view.bounds.height*0.35)
+        gameStartButton2.tag = 2
         gameStartButton2.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
         gameStartButton2.setImage(UIImage(named: "cake_1"), forState: .Normal)
         self.view.addSubview(gameStartButton2)
@@ -57,6 +60,7 @@ class MenuViewController: UIViewController {
         gameStartButton3.setTitle("start", forState: .Normal)
         gameStartButton3.layer.cornerRadius = 20.0
         gameStartButton3.layer.position = CGPoint(x: (self.view.bounds.width/4)*1 , y:self.view.bounds.height*0.60)
+        gameStartButton3.tag = 3
         gameStartButton3.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
         
         gameStartButton3.setImage(UIImage(named: "cake_1"), forState: .Normal)
@@ -69,6 +73,7 @@ class MenuViewController: UIViewController {
         gameStartButton4.setTitle("start", forState: .Normal)
         gameStartButton4.layer.cornerRadius = 20.0
         gameStartButton4.layer.position = CGPoint(x: (self.view.bounds.width/4)*3 , y:self.view.bounds.height*0.60)
+        gameStartButton4.tag = 4
         gameStartButton4.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
         gameStartButton4.setImage(UIImage(named: "cake_1"), forState: .Normal)
         self.view.addSubview(gameStartButton4)
@@ -84,9 +89,6 @@ class MenuViewController: UIViewController {
 //        helpButton.setImage(UIImage(named: "cake_1"), forState: .Normal)
         // ボタンを追加する.
         self.view.addSubview(helpButton)
-        
-        
-        
 
     }
     
@@ -95,7 +97,8 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func onClickStartGame(sender:UIButton) {
-        NSLog("onClickStartGame")
+        NSLog("onClickStartGame-gameLevel-%d",sender.tag)
+        appDelegate.gameLevel = sender.tag
         let gameViewController: UIViewController = GameViewController()
         gameViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         self.presentViewController(gameViewController, animated: true, completion: nil)
