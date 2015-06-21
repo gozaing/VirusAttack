@@ -64,10 +64,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         let brush = SKSpriteNode()
-        brush.color = UIColor.greenColor()
+//        brush.color = UIColor.greenColor()
         brush.position = CGPoint(x: self.size.width*0.5, y:100)
         brush.zPosition = 2
-        brush.size = CGSizeMake(50, 50)
+        brush.size = CGSizeMake(40, 40)
         
         // add physics
         let physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(brush.size.width, brush.size.height))
