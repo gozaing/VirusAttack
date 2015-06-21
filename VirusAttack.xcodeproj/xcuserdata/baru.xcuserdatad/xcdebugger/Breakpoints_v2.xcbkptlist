@@ -67,5 +67,83 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VirusAttack/GameViewController.swift"
+            timestampString = "456537118.459221"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "loadView()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VirusAttack.GameViewController.gameView.setter : ObjectiveC.SKView"
+                  moduleName = "VirusAttack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baru/Dropbox/workspace/git/VirusAttack/VirusAttack/GameViewController.swift"
+                  timestampString = "456536942.301115"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VirusAttack.GameViewController.gameView.materializeForSet : ObjectiveC.SKView"
+                  moduleName = "VirusAttack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baru/Dropbox/workspace/git/VirusAttack/VirusAttack/GameViewController.swift"
+                  timestampString = "456536942.301337"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VirusAttack.GameViewController.init (VirusAttack.GameViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; VirusAttack.GameViewController"
+                  moduleName = "VirusAttack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baru/Dropbox/workspace/git/VirusAttack/VirusAttack/GameViewController.swift"
+                  timestampString = "456536942.301506"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VirusAttack.GameViewController.init (VirusAttack.GameViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; VirusAttack.GameViewController"
+                  moduleName = "VirusAttack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/baru/Dropbox/workspace/git/VirusAttack/VirusAttack/GameViewController.swift"
+                  timestampString = "456536942.301667"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

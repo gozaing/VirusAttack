@@ -23,9 +23,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // notification
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterBackground:", name:"applicationDidEnterBackground", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGameScene:", name:"applicationWillEnterForeground", object: nil)
+//        // notification
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterBackground:", name:"applicationDidEnterBackground", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGameScene:", name:"applicationWillEnterForeground", object: nil)
 
     }
     
@@ -67,24 +67,20 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // notify function
-    func enterBackground(notification: NSNotification){
-        println("applicationDidEnterBackground")
-    }
-    
-    func enterForeground(notification: NSNotification){
-        println("applicationWillEnterForeground")
-        
-        // scene kit puase = false
-    }
-
-    func pauseGameScene(notification: NSNotification){
-        println("pauseGameScene")
-        
-        // scene kit pause change
-        
-        
-        
-    }
+//    // notify function
+//    func enterBackground(notification: NSNotification){
+//        println("applicationDidEnterBackground")
+//    }
+//    
+//    func enterForeground(notification: NSNotification){
+//        println("applicationWillEnterForeground")
+//        
+//        // scene kit puase = false
+//    }
+//
+//    func pauseGameScene(notification: NSNotification){
+//        println("pauseGameScene")
+//        // scene kit pause change
+//    }
 }
 
