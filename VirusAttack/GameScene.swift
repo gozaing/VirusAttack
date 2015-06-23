@@ -165,8 +165,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         
         self.gameStart()
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "PauseScene:", name:"applicationWillResignActive", object: nil)
+
     }
+    
+    func PauseScene() {
+        NSLog("get PauseScene")
+    }
+    
+
     
     func gameOver() {
         
