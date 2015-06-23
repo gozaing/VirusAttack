@@ -19,6 +19,7 @@ let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 // button
 let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
 let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
+let replayIcon = UIButton(frame: CGRectMake(100, 300, 200, 50))
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
     
@@ -161,19 +162,56 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.gameStart()
     }
 
-    
+
+    let tapToResume = SKLabelNode(fontNamed: "Noteworthy")
+
     override func didMoveToView(view: SKView) {
+        
+        NSLog("didMoveToView")
         
         self.gameStart()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "PauseScene:", name:"applicationWillResignActive", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "startScene:", name:"applicationDidBecomeActive", object: nil)
+        
+        replayIcon.setImage(UIImage(named: "home"), forState: .Normal)
+        replayIcon.addTarget(self, action: "replayGame:", forControlEvents: .TouchUpInside)
+        replayIcon.hidden = true
+        self.view!.addSubview(replayIcon)
 
+
+        
     }
-    
-    func PauseScene() {
+
+
+    func PauseScene(notification: NSNotification) {
         NSLog("get PauseScene")
+//        self.paused = true
+//        self.view?.paused = true
+//        println(self.speed)
+//        tapToResume.hidden = false
+        self.paused = true
+//        self.view?.paused = true
+//        self.speed = 0.0
+//        self.view?.scene?.paused = true
+        
+
+        
+    }
+    func startScene(notification: NSNotification) {
+        NSLog("get startScene")
+//        self.paused = false
+//        self.view?.paused = false
+//        println(self.speed)
+        replayIcon.hidden = false
+        
     }
     
-
+    func replayGame(sender:UIButton){
+        NSLog("replayGame")
+        self.paused = false
+//        self.view?.paused = false
+//        self.speed = 1.0
+    }
     
     func gameOver() {
         
@@ -236,6 +274,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     // タッチ開始時
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        
         if let touch: AnyObject = touches.first {
             let location = touch.locationInNode(self)
             let action = SKAction.moveTo(CGPointMake(location.x, location.y), duration: 0.1)
