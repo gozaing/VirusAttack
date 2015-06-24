@@ -21,6 +21,9 @@ let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
 let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
 let replayIcon = UIButton(frame: CGRectMake(100, 300, 200, 50))
 
+// プレイ中フラグ
+var gamePlayStopFlg:Bool = false
+
 class GameScene : SKScene, SKPhysicsContactDelegate {
     
     //AppDelegateのインスタンスを取得
@@ -57,6 +60,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         gameOverFlg = false
         point = 0
+        gamePlayStopFlg = false
 
         self.brush = nil
         self.gameOverTimer = nil
@@ -190,18 +194,21 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 //        println(self.speed)
 //        tapToResume.hidden = false
         self.paused = true
-//        self.view?.paused = true
-//        self.speed = 0.0
-//        self.view?.scene?.paused = true
+        self.view?.paused = true
+        self.speed = 0.0
+        self.view?.scene?.paused = true
+        gamePlayStopFlg = true
         
 
         
     }
     func startScene(notification: NSNotification) {
         NSLog("get startScene")
-//        self.paused = false
-//        self.view?.paused = false
-//        println(self.speed)
+        self.paused = false
+        self.view?.paused = false
+        self.speed = 1.0
+        println(self.speed)
+        
         replayIcon.hidden = false
         
     }
@@ -209,8 +216,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     func replayGame(sender:UIButton){
         NSLog("replayGame")
         self.paused = false
-//        self.view?.paused = false
-//        self.speed = 1.0
+        self.view?.paused = false
+        self.speed = 1.0
     }
     
     func gameOver() {
@@ -292,9 +299,18 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         }
     }
     
-//    // 毎フレーム呼び出される
-//    override func update(currentTime: NSTimeInterval) {
-//    }
+    // 毎フレーム呼び出される
+    override func update(currentTime: NSTimeInterval) {
+//        if (gamePlayStopFlg == true) {
+//            if self.gameOverTimer?.valid == true {
+//                self.gameOverTimer?.invalidate()
+//            }
+//        } else {
+//            if self.gameOverTimer?.valid == false {
+//                self.gameOverTimer?.fire()
+//            }
+//        }
+    }
     
     // 衝突判定
     func didBeginContact(contact: SKPhysicsContact) {
