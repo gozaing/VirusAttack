@@ -284,8 +284,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         if let touch: AnyObject = touches.first {
             let location = touch.locationInNode(self)
-            let action = SKAction.moveTo(CGPointMake(location.x, location.y), duration: 0.1)
-            self.brush?.runAction(action)
+//            let action = SKAction.moveTo(CGPointMake(location.x, location.y), duration: 0.1)
+//            self.brush?.runAction(action)
+            // 移動中のオブジェクトも対象となるため、movetoは使わない
+            self.brush?.position = CGPoint(x: location.x, y: location.y)
         }
     }
     
