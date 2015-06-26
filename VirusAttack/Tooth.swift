@@ -131,6 +131,7 @@ class Tooth: SKSpriteNode {
         self.fineTextureTimer.invalidate()
     }
     
+    // Virusクラスから利用される
     func checkToothStatus() {
         let loseTexture = SKTexture(imageNamed: "s_tooth_1")
         self.texture = loseTexture
