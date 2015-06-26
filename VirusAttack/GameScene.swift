@@ -22,7 +22,7 @@ let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
 let replayIcon = UIButton(frame: CGRectMake(100, 300, 200, 50))
 
 // プレイ中フラグ
-var gamePlayStopFlg:Bool = false
+var gamePlayingFlg:Bool = false
 
 class GameScene : SKScene, SKPhysicsContactDelegate {
     
@@ -60,7 +60,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         gameOverFlg = false
         point = 0
-        gamePlayStopFlg = false
+        gamePlayingFlg = true
 
         self.brush = nil
         self.gameOverTimer = nil
@@ -197,7 +197,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.view?.paused = true
         self.speed = 0.0
         self.view?.scene?.paused = true
-        gamePlayStopFlg = true
+        gamePlayingFlg = false
         
 
         
@@ -210,6 +210,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         println(self.speed)
         
         replayIcon.hidden = false
+        gamePlayingFlg = true
         
     }
     
@@ -303,7 +304,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     // 毎フレーム呼び出される
     override func update(currentTime: NSTimeInterval) {
-//        if (gamePlayStopFlg == true) {
+//        if (gamePlayingFlg == true) {
 //            if self.gameOverTimer?.valid == true {
 //                self.gameOverTimer?.invalidate()
 //            }

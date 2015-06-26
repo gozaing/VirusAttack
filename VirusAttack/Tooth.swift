@@ -16,6 +16,7 @@ class Tooth: SKSpriteNode {
     }
     
     var virusAppearTimer = NSTimer()
+    var gamePlayCheckTimer = NSTimer()
     
     var virusCount:NSInteger = 0
     func setCount(){
@@ -49,17 +50,24 @@ class Tooth: SKSpriteNode {
         let texture = SKTexture(imageNamed: "s_tooth_0")
         super.init(texture: texture, color: nil, size: texture.size())
         
-        // random per seconds
-        let intInterval = arc4random_uniform(4) + 3
-        NSLog("interval--%d",intInterval)
-        let virusAppearSec = NSTimeInterval(intInterval)
-        
-        self.virusAppearTimer = NSTimer.scheduledTimerWithTimeInterval(virusAppearSec, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
+        timerInitialized()
         
         self.name = "tooth-" + objIndex.description
         
         self.objIndexName = objIndex.description
         
+        // Game中か確認するタイマー
+        self.gamePlayCheckTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerCheck", userInfo: nil, repeats: true)
+        
+    }
+    
+    func timerInitialized() {
+        // random per seconds
+        let intInterval = arc4random_uniform(4) + 3
+        NSLog("interval--%d",intInterval)
+        let virusAppearSec = NSTimeInterval(intInterval)
+
+        self.virusAppearTimer = NSTimer.scheduledTimerWithTimeInterval(virusAppearSec, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -138,6 +146,28 @@ class Tooth: SKSpriteNode {
 
         // virus 発生を止める
         self.virusAppearTimer.invalidate()
+        
+    }
+    
+    func timerCheck() {
+        NSLog("update - method")
+        println(virusAppearTimer.valid)
+        if gamePlayingFlg == true {
+            
+            // ゲームが再開 ゲーム中
+            if virusAppearTimer.valid == false {
+                timerInitialized()
+                NSLog("timerCheck--initilized")
+            }
+
+        } else {
+        
+            // ゲーム終了中
+            if virusAppearTimer.valid == true {
+                virusAppearTimer.invalidate()
+                NSLog("timerCheck--invalidate")
+            }
+        }
         
     }
 }
