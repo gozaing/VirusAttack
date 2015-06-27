@@ -121,6 +121,13 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             // 高さから歯の数を算出
             for (var j = 1; j < heightCount; j++) {
 
+                // 案)
+                // DictionaryでposX/posY/time/energyなどを保持
+                // generate func で生成
+                // game start / pause でDictionaryの値を使ってgenerate
+                // 毎秒または毎フレームでDictionaryの内容を更新
+
+
                 let tooth = Tooth(objIndex:toothCount)
                 tooth.setScene(self)
                 var toothPosX :CGFloat = CGFloat(toothPerWidth * i)
