@@ -80,6 +80,8 @@ class Tooth: SKSpriteNode {
     
     func virusAppear() {
         
+        NSLog("virusAppear")
+        
         // gameoverか判定
         if (gameOverFlg == false) {
             
@@ -132,6 +134,7 @@ class Tooth: SKSpriteNode {
 
     // textureを戻す
     func changeNormalStatus() {
+        NSLog("changeNormalStatus")
         let normalTexture = SKTexture(imageNamed: "s_tooth_0")
         self.texture = normalTexture
         
@@ -150,7 +153,7 @@ class Tooth: SKSpriteNode {
     }
     
     func timerCheck() {
-        NSLog("update - method")
+        NSLog("timerCheck")
         println(virusAppearTimer.valid)
         if gamePlayingFlg == true {
             
@@ -169,5 +172,20 @@ class Tooth: SKSpriteNode {
             }
         }
         
+    }
+    
+    func invalidateTimer() {
+        NSLog("tooth-invalidateTimer")
+        if self.virusAppearTimer.valid == true {
+            self.virusAppearTimer.invalidate()
+        }
+        
+        if self.fineTextureTimer.valid == true {
+            self.fineTextureTimer.invalidate()
+        }
+        
+        if self.gamePlayCheckTimer.valid == true {
+            self.gamePlayCheckTimer.invalidate()
+        }
     }
 }

@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VirusAttack/GameScene.swift"
-            timestampString = "457067242.641396"
+            timestampString = "457187731.277439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
             landmarkName = "didBeginContact(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -168,13 +168,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VirusAttack/GameScene.swift"
-            timestampString = "457067242.641396"
+            timestampString = "457187731.277439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "didBeginContact(_:)"
-            landmarkType = "5">
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "GameScene"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -200,13 +200,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VirusAttack/Tooth.swift"
-            timestampString = "456980337.36454"
+            timestampString = "457187731.277439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "Tooth"
-            landmarkType = "3">
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "timerCheck()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -53,6 +53,7 @@ class Virus: SKSpriteNode {
 
     
     func virusAttack() {
+        NSLog("virusAttack")
         
         if (gameOverFlg == false) {
 

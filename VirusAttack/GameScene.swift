@@ -206,9 +206,40 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.view?.scene?.paused = true
         gamePlayingFlg = false
         
+        // 全オブジェクトのNSTimerをinvalidateする
+        for Node : AnyObject in self.children{
+            
+            if (Node as! SKNode).name == nil  {
+                println("name is nil")
+                println( (Node as! SKNode).name )
+//                Node.removeFromParent()
+            }
+            else{
+                if Node.name == "background" {
+                    println("name is background")
+                }
+                else {
+                    println("name is exist")
+                    println( (Node as! SKNode).name )
 
-        
+                    let actualChildName = (Node as! SKNode).name ?? "Undefined"
+                    // virus-10という形で取れる -以降を取り出す
+                    let virusNameIndex = (actualChildName as NSString).rangeOfString("-").location
+                    let objIndex = (actualChildName as NSString).substringFromIndex(virusNameIndex + 1 )
+                    
+                    var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
+                    parentTooth.invalidateTimer()
+                    
+                    var virus:Virus?
+                    virus = parentTooth.childNodeWithName("virus-" + objIndex) as? Virus
+                    virus?.virusAttackTimer.invalidate()
+
+                }
+            }
+        }
     }
+    
+    
     func startScene(notification: NSNotification) {
         NSLog("get startScene")
         self.paused = false
@@ -229,6 +260,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver() {
+        NSLog("gameOver")
         
         // Game Over Label
         gameoverLabel.text = "GAME OVER"
