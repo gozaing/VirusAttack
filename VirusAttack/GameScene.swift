@@ -182,39 +182,18 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         self.gameStart()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "PauseScene:", name:"applicationWillResignActive", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "startScene:", name:"applicationDidBecomeActive", object: nil)
         
-        replayIcon.setImage(UIImage(named: "home"), forState: .Normal)
-        replayIcon.addTarget(self, action: "replayGame:", forControlEvents: .TouchUpInside)
-        replayIcon.hidden = true
-        self.view!.addSubview(replayIcon)
-
-
         
     }
 
 
     func PauseScene(notification: NSNotification) {
         NSLog("get PauseScene")
-//        self.paused = true
-//        self.view?.paused = true
-//        println(self.speed)
-//        tapToResume.hidden = false
-        self.paused = true
-        self.view?.paused = true
-        self.speed = 0.0
-        self.view?.scene?.paused = true
-        gamePlayingFlg = false
-        
+
         // 全オブジェクトのNSTimerをinvalidateする
         for Node : AnyObject in self.children{
             
-            if (Node as! SKNode).name == nil  {
-                println("name is nil")
-                println( (Node as! SKNode).name )
-//                Node.removeFromParent()
-            }
-            else{
+            if (Node as! SKNode).name != nil  {
                 if Node.name == "background" {
                     println("name is background")
                 }
@@ -243,26 +222,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         // back to home menu
         self.GameViewController.dismissViewControllerAnimated(true, completion: nil)
         
-    }
-    
-    
-    func startScene(notification: NSNotification) {
-        NSLog("get startScene")
-        self.paused = false
-        self.view?.paused = false
-        self.speed = 1.0
-        println(self.speed)
-        
-        replayIcon.hidden = false
-        gamePlayingFlg = true
-        
-    }
-    
-    func replayGame(sender:UIButton){
-        NSLog("replayGame")
-        self.paused = false
-        self.view?.paused = false
-        self.speed = 1.0
     }
     
     func gameOver() {
