@@ -90,4 +90,10 @@ class Virus: SKSpriteNode {
 
         }
     }
+    
+    func invalidateTimer() {
+        NSLog("virus-invalidateTimer")
+        self.virusAttackTimer.invalidate()
+        
+    }
 }

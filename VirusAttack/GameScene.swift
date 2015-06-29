@@ -232,7 +232,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
                     
                     var virus:Virus?
                     virus = parentTooth.childNodeWithName("virus-" + objIndex) as? Virus
-                    virus?.virusAttackTimer.invalidate()
+                    virus?.invalidateTimer()
 
                 }
             }
