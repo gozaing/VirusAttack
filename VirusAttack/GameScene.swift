@@ -233,10 +233,16 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
                     var virus:Virus?
                     virus = parentTooth.childNodeWithName("virus-" + objIndex) as? Virus
                     virus?.invalidateTimer()
+                    
+                    // game over timer stop
+                    self.gameOverTimer?.invalidate()
 
                 }
             }
         }
+        // back to home menu
+        self.GameViewController.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     
