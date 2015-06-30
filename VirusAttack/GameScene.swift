@@ -345,7 +345,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             targetNode!.removeFromParent()
             
             // 加算
-            point += 10
+            point += 1
 
         }else if (contact.bodyB.node == self.brush){
 
@@ -367,7 +367,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             targetNode!.removeFromParent()
             
             // 加算
-            point += 10
+            point += 1
         }
     }
     
