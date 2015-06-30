@@ -17,6 +17,9 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        println(self.view.bounds.width)
+        println(self.view.bounds.height)
+        
         // menu view
         let menuImage = UIImage(named: "menu")
         menuImageView = UIImageView(frame: CGRectMake(0,0,menuImage!.size.width,menuImage!.size.height))
@@ -24,40 +27,52 @@ class MenuViewController: UIViewController {
         menuImageView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
         self.view.addSubview(menuImageView)
         
+        
         // 作成したViewを再背面へ
         self.view.sendSubviewToBack(menuImageView)
+        
+        // 歯ブラシアイコンSize
+        let toothIconImageWidth = self.view.bounds.width/4
+        let toothIconImageHeight = self.view.bounds.width/4
+        
+        // 歯ブラシアイコンPosition
+        let toothIconPosX = self.view.bounds.width/5
+        let toothIconPosY = (self.view.bounds.width/10)*2
 
         // 歯ブラシアイコン 1
         let toothIconImage1 = UIImage(named: "tooth_man_1")
-        let toothIconImageView1 = UIImageView(frame: CGRectMake(0,0,100,100))
+        let toothIconImageView1 = UIImageView(frame: CGRectMake(0,0,toothIconImageWidth,toothIconImageHeight))
         toothIconImageView1.image = toothIconImage1
-        toothIconImageView1.layer.position = CGPoint(x: 50, y: 70)
+        toothIconImageView1.layer.position = CGPoint(x: toothIconPosX, y: toothIconPosY)
         self.view.addSubview(toothIconImageView1)
 
         // 歯ブラシアイコン 2
         let toothIconImage2 = UIImage(named: "tooth_man_2")
-        let toothIconImageView2 = UIImageView(frame: CGRectMake(0,0,100,100))
+        let toothIconImageView2 = UIImageView(frame: CGRectMake(0,0,toothIconImageWidth,toothIconImageHeight))
         toothIconImageView2.image = toothIconImage2
-        toothIconImageView2.layer.position = CGPoint(x: 140, y: 70)
+        toothIconImageView2.layer.position = CGPoint(x: toothIconPosX*2, y: toothIconPosY)
         self.view.addSubview(toothIconImageView2)
 
         // 歯ブラシアイコン 3
         let toothIconImage3 = UIImage(named: "tooth_man_3")
-        let toothIconImageView3 = UIImageView(frame: CGRectMake(0,0,100,100))
+        let toothIconImageView3 = UIImageView(frame: CGRectMake(0,0,toothIconImageWidth,toothIconImageHeight))
         toothIconImageView3.image = toothIconImage3
-        toothIconImageView3.layer.position = CGPoint(x: 230, y: 70)
+        toothIconImageView3.layer.position = CGPoint(x: toothIconPosX*3, y: toothIconPosY)
         self.view.addSubview(toothIconImageView3)
 
         // 歯ブラシアイコン 4
         let toothIconImage4 = UIImage(named: "tooth_man_4")
-        let toothIconImageView4 = UIImageView(frame: CGRectMake(0,0,100,100))
+        let toothIconImageView4 = UIImageView(frame: CGRectMake(0,0,toothIconImageWidth,toothIconImageHeight))
         toothIconImageView4.image = toothIconImage4
-        toothIconImageView4.layer.position = CGPoint(x: 320, y: 70)
+        toothIconImageView4.layer.position = CGPoint(x: toothIconPosX*4, y: toothIconPosY)
         self.view.addSubview(toothIconImageView4)
 
 
         // game start button 1
-        let gameStartButton1: UIButton = UIButton(frame: CGRectMake(0,0,150,150))
+        let gameStartImageWidth = (self.view.bounds.width/5)*2
+        let gameStartImageHeight = (self.view.bounds.width/5)*2
+        
+        let gameStartButton1: UIButton = UIButton(frame: CGRectMake(0,0,gameStartImageWidth,gameStartImageHeight))
         gameStartButton1.backgroundColor = UIColor.redColor();
         gameStartButton1.layer.masksToBounds = true
         gameStartButton1.setTitle("start", forState: .Normal)
@@ -70,7 +85,7 @@ class MenuViewController: UIViewController {
         self.view.addSubview(gameStartButton1)
 
         // game start button 2
-        let gameStartButton2: UIButton = UIButton(frame: CGRectMake(0,0,150,150))
+        let gameStartButton2: UIButton = UIButton(frame: CGRectMake(0,0,gameStartImageWidth,gameStartImageHeight))
         gameStartButton2.backgroundColor = UIColor.redColor();
         gameStartButton2.layer.masksToBounds = true
         gameStartButton2.setTitle("start", forState: .Normal)
@@ -82,7 +97,7 @@ class MenuViewController: UIViewController {
         self.view.addSubview(gameStartButton2)
 
         // game start button 3
-        let gameStartButton3: UIButton = UIButton(frame: CGRectMake(0,0,150,150))
+        let gameStartButton3: UIButton = UIButton(frame: CGRectMake(0,0,gameStartImageWidth,gameStartImageHeight))
         gameStartButton3.backgroundColor = UIColor.redColor();
         gameStartButton3.layer.masksToBounds = true
         gameStartButton3.setTitle("start", forState: .Normal)
@@ -95,7 +110,7 @@ class MenuViewController: UIViewController {
         self.view.addSubview(gameStartButton3)
         
         // game start button 4
-        let gameStartButton4: UIButton = UIButton(frame: CGRectMake(0,0,150,150))
+        let gameStartButton4: UIButton = UIButton(frame: CGRectMake(0,0,gameStartImageWidth,gameStartImageHeight))
         gameStartButton4.backgroundColor = UIColor.redColor();
         gameStartButton4.layer.masksToBounds = true
         gameStartButton4.setTitle("start", forState: .Normal)
@@ -107,7 +122,10 @@ class MenuViewController: UIViewController {
         self.view.addSubview(gameStartButton4)
 
         // tutorial view
-        let helpButton: UIButton = UIButton(frame: CGRectMake(0,0,100,100))
+        let helpImageWidht = self.view.bounds.width/4
+        let helpImageHeight = self.view.bounds.width/4
+        
+        let helpButton: UIButton = UIButton(frame: CGRectMake(0,0,helpImageWidht,helpImageHeight))
         helpButton.backgroundColor = UIColor.whiteColor();
         helpButton.layer.masksToBounds = true
 //        helpButton.setTitle("help", forState: .Normal)
@@ -119,7 +137,10 @@ class MenuViewController: UIViewController {
         self.view.addSubview(helpButton)
         
         // score view
-        let scoreButton: UIButton = UIButton(frame: CGRectMake(0,0,100,100))
+        let scoreImageWidht = self.view.bounds.width/4
+        let scoreImageHeight = self.view.bounds.width/4
+
+        let scoreButton: UIButton = UIButton(frame: CGRectMake(0,0,scoreImageWidht,scoreImageHeight))
         scoreButton.backgroundColor = UIColor.grayColor();
         scoreButton.layer.masksToBounds = true
         scoreButton.setTitle("score", forState: .Normal)
