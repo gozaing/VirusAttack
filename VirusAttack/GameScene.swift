@@ -230,6 +230,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     func gameOver() {
         NSLog("gameOver")
         
+        // TODO:adjust view size
+        // TODO:ivalidate all timer (tooth and virus)
+        
         // Game Over Label
         gameoverLabel.text = "GAME OVER"
         gameoverLabel.fontSize = 60
