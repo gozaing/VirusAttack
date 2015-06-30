@@ -116,6 +116,7 @@ class Tooth: SKSpriteNode {
             let fineTexture = SKTexture(imageNamed: "s_tooth_2")
             self.texture = fineTexture
             
+            // TODO:adjust view size
             // runAction
             let jumpUp1 = SKAction.moveBy(CGVector(dx: 0, dy: 10), duration:0.2)
             let jumpDown1 = SKAction.moveBy(CGVector(dx: 0, dy: -10), duration:0.2)

@@ -17,6 +17,7 @@ var point:NSInteger = 0
 let gameoverLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 // button
+// TODO:adjust view size
 let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
 let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
 let replayIcon = UIButton(frame: CGRectMake(100, 300, 200, 50))
@@ -74,8 +75,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         let brush = SKSpriteNode()
 //        brush.color = UIColor.greenColor()
+        // TODO:adjust view size
         brush.position = CGPoint(x: self.size.width*0.5, y:100)
         brush.zPosition = 2
+        // TODO:adjust view size
         brush.size = CGSizeMake(40, 40)
         
         // add physics
@@ -243,6 +246,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.paused = true
         
         // ポイントラベル
+        // TODO:adjust view size
         pointLabel.fontSize = 60
         pointLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         pointLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame)+100)
