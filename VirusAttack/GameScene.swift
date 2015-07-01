@@ -20,7 +20,6 @@ let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 // TODO:adjust view size
 let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
 let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
-let replayIcon = UIButton(frame: CGRectMake(100, 300, 200, 50))
 
 // プレイ中フラグ
 var gamePlayingFlg:Bool = false
