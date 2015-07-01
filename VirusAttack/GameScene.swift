@@ -17,9 +17,9 @@ var point:NSInteger = 0
 let gameoverLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 // button
-// TODO:adjust view size
-let reloadIcon = UIButton(frame: CGRectMake(150, 400, 200, 50))
-let homeIcon = UIButton(frame: CGRectMake(50, 400, 200, 50))
+
+var reloadIcon = UIButton()
+var homeIcon = UIButton()
 
 // プレイ中フラグ
 var gamePlayingFlg:Bool = false
@@ -36,26 +36,10 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     var gameOverTimer:NSTimer?
     // gameOverTime
     let gameOverTime: NSTimeInterval = 20
-    
 
     // viewControllerをGameSceneで保持し、menuに戻るdissmissに利用
     var GameViewController: UIViewController!
 
-    
-//    var gamePaused : Bool = false {
-//        didSet {
-//            self.paused = gamePaused
-//        }
-//    }
-//    override var paused : Bool {
-//        get {
-//            return gamePaused
-//        }
-//        set {
-//            super.paused = gamePaused
-//        }
-//    }
-    
     func gameStart() {
         
         gameOverFlg = false
@@ -64,6 +48,25 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         self.brush = nil
         self.gameOverTimer = nil
+        
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        
+        let homeIconPosX = (screenWidth/5)*2
+        let homeIconPosY = (screenHeight/10)*6
+        let homeIconWidth = (screenWidth/5)*2.5
+        let homeIconHeight = (screenWidth/5)*1.5
+        
+        let reloadIconPosX = (screenWidth/5)*0.8
+        let reloadIconPosY = (screenHeight/10)*6
+        let reloadIconWidth = (screenWidth/5)*2.5
+        let reloadIconHeight = (screenWidth/5)*1.5
+
+        
+        homeIcon = UIButton(frame: CGRectMake(homeIconPosX, homeIconPosY, homeIconWidth, homeIconHeight))
+        
+        reloadIcon = UIButton(frame: CGRectMake(reloadIconPosX, reloadIconPosY, reloadIconWidth, reloadIconHeight))
+        
         
         // gameOverTimer start
         self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(gameOverTime, target: self, selector: "gameOver", userInfo: nil, repeats: false)
