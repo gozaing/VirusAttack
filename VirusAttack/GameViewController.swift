@@ -3,7 +3,7 @@
 //  VirusAttack
 //
 //  Created by tobaru on 2015/05/30.
-//  Copyright (c) 2015年 tobaru. All rights reserved.
+//  Copyright (c) 2015 tobaru. All rights reserved.
 //
 
 import UIKit
@@ -22,11 +22,6 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        // notification
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterBackground:", name:"applicationDidEnterBackground", object: nil)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseGameScene:", name:"applicationWillEnterForeground", object: nil)
-
     }
     
     override func viewWillLayoutSubviews() {
@@ -66,21 +61,5 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    // notify function
-//    func enterBackground(notification: NSNotification){
-//        println("applicationDidEnterBackground")
-//    }
-//    
-//    func enterForeground(notification: NSNotification){
-//        println("applicationWillEnterForeground")
-//        
-//        // scene kit puase = false
-//    }
-//
-//    func pauseGameScene(notification: NSNotification){
-//        println("pauseGameScene")
-//        // scene kit pause change
-//    }
 }
 

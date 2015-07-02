@@ -3,7 +3,7 @@
 //  VirusAttack
 //
 //  Created by tobaru on 2015/06/20.
-//  Copyright (c) 2015年 tobaru. All rights reserved.
+//  Copyright (c) 2015 tobaru. All rights reserved.
 //
 
 import Foundation
