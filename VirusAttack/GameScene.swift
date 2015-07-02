@@ -235,12 +235,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     func gameOver() {
         NSLog("gameOver")
         
-        // TODO:adjust view size
-        // TODO:ivalidate all timer (tooth and virus)
-        
         // Game Over Label
         gameoverLabel.text = "GAME OVER"
-        gameoverLabel.fontSize = 60
+        gameoverLabel.fontSize = screenWidth/8
         gameoverLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         gameoverLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
         gameoverLabel.zPosition = 2
@@ -254,8 +251,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.paused = true
         
         // ポイントラベル
-        // TODO:adjust view size
-        pointLabel.fontSize = 60
+        pointLabel.fontSize = screenWidth/8
         pointLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         pointLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame)+100)
         pointLabel.zPosition = 2
