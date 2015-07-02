@@ -21,6 +21,10 @@ let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 var reloadIcon = UIButton()
 var homeIcon = UIButton()
 
+let screenWidth = UIScreen.mainScreen().bounds.size.width
+let screenHeight = UIScreen.mainScreen().bounds.size.height
+
+
 // プレイ中フラグ
 var gamePlayingFlg:Bool = false
 
@@ -49,9 +53,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.brush = nil
         self.gameOverTimer = nil
         
-        let screenWidth = UIScreen.mainScreen().bounds.size.width
-        let screenHeight = UIScreen.mainScreen().bounds.size.height
-        
         let homeIconPosX = (screenWidth/5)*2
         let homeIconPosY = (screenHeight/10)*6
         let homeIconWidth = (screenWidth/5)*2.5
@@ -77,11 +78,13 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         let brush = SKSpriteNode()
 //        brush.color = UIColor.greenColor()
-        // TODO:adjust view size
-        brush.position = CGPoint(x: self.size.width*0.5, y:100)
+        brush.position = CGPoint(x: 0, y:0)
         brush.zPosition = 2
-        // TODO:adjust view size
-        brush.size = CGSizeMake(40, 40)
+
+        let brushIconWidth = screenWidth/20
+        let brushIconHeight = screenHeight/60
+
+        brush.size = CGSizeMake(brushIconWidth, brushIconHeight)
         
         // add physics
         let physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(brush.size.width, brush.size.height))
