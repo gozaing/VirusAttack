@@ -193,11 +193,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         
     }
-
-
-    func PauseScene(notification: NSNotification) {
-        NSLog("get PauseScene")
-
+    
+    func timerInvalidate() {
         // 全オブジェクトのNSTimerをinvalidateする
         for Node : AnyObject in self.children{
             
@@ -208,7 +205,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
                 else {
                     println("name is exist")
                     println( (Node as! SKNode).name )
-
+                    
                     let actualChildName = (Node as! SKNode).name ?? "Undefined"
                     // virus-10という形で取れる -以降を取り出す
                     let virusNameIndex = (actualChildName as NSString).rangeOfString("-").location
@@ -223,10 +220,19 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
                     
                     // game over timer stop
                     self.gameOverTimer?.invalidate()
-
+                    
                 }
             }
         }
+    }
+
+
+    func PauseScene(notification: NSNotification) {
+        NSLog("get PauseScene")
+
+        // NSTimerをinvalidateする
+        self.timerInvalidate()
+        
         // back to home menu
         self.GameViewController.dismissViewControllerAnimated(true, completion: nil)
         
@@ -246,9 +252,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
  
         // gameover状態にする
         gameOverFlg = true
-        
-        self.gameOverTimer?.invalidate()
-        self.paused = true
         
         // ポイントラベル
         pointLabel.fontSize = screenWidth/8
@@ -280,6 +283,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         homeIcon.addTarget(self, action: "backToMenu:", forControlEvents: .TouchUpInside)
         self.view!.addSubview(homeIcon)
         
+        // Tooth,VirusのNSTimerを止める
+        self.timerInvalidate()
     }
     
     func backToMenu (sender: UIButton) {
