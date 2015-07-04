@@ -303,15 +303,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    // ドラッグ時
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if let touch: AnyObject = touches.first {
-            let location = touch.locationInNode(self)
-            let action = SKAction.moveTo(CGPointMake(location.x, location.y), duration: 0.1)
-            self.brush?.runAction(action)
-            
-        }
-    }
+//    // ドラッグ時
+//    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        if let touch: AnyObject = touches.first {
+//            let location = touch.locationInNode(self)
+//            let action = SKAction.moveTo(CGPointMake(location.x, location.y), duration: 0.1)
+//            self.brush?.runAction(action)
+//            
+//        }
+//    }
     
     // 毎フレーム呼び出される
     override func update(currentTime: NSTimeInterval) {
