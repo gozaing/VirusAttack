@@ -264,14 +264,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         pointLabel.text = pointString
         self.addChild(pointLabel)
         
-        // NSUserDefaultに最高点を保持
-        var maxPoint:Int = myUserDafault.integerForKey("MaxPoint")
-        NSLog("maxPoint->%d",maxPoint)
-        if (maxPoint < point ) {
-            NSLog("save maxpoint")
-            //最高点を超えていたら保持する
-            myUserDafault.setObject(point, forKey: "MaxPoint")
-        }
+        // NSUserDefaultに1-3位の得点を保持
+        setMaxPoint(point)
 
         // もう一度
         reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
@@ -377,6 +371,44 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             
             // 加算
             point += 1
+        }
+    }
+    
+    // scoreを比較してNSUserDefaultに格納
+    func setMaxPoint(scorePoint:Int) {
+        
+        // NSUserDefaultに最高点を保持
+        var firstPoint:Int = myUserDafault.integerForKey("FirstPoint")
+        var secondPoint:Int = myUserDafault.integerForKey("SecondPoint")
+        var thirdPoint:Int = myUserDafault.integerForKey("ThirdPoint")
+        
+        NSLog("FirstPoint->%d",firstPoint)
+        NSLog("SecondPoint->%d",secondPoint)
+        NSLog("ThirdPoint->%d",thirdPoint)
+        
+        if (thirdPoint < scorePoint ) {
+            // 2位?
+            if (secondPoint < scorePoint ) {
+            
+                // 1位?
+                if (firstPoint < scorePoint ) {
+                    // 1位確定
+                    NSLog("save FirstPoint")
+                    myUserDafault.setObject(scorePoint, forKey: "FirstPoint")
+                    myUserDafault.setObject(firstPoint, forKey: "SecondPoint")
+                    myUserDafault.setObject(secondPoint, forKey: "ThirdPoint")
+                } else {
+                    // 2位確定
+                    NSLog("save SecondPoint")
+                    myUserDafault.setObject(scorePoint, forKey: "SecondPoint")
+                    myUserDafault.setObject(secondPoint, forKey: "ThirdPoint")
+                }
+
+            }else{
+                // 3位確定
+                NSLog("save ThirdPoint")
+                myUserDafault.setObject(scorePoint, forKey: "ThirdPoint")
+            }
         }
     }
     
