@@ -37,8 +37,8 @@ class GameViewController: UIViewController {
             let view = self.view as! SKView
             
             // debug info
-            view.showsFPS = true
-            view.showsNodeCount = true
+//            view.showsFPS = true
+//            view.showsNodeCount = true
             
             // シーンのサイズをビューに合わせる
             scene.size = view.frame.size
