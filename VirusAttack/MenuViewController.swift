@@ -121,20 +121,19 @@ class MenuViewController: UIViewController {
         gameStartButton4.setImage(UIImage(named: "fancycake"), forState: .Normal)
         self.view.addSubview(gameStartButton4)
 
-        // tutorial view
-        let helpImageWidht = self.view.bounds.width/4
-        let helpImageHeight = self.view.bounds.width/4
-        
-        let helpButton: UIButton = UIButton(frame: CGRectMake(0,0,helpImageWidht,helpImageHeight))
-        helpButton.backgroundColor = UIColor.whiteColor();
-        helpButton.layer.masksToBounds = true
-//        helpButton.setTitle("help", forState: .Normal)
-        helpButton.layer.cornerRadius = 20.0
-        helpButton.layer.position = CGPoint(x: (self.view.bounds.width/4)*1 , y:self.view.bounds.height*0.9)
-        helpButton.addTarget(self, action: "onClickHelpView:", forControlEvents: .TouchUpInside)
-        helpButton.setImage(UIImage(named: "question"), forState: .Normal)
-        // ボタンを追加する.
-        self.view.addSubview(helpButton)
+//        // tutorial view
+//        let helpImageWidht = self.view.bounds.width/4
+//        let helpImageHeight = self.view.bounds.width/4
+//        
+//        let helpButton: UIButton = UIButton(frame: CGRectMake(0,0,helpImageWidht,helpImageHeight))
+//        helpButton.backgroundColor = UIColor.whiteColor();
+//        helpButton.layer.masksToBounds = true
+//        helpButton.layer.cornerRadius = 20.0
+//        helpButton.layer.position = CGPoint(x: (self.view.bounds.width/4)*1 , y:self.view.bounds.height*0.9)
+//        helpButton.addTarget(self, action: "onClickHelpView:", forControlEvents: .TouchUpInside)
+//        helpButton.setImage(UIImage(named: "question"), forState: .Normal)
+//        // ボタンを追加する.
+//        self.view.addSubview(helpButton)
         
         // score view
         let scoreImageWidht = self.view.bounds.width/4
@@ -145,7 +144,7 @@ class MenuViewController: UIViewController {
         scoreButton.layer.masksToBounds = true
         scoreButton.setTitle("score", forState: .Normal)
         scoreButton.layer.cornerRadius = 20.0
-        scoreButton.layer.position = CGPoint(x: (self.view.bounds.width/4)*3 , y:self.view.bounds.height*0.9)
+        scoreButton.layer.position = CGPoint(x: (self.view.bounds.width/2) , y: (self.view.bounds.height*0.9))
         scoreButton.addTarget(self, action: "onClickScoreView:", forControlEvents: .TouchUpInside)
         scoreButton.setImage(UIImage(named: "score"), forState: .Normal)
         // ボタンを追加する.
