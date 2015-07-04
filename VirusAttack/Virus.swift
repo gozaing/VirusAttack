@@ -19,7 +19,7 @@ class Virus: SKSpriteNode {
         
         self.parentTooth = tooth
         
-        let texture = SKTexture(imageNamed: "s_virus_0")
+        let texture = SKTexture(imageNamed: "virus_normal")
         super.init(texture: texture, color: nil, size: texture.size())
 
         self.virusAttackTimer = NSTimer.scheduledTimerWithTimeInterval(virusAttackTimeInterval, target: self, selector: "virusAttack", userInfo: nil, repeats: true)
@@ -33,9 +33,11 @@ class Virus: SKSpriteNode {
         
         // runAction
         let parapraAction1 = SKAction.animateWithTextures(
-            [SKTexture(imageNamed: "s_virus_2"),
-                SKTexture(imageNamed: "s_virus_0"),
-                SKTexture(imageNamed: "s_virus_1")
+            [
+                SKTexture(imageNamed: "virus_attack"),
+                SKTexture(imageNamed: "virus_attack_hardly"),
+                SKTexture(imageNamed: "virus_attack"),
+                SKTexture(imageNamed: "virus_attack_hardly")
             ],
             timePerFrame: 0.3)
         let paraparaRepeatAction1 =  SKAction.repeatActionForever(parapraAction1)
@@ -73,9 +75,9 @@ class Virus: SKSpriteNode {
                 self.runAction(scalerepeatAction)
                 
                 let parapraAction1 = SKAction.animateWithTextures(
-                    [SKTexture(imageNamed: "s_virus_0"),
-                        SKTexture(imageNamed: "s_virus_1"),
-                        SKTexture(imageNamed: "s_virus_2")
+                    [SKTexture(imageNamed: "virus_normal"),
+                        SKTexture(imageNamed: "virus_attack"),
+                        SKTexture(imageNamed: "virus_attack_hardly")
                     ],
                     timePerFrame: 0.5)
                 let paraparaRepeatAction1 =  SKAction.repeatActionForever(parapraAction1)
