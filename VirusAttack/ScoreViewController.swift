@@ -48,7 +48,7 @@ class ScoreViewController: UIViewController {
         let dispLabel: UILabel = UILabel(frame: CGRectMake(0,0,300,200))
         dispLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.frame.height/2 - 100)
         
-        dispLabel.text = "最高得点"
+        dispLabel.text = "MAX"
         dispLabel.font = UIFont(name: "HiraKakuProN-W3", size: 50)
         dispLabel.textAlignment = NSTextAlignment.Center
         self.view.addSubview(dispLabel)
@@ -57,7 +57,7 @@ class ScoreViewController: UIViewController {
         let pointLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,100))
         pointLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.frame.height/2)
         
-        pointLabel.text = "\(point)点"
+        pointLabel.text = "\(point)"
         pointLabel.font = UIFont(name: "HiraKakuProN-W3", size: 60)
         pointLabel.textAlignment = NSTextAlignment.Center
         self.view.addSubview(pointLabel)
