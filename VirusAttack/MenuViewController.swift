@@ -141,13 +141,13 @@ class MenuViewController: UIViewController {
         let scoreImageHeight = self.view.bounds.width/4
 
         let scoreButton: UIButton = UIButton(frame: CGRectMake(0,0,scoreImageWidht,scoreImageHeight))
-        scoreButton.backgroundColor = UIColor.grayColor();
+        scoreButton.backgroundColor = UIColor.whiteColor();
         scoreButton.layer.masksToBounds = true
         scoreButton.setTitle("score", forState: .Normal)
         scoreButton.layer.cornerRadius = 20.0
         scoreButton.layer.position = CGPoint(x: (self.view.bounds.width/4)*3 , y:self.view.bounds.height*0.9)
         scoreButton.addTarget(self, action: "onClickScoreView:", forControlEvents: .TouchUpInside)
-        //        helpButton.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        scoreButton.setImage(UIImage(named: "score"), forState: .Normal)
         // ボタンを追加する.
         self.view.addSubview(scoreButton)
     }
