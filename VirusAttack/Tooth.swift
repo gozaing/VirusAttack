@@ -113,7 +113,7 @@ class Tooth: SKSpriteNode {
             self.setTimeClear()
             
             // change texture
-            let fineTexture = SKTexture(imageNamed: "s_tooth_2")
+            let fineTexture = SKTexture(imageNamed: "tooth_happy")
             self.texture = fineTexture
             
             // runAction
@@ -135,7 +135,7 @@ class Tooth: SKSpriteNode {
     // textureを戻す
     func changeNormalStatus() {
         NSLog("changeNormalStatus")
-        let normalTexture = SKTexture(imageNamed: "s_tooth_0")
+        let normalTexture = SKTexture(imageNamed: "tooth_normal")
         self.texture = normalTexture
         
         // timerを止める
@@ -144,7 +144,7 @@ class Tooth: SKSpriteNode {
     
     // Virusクラスから利用される
     func checkToothStatus() {
-        let loseTexture = SKTexture(imageNamed: "s_tooth_1")
+        let loseTexture = SKTexture(imageNamed: "tooth_sad")
         self.texture = loseTexture
 
         // virus 発生を止める
