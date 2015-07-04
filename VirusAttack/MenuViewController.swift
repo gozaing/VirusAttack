@@ -81,7 +81,7 @@ class MenuViewController: UIViewController {
         gameStartButton1.tag = 1
         gameStartButton1.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
         
-        gameStartButton1.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        gameStartButton1.setImage(UIImage(named: "fruitplatter"), forState: .Normal)
         self.view.addSubview(gameStartButton1)
 
         // game start button 2
@@ -93,7 +93,7 @@ class MenuViewController: UIViewController {
         gameStartButton2.layer.position = CGPoint(x: (self.view.bounds.width/4)*3 , y:self.view.bounds.height*0.35)
         gameStartButton2.tag = 2
         gameStartButton2.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
-        gameStartButton2.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        gameStartButton2.setImage(UIImage(named: "friedshrimp"), forState: .Normal)
         self.view.addSubview(gameStartButton2)
 
         // game start button 3
@@ -106,7 +106,7 @@ class MenuViewController: UIViewController {
         gameStartButton3.tag = 3
         gameStartButton3.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
         
-        gameStartButton3.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        gameStartButton3.setImage(UIImage(named: "pancake"), forState: .Normal)
         self.view.addSubview(gameStartButton3)
         
         // game start button 4
@@ -118,7 +118,7 @@ class MenuViewController: UIViewController {
         gameStartButton4.layer.position = CGPoint(x: (self.view.bounds.width/4)*3 , y:self.view.bounds.height*0.60)
         gameStartButton4.tag = 4
         gameStartButton4.addTarget(self, action: "onClickStartGame:", forControlEvents: .TouchUpInside)
-        gameStartButton4.setImage(UIImage(named: "cake_1"), forState: .Normal)
+        gameStartButton4.setImage(UIImage(named: "fancycake"), forState: .Normal)
         self.view.addSubview(gameStartButton4)
 
         // tutorial view
