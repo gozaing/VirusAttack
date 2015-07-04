@@ -46,6 +46,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
     func gameStart() {
         
+        self.view?.paused = false
         gameOverFlg = false
         point = 0
         gamePlayingFlg = true
@@ -240,6 +241,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     func gameOver() {
         NSLog("gameOver")
+        
+        self.view?.paused = true
         
         // Game Over Label
         gameoverLabel.text = "GAME OVER"
