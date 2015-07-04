@@ -22,7 +22,7 @@ class MenuViewController: UIViewController {
         
         // menu view
         let menuImage = UIImage(named: "menu")
-        menuImageView = UIImageView(frame: CGRectMake(0,0,menuImage!.size.width,menuImage!.size.height))
+        menuImageView = UIImageView(frame: CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height))
         menuImageView.image = menuImage
         menuImageView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
         self.view.addSubview(menuImageView)

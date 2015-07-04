@@ -22,8 +22,9 @@ class HelpViewController: UIViewController {
 
 
         // help tutorial page
-        let helpImage = UIImage(named: "bath_750_1334")
-        helpImageView = UIImageView(frame: CGRectMake(0,0,helpImage!.size.width,helpImage!.size.height))
+        let helpImage = UIImage(named: "bath_2_edit")
+        helpImageView = UIImageView(frame: CGRectMake(0,0,self.view.bounds.width,self.view.bounds.height))
+        
         helpImageView.image = helpImage
         helpImageView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
         self.view.addSubview(helpImageView)

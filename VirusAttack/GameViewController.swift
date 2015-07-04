@@ -44,9 +44,10 @@ class GameViewController: UIViewController {
             scene.size = view.frame.size
             
             // background
-            let backGroundTexture = SKTexture(imageNamed: "bath_750_1334")
+            let backGroundTexture = SKTexture(imageNamed: "bath_2_edit")
             let background = SKSpriteNode(texture: backGroundTexture)
             background.name = "background"
+            background.size = CGSizeMake(self.view.bounds.width, self.view.bounds.height)
             background.position = CGPoint(x: scene.size.width/2 , y: scene.size.height/2)
             scene.addChild(background)
             

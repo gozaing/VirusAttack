@@ -17,8 +17,9 @@ class ScoreViewController: UIViewController {
         super.viewDidLoad()
         
         // help tutorial page
-        let scoreImage = UIImage(named: "bath_750_1334")
-        scoreImageView = UIImageView(frame: CGRectMake(0,0,scoreImage!.size.width,scoreImage!.size.height))
+        let scoreImage = UIImage(named: "bath_2_edit")
+        scoreImageView = UIImageView(frame: CGRectMake(0,0,self.view.bounds.width,self.view.bounds.height))
+        
         scoreImageView.image = scoreImage
         scoreImageView.layer.position = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
         self.view.addSubview(scoreImageView)
