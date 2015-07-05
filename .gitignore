@@ -19,7 +19,11 @@ DerivedData
 !default.perspectivev3
 
 #ビルドのカスタムscheme（ロケーション等）
-xcuserdata
+xcuserdata/
+
+# Xcodeのブレークポイント情報
+#*.xcbkptlist
+#Breakpoints_v2.xcbkptlist
 
 # 手動で廃止（deprecate）したクラスのファイルがここへ移動する（同じ名前のクラスを定義しようとしたときなど）
 # http://stackoverflow.com/questions/1153211/whats-that-classes-1-moved-aside-directory-in-my-classes-directory

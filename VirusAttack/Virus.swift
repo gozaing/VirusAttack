@@ -67,6 +67,9 @@ class Virus: SKSpriteNode {
                 self.parentTooth.checkToothStatus()
                 self.virusAttackTimer.invalidate()
                 
+                // むし歯数をカウントアップ
+                cariesCount++
+                
                 // virus 勝ったアニメーション表示
                 let scaleA = SKAction.scaleTo(1.0, duration: 0.5)
                 let scaleB = SKAction.scaleTo(1.5, duration: 1.5)

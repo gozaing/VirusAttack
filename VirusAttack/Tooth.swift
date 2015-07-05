@@ -31,7 +31,7 @@ class Tooth: SKSpriteNode {
         self.virusWinFlg = 1
     }
     
-    var virusWinTimeCount:Int = 10
+    var virusWinTimeCount:Int = 5
     func setTimeClear(){
         self.virusWinTimeCount = 10
     }
@@ -153,8 +153,8 @@ class Tooth: SKSpriteNode {
     }
     
     func timerCheck() {
-        NSLog("timerCheck")
-        println(virusAppearTimer.valid)
+//        NSLog("timerCheck")
+        //println(virusAppearTimer.valid)
         if gamePlayingFlg == true {
             
             // ゲームが再開 ゲーム中
@@ -168,14 +168,14 @@ class Tooth: SKSpriteNode {
             // ゲーム終了中
             if virusAppearTimer.valid == true {
                 virusAppearTimer.invalidate()
-                NSLog("timerCheck--invalidate")
+//                NSLog("timerCheck--invalidate")
             }
         }
         
     }
     
     func invalidateTimer() {
-        NSLog("tooth-invalidateTimer")
+        //NSLog("tooth-invalidateTimer")
         if self.virusAppearTimer.valid == true {
             self.virusAppearTimer.invalidate()
         }

@@ -11,8 +11,13 @@ import SpriteKit
 
 // ゲームオーバー
 var gameOverFlg:Bool = false
-//ポイント
+// ポイント
 var point:NSInteger = 0
+// gameOverLimit
+var gameOverLimitCount:Int = 0
+// むし歯の数
+var cariesCount:Int = 0
+
 //ラベル
 let gameoverLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
 let pointLabel = SKLabelNode(fontNamed:"Hiragino Kaku Gothic ProN")
@@ -78,7 +83,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         let brush = SKSpriteNode()
-//        brush.color = UIColor.greenColor()
+        brush.color = UIColor.greenColor()
         brush.position = CGPoint(x: 0, y:0)
         brush.zPosition = 2
 
@@ -121,7 +126,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         let toothPerHeight = Int(self.size.height / CGFloat(heightCount))
         
         // 歯オブジェクトの名前用
-        var toothCount = 1
+        var toothCount = 0
         
         
         // 幅から横並びの歯の数を算出
@@ -129,13 +134,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
             // 高さから歯の数を算出
             for (var j = 1; j < heightCount; j++) {
-
-                // 案)
-                // DictionaryでposX/posY/time/energyなどを保持
-                // generate func で生成
-                // game start / pause でDictionaryの値を使ってgenerate
-                // 毎秒または毎フレームでDictionaryの内容を更新
-
+                
+                toothCount++
+                println(toothCount)
 
                 let tooth = Tooth(objIndex:toothCount)
                 tooth.setScene(self)
@@ -144,13 +145,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
                 
                 tooth.position = CGPointMake( toothPosX , toothPosY)
                 self.addChild(tooth)
-                
-                toothCount++
-                println(toothCount)
 
             }
 
         }
+        
+        // 歯の数からむし歯のGAMEOVERの数を算出
+        gameOverLimitCount = toothCount / 2
+        NSLog("gameOverLimitCount-----%d",gameOverLimitCount)
+        
 
     }
     
@@ -303,6 +306,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 //            self.brush?.runAction(action)
             // 移動中のオブジェクトも対象となるため、movetoは使わない
             self.brush?.position = CGPoint(x: location.x, y: location.y)
+
+            // 移動後に一度(0,0)へ移動する そのままにすると、次のウイルスと衝突するため
+//            self.brush?.position = CGPoint(x: 0, y: 0)
         }
     }
     
@@ -318,15 +324,11 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     
     // 毎フレーム呼び出される
     override func update(currentTime: NSTimeInterval) {
-//        if (gamePlayingFlg == true) {
-//            if self.gameOverTimer?.valid == true {
-//                self.gameOverTimer?.invalidate()
-//            }
-//        } else {
-//            if self.gameOverTimer?.valid == false {
-//                self.gameOverTimer?.fire()
-//            }
-//        }
+        // GameOver判定
+        if ( gameOverLimitCount <= cariesCount ) {
+            // GameOver
+            gameOver()
+        }
     }
     
     // 衝突判定
@@ -352,6 +354,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             
             // 加算
             point += 1
+            
 
         }else if (contact.bodyB.node == self.brush){
 
@@ -374,6 +377,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             
             // 加算
             point += 1
+            
         }
     }
     
