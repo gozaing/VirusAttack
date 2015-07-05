@@ -47,39 +47,39 @@ class ScoreViewController: UIViewController {
         var secondPoint:Int = myUserDafault.integerForKey("SecondPoint")
         var thirdPoint:Int = myUserDafault.integerForKey("ThirdPoint")
 
-        //得点ラベル
-        let dispLabel: UILabel = UILabel(frame: CGRectMake(0,0,300,200))
-        dispLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: self.view.frame.height/2 - 100)
+        let pointBaseHeight = self.view.frame.height/10
+
+        //得点ラベル.
+        let dispLabel: UILabel = UILabel(frame: CGRectMake(0,0,self.view.bounds.width,self.view.frame.height/2 ))
+        dispLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: (pointBaseHeight*1.5))
         
-        dispLabel.text = "POINT"
-        dispLabel.font = UIFont(name: "HiraKakuProN-W3", size: 50)
+        dispLabel.text = "RANKING"
+        dispLabel.font = UIFont(name: "HiraKakuProN-W3", size: 40)
         dispLabel.textAlignment = NSTextAlignment.Center
         self.view.addSubview(dispLabel)
         
-        let pointBaseHeight = self.view.frame.height/10
-
         //取り出した最高点を表示するためのUILabel
         let firstPointLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,100))
-        firstPointLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: pointBaseHeight*5)
+        firstPointLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: pointBaseHeight*2.5)
         
         firstPointLabel.text = "\(firstPoint)"
-        firstPointLabel.font = UIFont(name: "HiraKakuProN-W3", size: 60)
+        firstPointLabel.font = UIFont(name: "HiraKakuProN-W3", size: 30)
         firstPointLabel.textAlignment = NSTextAlignment.Right
         self.view.addSubview(firstPointLabel)
         
         let secondPointLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,200))
-        secondPointLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: pointBaseHeight*6)
+        secondPointLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: pointBaseHeight*3)
         
         secondPointLabel.text = "\(secondPoint)"
-        secondPointLabel.font = UIFont(name: "HiraKakuProN-W3", size: 60)
+        secondPointLabel.font = UIFont(name: "HiraKakuProN-W3", size: 30)
         secondPointLabel.textAlignment = NSTextAlignment.Right
         self.view.addSubview(secondPointLabel)
 
         let thirdPointLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,300))
-        thirdPointLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: pointBaseHeight*7)
+        thirdPointLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: pointBaseHeight*3.5)
         
         thirdPointLabel.text = "\(thirdPoint)"
-        thirdPointLabel.font = UIFont(name: "HiraKakuProN-W3", size: 60)
+        thirdPointLabel.font = UIFont(name: "HiraKakuProN-W3", size: 30)
         thirdPointLabel.textAlignment = NSTextAlignment.Right
         self.view.addSubview(thirdPointLabel)
         

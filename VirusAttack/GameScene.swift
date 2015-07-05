@@ -55,20 +55,30 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         self.brush = nil
         self.gameOverTimer = nil
-        
-        let homeIconPosX = (screenWidth/5)*2
-        let homeIconPosY = (screenHeight/10)*6
-        let homeIconWidth = (screenWidth/5)*2.5
-        let homeIconHeight = (screenWidth/5)*1.5
-        
-        let reloadIconPosX = (screenWidth/5)*0.8
-        let reloadIconPosY = (screenHeight/10)*6
-        let reloadIconWidth = (screenWidth/5)*2.5
-        let reloadIconHeight = (screenWidth/5)*1.5
 
-        homeIcon = UIButton(frame: CGRectMake(homeIconPosX, homeIconPosY, homeIconWidth, homeIconHeight))
-        reloadIcon = UIButton(frame: CGRectMake(reloadIconPosX, reloadIconPosY, reloadIconWidth, reloadIconHeight))
-        
+//        // もう一回
+//        println(self.view?.bounds.width)
+//        println(self.view?.bounds.height)
+//        
+////        println(screenWidth)
+////        println(screenHeight)
+////        
+//        let reloadIconPosX = CGFloat(self.view!.bounds.width/2)
+//        let reloadIconPosY = (screenHeight/10)*6
+//        let reloadIconWidth = (screenWidth/5)*2.5
+//        let reloadIconHeight = (screenHeight/5)*1.5
+//        
+//        // メニューに戻る
+//        let homeIconPosX = (screenWidth/5)*3
+//        let homeIconPosY = (screenHeight/10)*6
+//        let homeIconWidth = (screenWidth/5)*2.5
+//        let homeIconHeight = (screenWidth/5)*1.5
+//        
+////        reloadIcon = UIButton(frame: CGRectMake(reloadIconPosX, reloadIconPosY, reloadIconWidth, reloadIconHeight))
+////        homeIcon = UIButton(frame: CGRectMake(homeIconPosX, homeIconPosY, homeIconWidth, homeIconHeight))
+//        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
+//        reloadIcon = UIButton(frame: CGRectMake(94, 300, 190, 300))
+//        homeIcon = UIButton(frame: CGRectMake(homeIconPosX, homeIconPosY, homeIconWidth, homeIconHeight))
         
         // gameOverTimer start
         self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(gameOverTime, target: self, selector: "gameOver", userInfo: nil, repeats: false)
@@ -237,19 +247,42 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         pointLabel.zPosition = 2
         
         pointLabel.removeFromParent()
-        var pointString:String = "\(point)点"
+        var pointString:String = "\(point)"
         pointLabel.text = pointString
         self.addChild(pointLabel)
         
         // NSUserDefaultに1-3位の得点を保持
         setMaxPoint(point)
 
+        // ベースサイズ
+        let baseSizeX = CGFloat(self.view!.bounds.width/5)
+        let baseSizeY = CGFloat(self.view!.bounds.height/10)
+        
+        // もう一回
+        let reloadIconPosX = baseSizeX*2
+        let reloadIconPosY = baseSizeY*6
+        let reloadIconWidth = baseSizeX
+        let reloadIconHeight = baseSizeY
+        
+        println(reloadIconPosX)
+        println(reloadIconPosY)
+        println(reloadIconWidth)
+        println(reloadIconHeight)
+        
+        // メニューに戻る
+        let homeIconPosX = baseSizeX*4
+        let homeIconPosY = baseSizeY*6
+        let homeIconWidth = baseSizeX
+        let homeIconHeight = baseSizeY
+        
         // もう一度
+        reloadIcon = UIButton(frame: CGRectMake(reloadIconPosX-reloadIconWidth, reloadIconPosY, reloadIconWidth, reloadIconHeight))
         reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
         reloadIcon.addTarget(self, action: "clickReload:", forControlEvents: .TouchUpInside)
         self.view!.addSubview(reloadIcon)
 
         // ホーム画面に戻る
+        homeIcon = UIButton(frame: CGRectMake(homeIconPosX-homeIconWidth, homeIconPosY, homeIconWidth, homeIconHeight))
         homeIcon.setImage(UIImage(named: "home"), forState: .Normal)
         homeIcon.addTarget(self, action: "backToMenu:", forControlEvents: .TouchUpInside)
         self.view!.addSubview(homeIcon)
