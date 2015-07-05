@@ -61,7 +61,7 @@ class Tooth: SKSpriteNode {
     
     func timerInitialized() {
         // random per seconds
-        let intInterval = arc4random_uniform(4) + 3
+        let intInterval = arc4random_uniform(4) + 2
         let virusAppearSec = NSTimeInterval(intInterval)
 
         self.virusAppearTimer = NSTimer.scheduledTimerWithTimeInterval(virusAppearSec, target: self, selector: "virusAppear", userInfo: nil, repeats: true)

@@ -69,7 +69,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         brush.zPosition = 2
 
         let brushIconWidth = screenWidth/20
-        let brushIconHeight = screenHeight/60
+        let brushIconHeight = screenHeight/50
 
         brush.size = CGSizeMake(brushIconWidth, brushIconHeight)
         
