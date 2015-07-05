@@ -33,7 +33,7 @@ class MenuViewController: UIViewController {
         let toothIconImageHeight = self.view.bounds.width/4
         
         // 歯ブラシアイコンPosition
-        let toothIconPosX = self.view.bounds.width/5
+        let toothIconPosX = self.view.bounds.width/6
         let toothIconPosY = (self.view.bounds.width/10)*2
 
         // 歯ブラシアイコン 1
@@ -47,21 +47,21 @@ class MenuViewController: UIViewController {
         let toothIconImage2 = UIImage(named: "tooth_man_2")
         let toothIconImageView2 = UIImageView(frame: CGRectMake(0,0,toothIconImageWidth,toothIconImageHeight))
         toothIconImageView2.image = toothIconImage2
-        toothIconImageView2.layer.position = CGPoint(x: toothIconPosX*2, y: toothIconPosY)
+        toothIconImageView2.layer.position = CGPoint(x: toothIconPosX*2.3, y: toothIconPosY)
         self.view.addSubview(toothIconImageView2)
 
         // 歯ブラシアイコン 3
         let toothIconImage3 = UIImage(named: "tooth_man_3")
         let toothIconImageView3 = UIImageView(frame: CGRectMake(0,0,toothIconImageWidth,toothIconImageHeight))
         toothIconImageView3.image = toothIconImage3
-        toothIconImageView3.layer.position = CGPoint(x: toothIconPosX*3, y: toothIconPosY)
+        toothIconImageView3.layer.position = CGPoint(x: toothIconPosX*3.6, y: toothIconPosY)
         self.view.addSubview(toothIconImageView3)
 
         // 歯ブラシアイコン 4
         let toothIconImage4 = UIImage(named: "tooth_man_4")
         let toothIconImageView4 = UIImageView(frame: CGRectMake(0,0,toothIconImageWidth,toothIconImageHeight))
         toothIconImageView4.image = toothIconImage4
-        toothIconImageView4.layer.position = CGPoint(x: toothIconPosX*4, y: toothIconPosY)
+        toothIconImageView4.layer.position = CGPoint(x: toothIconPosX*4.9, y: toothIconPosY)
         self.view.addSubview(toothIconImageView4)
 
 
