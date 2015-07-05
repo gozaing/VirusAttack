@@ -55,30 +55,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         self.brush = nil
         self.gameOverTimer = nil
-
-//        // もう一回
-//        println(self.view?.bounds.width)
-//        println(self.view?.bounds.height)
-//        
-////        println(screenWidth)
-////        println(screenHeight)
-////        
-//        let reloadIconPosX = CGFloat(self.view!.bounds.width/2)
-//        let reloadIconPosY = (screenHeight/10)*6
-//        let reloadIconWidth = (screenWidth/5)*2.5
-//        let reloadIconHeight = (screenHeight/5)*1.5
-//        
-//        // メニューに戻る
-//        let homeIconPosX = (screenWidth/5)*3
-//        let homeIconPosY = (screenHeight/10)*6
-//        let homeIconWidth = (screenWidth/5)*2.5
-//        let homeIconHeight = (screenWidth/5)*1.5
-//        
-////        reloadIcon = UIButton(frame: CGRectMake(reloadIconPosX, reloadIconPosY, reloadIconWidth, reloadIconHeight))
-////        homeIcon = UIButton(frame: CGRectMake(homeIconPosX, homeIconPosY, homeIconWidth, homeIconHeight))
-//        reloadIcon.setImage(UIImage(named: "reload"), forState: .Normal)
-//        reloadIcon = UIButton(frame: CGRectMake(94, 300, 190, 300))
-//        homeIcon = UIButton(frame: CGRectMake(homeIconPosX, homeIconPosY, homeIconWidth, homeIconHeight))
         
         // gameOverTimer start
         self.gameOverTimer = NSTimer.scheduledTimerWithTimeInterval(gameOverTime, target: self, selector: "gameOver", userInfo: nil, repeats: false)
@@ -232,7 +208,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         gameoverLabel.text = "GAME OVER"
         gameoverLabel.fontSize = screenWidth/8
         gameoverLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        gameoverLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        gameoverLabel.position = CGPoint(x: self.view!.bounds.width/2, y: (self.view!.bounds.height/10)*8)
         gameoverLabel.zPosition = 2
         gameoverLabel.removeFromParent()
         self.addChild(gameoverLabel)
@@ -240,13 +216,13 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         // gameover状態にする
         gameOverFlg = true
         
-        // ポイントラベル
+        // ポイントラベル Spritekitなので左下がx:0,y:0となる
+        pointLabel.removeFromParent()
         pointLabel.fontSize = screenWidth/8
         pointLabel.fontColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        pointLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame)+100)
+        pointLabel.position = CGPoint(x: self.view!.bounds.width/2, y: (self.view!.bounds.height/10)*7)
         pointLabel.zPosition = 2
         
-        pointLabel.removeFromParent()
         var pointString:String = "\(point)"
         pointLabel.text = pointString
         self.addChild(pointLabel)
@@ -263,11 +239,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         let reloadIconPosY = baseSizeY*6
         let reloadIconWidth = baseSizeX
         let reloadIconHeight = baseSizeY
-        
-        println(reloadIconPosX)
-        println(reloadIconPosY)
-        println(reloadIconWidth)
-        println(reloadIconHeight)
         
         // メニューに戻る
         let homeIconPosX = baseSizeX*4
