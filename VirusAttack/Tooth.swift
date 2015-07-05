@@ -56,9 +56,6 @@ class Tooth: SKSpriteNode {
         
         self.objIndexName = objIndex.description
         
-        // Game中か確認するタイマー
-        self.gamePlayCheckTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerCheck", userInfo: nil, repeats: true)
-        
     }
     
     func timerInitialized() {
@@ -152,30 +149,7 @@ class Tooth: SKSpriteNode {
         
     }
     
-    func timerCheck() {
-//        NSLog("timerCheck")
-        //println(virusAppearTimer.valid)
-        if gamePlayingFlg == true {
-            
-            // ゲームが再開 ゲーム中
-            if virusAppearTimer.valid == false {
-                timerInitialized()
-                NSLog("timerCheck--initilized")
-            }
-
-        } else {
-        
-            // ゲーム終了中
-            if virusAppearTimer.valid == true {
-                virusAppearTimer.invalidate()
-//                NSLog("timerCheck--invalidate")
-            }
-        }
-        
-    }
-    
     func invalidateTimer() {
-        //NSLog("tooth-invalidateTimer")
         if self.virusAppearTimer.valid == true {
             self.virusAppearTimer.invalidate()
         }

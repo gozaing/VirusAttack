@@ -29,10 +29,6 @@ var homeIcon = UIButton()
 let screenWidth = UIScreen.mainScreen().bounds.size.width
 let screenHeight = UIScreen.mainScreen().bounds.size.height
 
-
-// プレイ中フラグ
-var gamePlayingFlg:Bool = false
-
 class GameScene : SKScene, SKPhysicsContactDelegate {
     
     //AppDelegateのインスタンスを取得
@@ -54,7 +50,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.view?.paused = false
         gameOverFlg = false
         point = 0
-        gamePlayingFlg = true
+        gameOverLimitCount = 0
+        cariesCount = 0
+        
 
         self.brush = nil
         self.gameOverTimer = nil
