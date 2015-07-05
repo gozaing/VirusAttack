@@ -12,7 +12,7 @@ import SpriteKit
 // ゲームオーバー
 var gameOverFlg:Bool = false
 // ポイント
-var point:NSInteger = 0
+var point:Int = 0
 // gameOverLimit
 var gameOverLimitCount:Int = 0
 // むし歯の数
@@ -52,7 +52,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         point = 0
         gameOverLimitCount = 0
         cariesCount = 0
-        
 
         self.brush = nil
         self.gameOverTimer = nil
@@ -67,9 +66,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         let reloadIconWidth = (screenWidth/5)*2.5
         let reloadIconHeight = (screenWidth/5)*1.5
 
-        
         homeIcon = UIButton(frame: CGRectMake(homeIconPosX, homeIconPosY, homeIconWidth, homeIconHeight))
-        
         reloadIcon = UIButton(frame: CGRectMake(reloadIconPosX, reloadIconPosY, reloadIconWidth, reloadIconHeight))
         
         
@@ -81,7 +78,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         let brush = SKSpriteNode()
-        brush.color = UIColor.greenColor()
+//        brush.color = UIColor.greenColor() // touchのデバッグ時に利用する
         brush.position = CGPoint(x: 0, y:0)
         brush.zPosition = 2
 
@@ -99,7 +96,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         self.brush = brush
         self.addChild(brush)
         
-        // ------------------------------------------
         // MenuViewControllerで選択したレベルをAppDelegate経由で取得
         var widthCount:Int = 0
         var heightCount:Int = 0
@@ -118,7 +114,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             widthCount = 2
             heightCount = 3
         }
-        // ------------------------------------------
         
         let toothPerWidth = Int(self.size.width / CGFloat(widthCount))
         let toothPerHeight = Int(self.size.height / CGFloat(heightCount))
@@ -134,7 +129,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             for (var j = 1; j < heightCount; j++) {
                 
                 toothCount++
-                println(toothCount)
 
                 let tooth = Tooth(objIndex:toothCount)
                 tooth.setScene(self)
@@ -150,9 +144,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         
         // 歯の数からむし歯のGAMEOVERの数を算出
         gameOverLimitCount = toothCount / 2
-        NSLog("gameOverLimitCount-----%d",gameOverLimitCount)
-        
-
     }
     
     func reloadGame() {
@@ -164,19 +155,15 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         for Node : AnyObject in self.children{
             
             if (Node as! SKNode).name == nil  {
-                println("name is nil")
                 Node.removeFromParent()
             }
             else{
                 if Node.name == "background" {
-                    println("name is background")
                 }
                 else {
                     Node.removeFromParent()
                 }
             }
-            
-            
         }
         
         self.paused = false
@@ -187,13 +174,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     let tapToResume = SKLabelNode(fontNamed: "Noteworthy")
 
     override func didMoveToView(view: SKView) {
-        
-        NSLog("didMoveToView")
-        
         self.gameStart()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "PauseScene:", name:"applicationWillResignActive", object: nil)
-        
-        
     }
     
     func timerInvalidate() {
@@ -202,12 +184,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             
             if (Node as! SKNode).name != nil  {
                 if Node.name == "background" {
-                    println("name is background")
                 }
                 else {
-                    println("name is exist")
-                    println( (Node as! SKNode).name )
-                    
                     let actualChildName = (Node as! SKNode).name ?? "Undefined"
                     // virus-10という形で取れる -以降を取り出す
                     let virusNameIndex = (actualChildName as NSString).rangeOfString("-").location
@@ -230,19 +208,14 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
 
     func PauseScene(notification: NSNotification) {
-        NSLog("get PauseScene")
-
         // NSTimerをinvalidateする
         self.timerInvalidate()
-        
         // back to home menu
         self.GameViewController.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
     func gameOver() {
-        NSLog("gameOver")
-        
         self.view?.paused = true
         
         // Game Over Label
@@ -305,8 +278,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
             // 移動中のオブジェクトも対象となるため、movetoは使わない
             self.brush?.position = CGPoint(x: location.x, y: location.y)
 
-            // 移動後に一度(0,0)へ移動する そのままにすると、次のウイルスと衝突するため
-//            self.brush?.position = CGPoint(x: 0, y: 0)
         }
     }
     
@@ -320,7 +291,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 //        }
 //    }
     
-    // 毎フレーム呼び出される
+    // 毎フレーム呼び出される処理でGameOverを判定する
     override func update(currentTime: NSTimeInterval) {
         // GameOver判定
         if ( gameOverLimitCount <= cariesCount ) {
@@ -386,10 +357,6 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         var firstPoint:Int = myUserDafault.integerForKey("FirstPoint")
         var secondPoint:Int = myUserDafault.integerForKey("SecondPoint")
         var thirdPoint:Int = myUserDafault.integerForKey("ThirdPoint")
-        
-        NSLog("FirstPoint->%d",firstPoint)
-        NSLog("SecondPoint->%d",secondPoint)
-        NSLog("ThirdPoint->%d",thirdPoint)
         
         if (thirdPoint < scorePoint ) {
             // 2位?

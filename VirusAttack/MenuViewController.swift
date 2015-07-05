@@ -17,9 +17,6 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        println(self.view.bounds.width)
-        println(self.view.bounds.height)
-        
         // menu view
         let menuImage = UIImage(named: "menu")
         menuImageView = UIImageView(frame: CGRectMake(0,0,self.view.bounds.width, self.view.bounds.height))

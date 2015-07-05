@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class Tooth: SKSpriteNode {
+    
     var gameScene: SKScene!
     func setScene(scene: SKScene) {
         self.gameScene = scene
@@ -33,7 +34,7 @@ class Tooth: SKSpriteNode {
     
     var virusWinTimeCount:Int = 5
     func setTimeClear(){
-        self.virusWinTimeCount = 10
+        self.virusWinTimeCount = 5
     }
     func setTimeProgress() {
         self.virusWinTimeCount -= 1
@@ -61,7 +62,6 @@ class Tooth: SKSpriteNode {
     func timerInitialized() {
         // random per seconds
         let intInterval = arc4random_uniform(4) + 3
-        NSLog("interval--%d",intInterval)
         let virusAppearSec = NSTimeInterval(intInterval)
 
         self.virusAppearTimer = NSTimer.scheduledTimerWithTimeInterval(virusAppearSec, target: self, selector: "virusAppear", userInfo: nil, repeats: true)
@@ -77,8 +77,6 @@ class Tooth: SKSpriteNode {
     
     func virusAppear() {
         
-        NSLog("virusAppear")
-        
         // gameoverか判定
         if (gameOverFlg == false) {
             
@@ -92,7 +90,6 @@ class Tooth: SKSpriteNode {
             }
             
         } else {
-            NSLog("tooth doesn't generate virus")
             self.virusAppearTimer.invalidate()
 
         }
@@ -131,7 +128,6 @@ class Tooth: SKSpriteNode {
 
     // textureを戻す
     func changeNormalStatus() {
-        NSLog("changeNormalStatus")
         let normalTexture = SKTexture(imageNamed: "tooth_normal")
         self.texture = normalTexture
         

@@ -55,7 +55,6 @@ class Virus: SKSpriteNode {
 
     
     func virusAttack() {
-        NSLog("virusAttack")
         
         if (gameOverFlg == false) {
 
@@ -89,7 +88,6 @@ class Virus: SKSpriteNode {
             }
             
         } else {
-            // stop virus action for game over
             // gameoverまでVirusが倒されない場合に通過する
             self.virusAttackTimer.invalidate()
 
@@ -97,8 +95,6 @@ class Virus: SKSpriteNode {
     }
     
     func invalidateTimer() {
-        NSLog("virus-invalidateTimer")
-        self.virusAttackTimer.invalidate()
-        
+        self.virusAttackTimer.invalidate()        
     }
 }
