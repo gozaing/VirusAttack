@@ -20,7 +20,7 @@ class Virus: SKSpriteNode {
         self.parentTooth = tooth
         
         let texture = SKTexture(imageNamed: "virus_normal")
-        super.init(texture: texture, color: nil, size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
 
         self.virusAttackTimer = NSTimer.scheduledTimerWithTimeInterval(virusAttackTimeInterval, target: self, selector: "virusAttack", userInfo: nil, repeats: true)
         
@@ -59,7 +59,7 @@ class Virus: SKSpriteNode {
         if (gameOverFlg == false) {
 
             parentTooth.setTimeProgress()
-            var toothEnergy:Int = parentTooth.getTimeProgress()
+            let toothEnergy:Int = parentTooth.getTimeProgress()
             if (toothEnergy == 0) {
                 
                 // virusの勝ちで、歯にダメージ

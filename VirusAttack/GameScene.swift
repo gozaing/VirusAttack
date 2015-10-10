@@ -118,8 +118,8 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
                 let tooth = Tooth(objIndex:toothCount)
                 tooth.setScene(self)
-                var toothPosX :CGFloat = CGFloat(toothPerWidth * i)
-                var toothPosY :CGFloat = CGFloat(toothPerHeight * j)
+                let toothPosX :CGFloat = CGFloat(toothPerWidth * i)
+                let toothPosY :CGFloat = CGFloat(toothPerHeight * j)
                 
                 tooth.position = CGPointMake( toothPosX , toothPosY)
                 self.addChild(tooth)
@@ -177,7 +177,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
                     let virusNameIndex = (actualChildName as NSString).rangeOfString("-").location
                     let objIndex = (actualChildName as NSString).substringFromIndex(virusNameIndex + 1 )
                     
-                    var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
+                    let parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
                     parentTooth.invalidateTimer()
                     
                     var virus:Virus?
@@ -223,7 +223,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
         pointLabel.position = CGPoint(x: self.view!.bounds.width/2, y: (self.view!.bounds.height/10)*7)
         pointLabel.zPosition = 2
         
-        var pointString:String = "\(point)"
+        let pointString:String = "\(point)"
         pointLabel.text = pointString
         self.addChild(pointLabel)
         
@@ -273,7 +273,7 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     }
     
     // タッチ開始時
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         if let touch: AnyObject = touches.first {
             let location = touch.locationInNode(self)
@@ -308,14 +308,14 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
 
         if contact.bodyA.node == self.brush {
-            var targetNode:SKNode? = contact.bodyB.node
+            let targetNode:SKNode? = contact.bodyB.node
             
             let actualChildName = targetNode?.name ?? "Undefined"
             // virus-10という形で取れる -以降を取り出す
             let virusNameIndex = (actualChildName as NSString).rangeOfString("-").location
             let objIndex = (actualChildName as NSString).substringFromIndex(virusNameIndex + 1 )
             
-            var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
+            let parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
             var virus:Virus?
             virus = parentTooth.childNodeWithName("virus-" + objIndex) as? Virus
             virus?.virusAttackTimer.invalidate()
@@ -331,14 +331,14 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
 
         }else if (contact.bodyB.node == self.brush){
 
-            var targetNode:SKNode? = contact.bodyA.node
+            let targetNode:SKNode? = contact.bodyA.node
             
             let actualChildName = targetNode?.name ?? "Undefined"
             // virus-10という形で取れる -以降を取り出す
             let virusNameIndex = (actualChildName as NSString).rangeOfString("-").location
             let objIndex = (actualChildName as NSString).substringFromIndex(virusNameIndex + 1 )
             
-            var parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
+            let parentTooth = self.childNodeWithName("tooth-" + objIndex) as! Tooth
             var virus:Virus?
             virus = parentTooth.childNodeWithName("virus-" + objIndex) as? Virus
             virus?.virusAttackTimer.invalidate()
@@ -358,9 +358,9 @@ class GameScene : SKScene, SKPhysicsContactDelegate {
     func setMaxPoint(scorePoint:Int) {
         
         // NSUserDefaultに最高点を保持
-        var firstPoint:Int = myUserDafault.integerForKey("FirstPoint")
-        var secondPoint:Int = myUserDafault.integerForKey("SecondPoint")
-        var thirdPoint:Int = myUserDafault.integerForKey("ThirdPoint")
+        let firstPoint:Int = myUserDafault.integerForKey("FirstPoint")
+        let secondPoint:Int = myUserDafault.integerForKey("SecondPoint")
+        let thirdPoint:Int = myUserDafault.integerForKey("ThirdPoint")
         
         if (thirdPoint < scorePoint ) {
             // 2位?

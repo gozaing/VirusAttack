@@ -182,6 +182,8 @@
 		4FD8D36D1B197812004E48B0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = tobaru;
 				TargetAttributes = {

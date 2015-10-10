@@ -49,7 +49,7 @@ class Tooth: SKSpriteNode {
     init(objIndex:Int) {
         
         let texture = SKTexture(imageNamed: "tooth_normal")
-        super.init(texture: texture, color: nil, size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
         
         timerInitialized()
         

@@ -41,11 +41,11 @@ class ScoreViewController: UIViewController {
         self.view.addSubview(homeButton)
         
         //UserDefaultの生成
-        var myUserDafault:NSUserDefaults = NSUserDefaults()
+        let myUserDafault:NSUserDefaults = NSUserDefaults()
         //登録されているUserDefaultから得点を呼び出す
-        var firstPoint:Int = myUserDafault.integerForKey("FirstPoint")
-        var secondPoint:Int = myUserDafault.integerForKey("SecondPoint")
-        var thirdPoint:Int = myUserDafault.integerForKey("ThirdPoint")
+        let firstPoint:Int = myUserDafault.integerForKey("FirstPoint")
+        let secondPoint:Int = myUserDafault.integerForKey("SecondPoint")
+        let thirdPoint:Int = myUserDafault.integerForKey("ThirdPoint")
 
         let pointBaseHeight = self.view.frame.height/10
 
