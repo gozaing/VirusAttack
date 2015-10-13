@@ -3,4 +3,4 @@ machine:
         version: "7.0"
 test:
   override:
-    - xcodebuild test -scheme VirusAttack -workspace VirusAttack.xcworkspace -destination 'name=iPhone 6'
+    - xcodebuild test -scheme VirusAttack -destination 'name=iPhone 6'
