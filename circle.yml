@@ -16,7 +16,6 @@ test:
         CODE_SIGNING_REQUIRED=NO
         CODE_SIGN_IDENTITY=
         PROVISIONING_PROFILE=
-        #        -project VirusAttack.xcodeproj -scheme VirusAttack -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=8.3,name=iPhone 6'
         -scheme VirusAttack -destination 'name=iPhone 6'
 clean test
 
