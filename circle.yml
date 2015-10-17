@@ -1,7 +1,6 @@
 # CocoaPodsを使用しない(.xcodeprojを使用する)場合の例
 machine:
   environment:
-    version: "7.0"
     XCODE_SCHEME: VirusAttack
     XCODE_PROJECT: VirusAttack.xcodeproj
     XCODE_TARGET: VirusAttack
@@ -17,10 +16,9 @@ test:
 
 deployment:
   deploygate:
-    branch: master
-    owner: xxx
-    commands:
-      - ./scripts/add-key.sh
-      - ./scripts/deploy.sh
-      - ./scripts/remove-key.sh
-
+    master:
+      branch: master
+      commands:
+        - ./scripts/add-key.sh
+        - ./scripts/deploy.sh
+        - ./scripts/remove-key.sh
