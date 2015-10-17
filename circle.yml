@@ -18,4 +18,6 @@ deployment:
   master:
     branch: master
     commands:
+      - ./scripts/add-key.sh
       - ./scripts/deploy.sh
+      - ./scripts/remove-key.sh
