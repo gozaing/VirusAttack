@@ -12,7 +12,8 @@ machine:
     # DEPLOYGATE_API_TOKEN: set from web form
     # P12_FILE_PASSWORD: set from web form
 test:
-  exit 0
+  override:
+    - exit 0
 
 deployment:
   deploygate:
