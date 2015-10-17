@@ -15,10 +15,9 @@ test:
     - exit 0
 
 deployment:
-  deploygate:
-    master:
-      branch: master
-      commands:
-        - ./scripts/add-key.sh
-        - ./scripts/deploy.sh
-        - ./scripts/remove-key.sh
+  master:
+    branch: master
+    commands:
+      - ./scripts/add-key.sh
+      - ./scripts/deploy.sh
+      - ./scripts/remove-key.sh
