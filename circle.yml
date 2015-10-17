@@ -1,6 +1,7 @@
 # CocoaPodsを使用しない(.xcodeprojを使用する)場合の例
 machine:
   environment:
+    version: "7.0"
     XCODE_SCHEME: VirusAttack
     XCODE_PROJECT: VirusAttack.xcodeproj
     XCODE_TARGET: VirusAttack
@@ -11,10 +12,7 @@ machine:
     # DEPLOYGATE_API_TOKEN: set from web form
     # P12_FILE_PASSWORD: set from web form
 test:
-  override:
-    - xcodebuild
-        -scheme VirusAttack -destination 'name=iPhone 6'
-        clean test
+  exit 0
 
 deployment:
   deploygate:
