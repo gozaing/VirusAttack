@@ -7,7 +7,7 @@ machine:
     APPNAME: VirusAttack
     DEPLOYGATE_USER_NAME: gozaing
     DEVELOPER_NAME: "iPhone Distribution: Hideyasu Tobaru (58HMA45VD6)"
-    PROFILE_NAME: "VirusAttackAdhoc.mobileprovision"
+    PROFILE_NAME: "a63289a7-3b49-4d40-925e-8d8bd20d9bab.mobileprovision"
     # DEPLOYGATE_API_TOKEN: set from web form
     # P12_FILE_PASSWORD: set from web form
 test:
