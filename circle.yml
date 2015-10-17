@@ -17,7 +17,7 @@ test:
         CODE_SIGN_IDENTITY=
         PROVISIONING_PROFILE=
         -scheme VirusAttack -destination 'name=iPhone 6'
-clean test
+        clean test
 
 deployment:
   deploygate:
